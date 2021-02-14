@@ -105,12 +105,12 @@ describe("examples", () => {
     }
 
     test("parseURL", () => {
-        const name = "Example-ParseURL";
+        const name = "Example-parseURL";
         expect(toCode(name)).toMatchSnapshot();
     })
 
     test("parseURL: 2", () => {
-        const name = "Example-ParseURL-2";
+        const name = "Example-parseURL-2";
         expect(toCode(name)).toMatchSnapshot();
     })
 
