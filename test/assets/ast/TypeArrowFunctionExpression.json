@@ -1,0 +1,35 @@
+{
+    "kind": "TypeArrowFunctionExpression",
+    "params": [],
+    "body": {
+        "kind": "ConditionalTypeExpression",
+        "body": {
+            "kind": "TypeIfStatement",
+            "condition": {
+                "kind": "ExtendsClause",
+                "checkType": {
+                    "kind": "StringType",
+                    "value": "string"
+                },
+                "extendsType": {
+                    "kind": "StringType",
+                    "value": "string"
+                }
+            },
+            "consequent": {
+                "kind": "TypeReturnStatement",
+                "argument": {
+                    "kind": "StringTypeLiteral",
+                    "value": "string"
+                }
+            },
+            "alternate": {
+                "kind": "TypeReturnStatement",
+                "argument": {
+                    "kind": "StringTypeLiteral",
+                    "value": "number"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+type function parseHost = (text) => ^{
+    if(text extends `${infer name}:${infer port}`) {
+        return ^{
+            if(parsePort<port> extends never) {
+                return never
+            } else {
+                return { name, port }
+            }
+        }
+    } else {
+        return { name: text }
+    }
+}

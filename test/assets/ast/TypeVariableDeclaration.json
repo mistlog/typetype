@@ -1,0 +1,14 @@
+{
+    "kind": "TypeVariableDeclaration",
+    "declarator": {
+        "kind": "TypeVariableDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "result"
+        },
+        "initializer": {
+            "kind": "StringType",
+            "value": "string"
+        }
+    }
+}

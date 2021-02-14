@@ -1,0 +1,4 @@
+type parseURL<text> = parseProtocol<text> extends [infer protocol, infer rest] ? {
+  protocol: protocol;
+  rest: rest;
+} : never;

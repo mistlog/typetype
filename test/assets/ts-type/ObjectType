@@ -1,0 +1,6 @@
+{
+  a: number;
+  b: string;
+  c: 1;
+  d: "abc";
+}

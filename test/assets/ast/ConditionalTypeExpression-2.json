@@ -1,0 +1,58 @@
+{
+    "kind": "ConditionalTypeExpression",
+    "body": {
+        "kind": "TypeIfStatement",
+        "condition": {
+            "kind": "ExtendsClause",
+            "checkType": {
+                "kind": "TypeReference",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "T"
+                }
+            },
+            "extendsType": {
+                "kind": "StringType",
+                "value": "string"
+            }
+        },
+        "consequent": {
+            "kind": "TypeReturnStatement",
+            "argument": {
+                "kind": "StringTypeLiteral",
+                "value": "string"
+            }
+        },
+        "alternate": {
+            "kind": "TypeIfStatement",
+            "condition": {
+                "kind": "ExtendsClause",
+                "checkType": {
+                    "kind": "TypeReference",
+                    "typeName": {
+                        "kind": "Identifier",
+                        "name": "T"
+                    }
+                },
+                "extendsType": {
+                    "kind": "NumberType",
+                    "value": "number"
+                }
+            },
+            "consequent": {
+                "kind": "TypeReturnStatement",
+                "argument": {
+                    "kind": "StringTypeLiteral",
+                    "value": "number"
+                }
+            },
+            "alternate": {
+                "kind": "TypeReturnStatement",
+                "argument": {
+                    "kind": "NeverType",
+                    "value": "never"
+                }
+            }
+        }
+    }
+}

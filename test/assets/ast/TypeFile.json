@@ -1,0 +1,60 @@
+{
+    "kind": "TypeFile",
+    "body": [
+        {
+            "kind": "TypeVariableDeclaration",
+            "declarator": {
+                "kind": "TypeVariableDeclarator",
+                "name": {
+                    "kind": "Identifier",
+                    "name": "temp"
+                },
+                "initializer": {
+                    "kind": "StringType",
+                    "value": "string"
+                }
+            }
+        },
+        {
+            "kind": "TypeFunctionDeclaration",
+            "declarator": {
+                "kind": "TypeFunctionDeclarator",
+                "name": {
+                    "kind": "Identifier",
+                    "name": "func"
+                },
+                "initializer": {
+                    "kind": "TypeArrowFunctionExpression",
+                    "params": [
+                        {
+                            "kind": "TypeReference",
+                            "typeName": {
+                                "kind": "Identifier",
+                                "name": "T"
+                            }
+                        }
+                    ],
+                    "body": {
+                        "kind": "ObjectType",
+                        "props": [
+                            {
+                                "kind": "TypeObjectProperty",
+                                "name": {
+                                    "kind": "Identifier",
+                                    "name": "a"
+                                },
+                                "value": {
+                                    "kind": "TypeReference",
+                                    "typeName": {
+                                        "kind": "Identifier",
+                                        "name": "T"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}

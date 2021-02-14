@@ -1,0 +1,16 @@
+[
+    {
+        "kind": "TypeReference",
+        "typeName": {
+            "kind": "Identifier",
+            "name": "protocol"
+        }
+    },
+    {
+        "kind": "TypeReference",
+        "typeName": {
+            "kind": "Identifier",
+            "name": "rest"
+        }
+    }
+]

@@ -1,0 +1,6 @@
+type parseHost<text> = text extends `${infer name}:${infer port}` ? parsePort<port> extends never ? never : {
+  name: name;
+  port: port;
+} : {
+  name: text;
+};

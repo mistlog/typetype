@@ -1,0 +1,19 @@
+{
+    "kind": "TemplateTypeLiteral",
+    "items": [
+        {
+            "kind": "TemplateElement",
+            "value": "hello "
+        },
+        {
+            "kind": "TemplateExpression",
+            "expression": {
+                "kind": "TypeReference",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "World"
+                }
+            }
+        }
+    ]
+}

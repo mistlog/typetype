@@ -1,0 +1,1 @@
+type isNumberString<text> = text extends "" ? never : _isNumberString<text>;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transform 1`] = `
+Object {
+  "code": "type temp = string;
+type func<T> = {
+  a: T;
+};",
+}
+`;

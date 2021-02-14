@@ -1,0 +1,71 @@
+{
+    "kind": "TypeFunctionDeclaration",
+    "declarator": {
+        "kind": "TypeFunctionDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "parsePort"
+        },
+        "initializer": {
+            "kind": "TypeArrowFunctionExpression",
+            "params": [
+                {
+                    "kind": "TypeReference",
+                    "typeName": {
+                        "kind": "Identifier",
+                        "name": "text"
+                    }
+                }
+            ],
+            "body": {
+                "kind": "ConditionalTypeExpression",
+                "body": {
+                    "kind": "TypeIfStatement",
+                    "condition": {
+                        "kind": "ExtendsClause",
+                        "checkType": {
+                            "kind": "TypeCallExpression",
+                            "callee": {
+                                "kind": "TypeReference",
+                                "typeName": {
+                                    "kind": "Identifier",
+                                    "name": "isNumberString"
+                                }
+                            },
+                            "params": [
+                                {
+                                    "kind": "TypeReference",
+                                    "typeName": {
+                                        "kind": "Identifier",
+                                        "name": "text"
+                                    }
+                                }
+                            ]
+                        },
+                        "extendsType": {
+                            "kind": "BooleanTypeLiteral",
+                            "value": true
+                        }
+                    },
+                    "consequent": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "TypeReference",
+                            "typeName": {
+                                "kind": "Identifier",
+                                "name": "text"
+                            }
+                        }
+                    },
+                    "alternate": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "NeverType",
+                            "value": "never"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

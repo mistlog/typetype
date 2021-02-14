@@ -1,0 +1,56 @@
+{
+    "kind": "TypeFunctionDeclaration",
+    "declarator": {
+        "kind": "TypeFunctionDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "TypeName"
+        },
+        "initializer": {
+            "kind": "TypeArrowFunctionExpression",
+            "params": [
+                {
+                    "kind": "TypeReference",
+                    "typeName": {
+                        "kind": "Identifier",
+                        "name": "T"
+                    }
+                }
+            ],
+            "body": {
+                "kind": "ConditionalTypeExpression",
+                "body": {
+                    "kind": "TypeIfStatement",
+                    "condition": {
+                        "kind": "ExtendsClause",
+                        "checkType": {
+                            "kind": "TypeReference",
+                            "typeName": {
+                                "kind": "Identifier",
+                                "name": "T"
+                            }
+                        },
+                        "extendsType": {
+                            "kind": "StringType",
+                            "value": "string"
+                        }
+                    },
+                    "consequent": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "StringTypeLiteral",
+                            "value": "string"
+                        }
+                    },
+                    "alternate": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "StringTypeLiteral",
+                            "value": "number"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

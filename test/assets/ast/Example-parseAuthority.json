@@ -1,0 +1,151 @@
+{
+    "kind": "TypeFunctionDeclaration",
+    "declarator": {
+        "kind": "TypeFunctionDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "parseAuthority"
+        },
+        "initializer": {
+            "kind": "TypeArrowFunctionExpression",
+            "params": [
+                {
+                    "kind": "TypeReference",
+                    "typeName": {
+                        "kind": "Identifier",
+                        "name": "text"
+                    }
+                }
+            ],
+            "body": {
+                "kind": "ConditionalTypeExpression",
+                "body": {
+                    "kind": "TypeIfStatement",
+                    "condition": {
+                        "kind": "ExtendsClause",
+                        "checkType": {
+                            "kind": "TypeReference",
+                            "typeName": {
+                                "kind": "Identifier",
+                                "name": "text"
+                            }
+                        },
+                        "extendsType": {
+                            "kind": "TemplateTypeLiteral",
+                            "items": [
+                                {
+                                    "kind": "TemplateExpression",
+                                    "expression": {
+                                        "kind": "InferType",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "authority"
+                                        }
+                                    }
+                                },
+                                {
+                                    "kind": "TemplateElement",
+                                    "value": "@"
+                                },
+                                {
+                                    "kind": "TemplateExpression",
+                                    "expression": {
+                                        "kind": "InferType",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "rest"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "consequent": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "ObjectType",
+                            "props": [
+                                {
+                                    "kind": "TypeObjectProperty",
+                                    "name": {
+                                        "kind": "Identifier",
+                                        "name": "authority"
+                                    },
+                                    "value": {
+                                        "kind": "TypeCallExpression",
+                                        "callee": {
+                                            "kind": "TypeReference",
+                                            "typeName": {
+                                                "kind": "Identifier",
+                                                "name": "parseUserInfo"
+                                            }
+                                        },
+                                        "params": [
+                                            {
+                                                "kind": "TypeReference",
+                                                "typeName": {
+                                                    "kind": "Identifier",
+                                                    "name": "authority"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "kind": "TypeObjectProperty",
+                                    "name": {
+                                        "kind": "Identifier",
+                                        "name": "rest"
+                                    },
+                                    "value": {
+                                        "kind": "TypeReference",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "rest"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "alternate": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "ObjectType",
+                            "props": [
+                                {
+                                    "kind": "TypeObjectProperty",
+                                    "name": {
+                                        "kind": "Identifier",
+                                        "name": "authority"
+                                    },
+                                    "value": {
+                                        "kind": "TypeReference",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "null"
+                                        }
+                                    }
+                                },
+                                {
+                                    "kind": "TypeObjectProperty",
+                                    "name": {
+                                        "kind": "Identifier",
+                                        "name": "rest"
+                                    },
+                                    "value": {
+                                        "kind": "TypeReference",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "text"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

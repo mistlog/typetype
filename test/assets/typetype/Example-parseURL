@@ -1,0 +1,10 @@
+type function parseURL = (text) => ^{
+    if (parseProtocol<text> extends [infer protocol, infer rest]) {
+        return {
+            ...protocol,
+            ...parseAuthority<rest>
+        }
+    } else {
+        return never
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "kind": "ObjectType",
+    "props": [
+        {
+            "kind": "TypeObjectProperty",
+            "name": {
+                "kind": "Identifier",
+                "name": "hello"
+            },
+            "value": {
+                "kind": "TypeReference",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "hello"
+                }
+            }
+        },
+        {
+            "kind": "TypeSpreadProperty",
+            "param": {
+                "kind": "TypeReference",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "obj"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "kind": "InferType",
+    "typeName": {
+        "kind": "Identifier",
+        "name": "protocol"
+    }
+}

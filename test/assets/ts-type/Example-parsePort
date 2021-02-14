@@ -1,0 +1,1 @@
+type parsePort<text> = isNumberString<text> extends true ? text : never;

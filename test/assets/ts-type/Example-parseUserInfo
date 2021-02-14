@@ -1,0 +1,6 @@
+type parseUserInfo<text> = text extends `${infer username}:${infer password}` ? {
+  username: username;
+  password: password;
+} : {
+  username: text;
+};

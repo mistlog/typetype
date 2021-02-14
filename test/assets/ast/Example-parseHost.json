@@ -1,0 +1,167 @@
+{
+    "kind": "TypeFunctionDeclaration",
+    "declarator": {
+        "kind": "TypeFunctionDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "parseHost"
+        },
+        "initializer": {
+            "kind": "TypeArrowFunctionExpression",
+            "params": [
+                {
+                    "kind": "TypeReference",
+                    "typeName": {
+                        "kind": "Identifier",
+                        "name": "text"
+                    }
+                }
+            ],
+            "body": {
+                "kind": "ConditionalTypeExpression",
+                "body": {
+                    "kind": "TypeIfStatement",
+                    "condition": {
+                        "kind": "ExtendsClause",
+                        "checkType": {
+                            "kind": "TypeReference",
+                            "typeName": {
+                                "kind": "Identifier",
+                                "name": "text"
+                            }
+                        },
+                        "extendsType": {
+                            "kind": "TemplateTypeLiteral",
+                            "items": [
+                                {
+                                    "kind": "TemplateExpression",
+                                    "expression": {
+                                        "kind": "InferType",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "name"
+                                        }
+                                    }
+                                },
+                                {
+                                    "kind": "TemplateElement",
+                                    "value": ":"
+                                },
+                                {
+                                    "kind": "TemplateExpression",
+                                    "expression": {
+                                        "kind": "InferType",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "port"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "consequent": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "ConditionalTypeExpression",
+                            "body": {
+                                "kind": "TypeIfStatement",
+                                "condition": {
+                                    "kind": "ExtendsClause",
+                                    "checkType": {
+                                        "kind": "TypeCallExpression",
+                                        "callee": {
+                                            "kind": "TypeReference",
+                                            "typeName": {
+                                                "kind": "Identifier",
+                                                "name": "parsePort"
+                                            }
+                                        },
+                                        "params": [
+                                            {
+                                                "kind": "TypeReference",
+                                                "typeName": {
+                                                    "kind": "Identifier",
+                                                    "name": "port"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "extendsType": {
+                                        "kind": "NeverType",
+                                        "value": "never"
+                                    }
+                                },
+                                "consequent": {
+                                    "kind": "TypeReturnStatement",
+                                    "argument": {
+                                        "kind": "NeverType",
+                                        "value": "never"
+                                    }
+                                },
+                                "alternate": {
+                                    "kind": "TypeReturnStatement",
+                                    "argument": {
+                                        "kind": "ObjectType",
+                                        "props": [
+                                            {
+                                                "kind": "TypeObjectProperty",
+                                                "name": {
+                                                    "kind": "Identifier",
+                                                    "name": "name"
+                                                },
+                                                "value": {
+                                                    "kind": "TypeReference",
+                                                    "typeName": {
+                                                        "kind": "Identifier",
+                                                        "name": "name"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "kind": "TypeObjectProperty",
+                                                "name": {
+                                                    "kind": "Identifier",
+                                                    "name": "port"
+                                                },
+                                                "value": {
+                                                    "kind": "TypeReference",
+                                                    "typeName": {
+                                                        "kind": "Identifier",
+                                                        "name": "port"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "alternate": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "ObjectType",
+                            "props": [
+                                {
+                                    "kind": "TypeObjectProperty",
+                                    "name": {
+                                        "kind": "Identifier",
+                                        "name": "name"
+                                    },
+                                    "value": {
+                                        "kind": "TypeReference",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "text"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

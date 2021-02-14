@@ -1,0 +1,2256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BasicType 1`] = `
+Object {
+  "kind": "NeverType",
+  "value": "never",
+}
+`;
+
+exports[`BasicType 2`] = `
+Object {
+  "kind": "StringType",
+  "value": "string",
+}
+`;
+
+exports[`BasicType 3`] = `
+Object {
+  "kind": "NumberType",
+  "value": "number",
+}
+`;
+
+exports[`ConditionalTypeExpression 1`] = `
+Object {
+  "body": Object {
+    "alternate": Object {
+      "argument": Object {
+        "kind": "StringTypeLiteral",
+        "value": "number",
+      },
+      "kind": "TypeReturnStatement",
+    },
+    "condition": Object {
+      "checkType": Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+      "extendsType": Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+      "kind": "ExtendsClause",
+    },
+    "consequent": Object {
+      "argument": Object {
+        "kind": "StringTypeLiteral",
+        "value": "string",
+      },
+      "kind": "TypeReturnStatement",
+    },
+    "kind": "TypeIfStatement",
+  },
+  "kind": "ConditionalTypeExpression",
+}
+`;
+
+exports[`ConditionalTypeExpression: 2 1`] = `
+Object {
+  "body": Object {
+    "alternate": Object {
+      "alternate": Object {
+        "argument": Object {
+          "kind": "NeverType",
+          "value": "never",
+        },
+        "kind": "TypeReturnStatement",
+      },
+      "condition": Object {
+        "checkType": Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "T",
+          },
+        },
+        "extendsType": Object {
+          "kind": "NumberType",
+          "value": "number",
+        },
+        "kind": "ExtendsClause",
+      },
+      "consequent": Object {
+        "argument": Object {
+          "kind": "StringTypeLiteral",
+          "value": "number",
+        },
+        "kind": "TypeReturnStatement",
+      },
+      "kind": "TypeIfStatement",
+    },
+    "condition": Object {
+      "checkType": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "T",
+        },
+      },
+      "extendsType": Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+      "kind": "ExtendsClause",
+    },
+    "consequent": Object {
+      "argument": Object {
+        "kind": "StringTypeLiteral",
+        "value": "string",
+      },
+      "kind": "TypeReturnStatement",
+    },
+    "kind": "TypeIfStatement",
+  },
+  "kind": "ConditionalTypeExpression",
+}
+`;
+
+exports[`ExtendsClause 1`] = `
+Object {
+  "checkType": Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "T",
+    },
+  },
+  "extendsType": Object {
+    "kind": "StringType",
+    "value": "string",
+  },
+  "kind": "ExtendsClause",
+}
+`;
+
+exports[`ExtendsClause: type function call 1`] = `
+Object {
+  "checkType": Object {
+    "callee": Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "TypeName",
+      },
+    },
+    "kind": "TypeCallExpression",
+    "params": Array [
+      Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "T",
+        },
+      },
+    ],
+  },
+  "extendsType": Object {
+    "kind": "StringType",
+    "value": "string",
+  },
+  "kind": "ExtendsClause",
+}
+`;
+
+exports[`Identifier 1`] = `
+Object {
+  "kind": "Identifier",
+  "name": "result",
+}
+`;
+
+exports[`InferType 1`] = `
+Object {
+  "kind": "InferType",
+  "typeName": Object {
+    "kind": "Identifier",
+    "name": "protocol",
+  },
+}
+`;
+
+exports[`InferType 2`] = `"Expected InferType but \\"i\\" found."`;
+
+exports[`ObjectType 1`] = `
+Object {
+  "kind": "ObjectType",
+  "props": Array [
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "a",
+      },
+      "value": Object {
+        "kind": "NumberType",
+        "value": "number",
+      },
+    },
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "b",
+      },
+      "value": Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+    },
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "c",
+      },
+      "value": Object {
+        "kind": "NumberTypeLiteral",
+        "value": 1,
+      },
+    },
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "d",
+      },
+      "value": Object {
+        "kind": "StringTypeLiteral",
+        "value": "abc",
+      },
+    },
+  ],
+}
+`;
+
+exports[`ObjectType 2`] = `
+Object {
+  "kind": "ObjectType",
+  "props": Array [],
+}
+`;
+
+exports[`ObjectType: shorthand 1`] = `
+Object {
+  "kind": "ObjectType",
+  "props": Array [
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "hello",
+      },
+      "value": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "hello",
+        },
+      },
+    },
+  ],
+}
+`;
+
+exports[`ObjectType: spread 1`] = `
+Object {
+  "kind": "ObjectType",
+  "props": Array [
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "hello",
+      },
+      "value": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "hello",
+        },
+      },
+    },
+    Object {
+      "kind": "TypeSpreadProperty",
+      "param": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "obj",
+        },
+      },
+    },
+  ],
+}
+`;
+
+exports[`ParamList 1`] = `
+Array [
+  Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "protocol",
+    },
+  },
+  Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "rest",
+    },
+  },
+]
+`;
+
+exports[`ParamList 2`] = `
+Array [
+  Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "protocol",
+    },
+  },
+]
+`;
+
+exports[`ParamList: empty 1`] = `Array []`;
+
+exports[`TemplateElement 1`] = `
+Object {
+  "kind": "TemplateElement",
+  "value": "hello  ",
+}
+`;
+
+exports[`TemplateExpression 1`] = `
+Object {
+  "expression": Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "World",
+    },
+  },
+  "kind": "TemplateExpression",
+}
+`;
+
+exports[`TemplateTypeLiteral 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "kind": "TemplateElement",
+      "value": "hello ",
+    },
+    Object {
+      "expression": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "World",
+        },
+      },
+      "kind": "TemplateExpression",
+    },
+  ],
+  "kind": "TemplateTypeLiteral",
+}
+`;
+
+exports[`TemplateTypeLiteral 2`] = `
+Object {
+  "items": Array [
+    Object {
+      "kind": "TemplateElement",
+      "value": "    hello ",
+    },
+    Object {
+      "expression": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "World",
+        },
+      },
+      "kind": "TemplateExpression",
+    },
+    Object {
+      "kind": "TemplateElement",
+      "value": " and ",
+    },
+    Object {
+      "expression": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "Temp",
+        },
+      },
+      "kind": "TemplateExpression",
+    },
+    Object {
+      "expression": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "Test",
+        },
+      },
+      "kind": "TemplateExpression",
+    },
+    Object {
+      "kind": "TemplateElement",
+      "value": "    ",
+    },
+  ],
+  "kind": "TemplateTypeLiteral",
+}
+`;
+
+exports[`TemplateTypeLiteral 3`] = `
+Object {
+  "items": Array [],
+  "kind": "TemplateTypeLiteral",
+}
+`;
+
+exports[`TemplateTypeLiteral 4`] = `
+Object {
+  "items": Array [
+    Object {
+      "expression": Object {
+        "kind": "InferType",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "authority",
+        },
+      },
+      "kind": "TemplateExpression",
+    },
+    Object {
+      "kind": "TemplateElement",
+      "value": "@",
+    },
+    Object {
+      "expression": Object {
+        "kind": "InferType",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "rest",
+        },
+      },
+      "kind": "TemplateExpression",
+    },
+  ],
+  "kind": "TemplateTypeLiteral",
+}
+`;
+
+exports[`TupleType 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "protocol",
+      },
+    },
+    Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "rest",
+      },
+    },
+  ],
+  "kind": "TupleType",
+}
+`;
+
+exports[`TupleType: with infer 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "kind": "InferType",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "protocol",
+      },
+    },
+    Object {
+      "kind": "InferType",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "rest",
+      },
+    },
+  ],
+  "kind": "TupleType",
+}
+`;
+
+exports[`TypeArrowFunctionExpression 1`] = `
+Object {
+  "body": Object {
+    "body": Object {
+      "alternate": Object {
+        "argument": Object {
+          "kind": "StringTypeLiteral",
+          "value": "number",
+        },
+        "kind": "TypeReturnStatement",
+      },
+      "condition": Object {
+        "checkType": Object {
+          "kind": "StringType",
+          "value": "string",
+        },
+        "extendsType": Object {
+          "kind": "StringType",
+          "value": "string",
+        },
+        "kind": "ExtendsClause",
+      },
+      "consequent": Object {
+        "argument": Object {
+          "kind": "StringTypeLiteral",
+          "value": "string",
+        },
+        "kind": "TypeReturnStatement",
+      },
+      "kind": "TypeIfStatement",
+    },
+    "kind": "ConditionalTypeExpression",
+  },
+  "kind": "TypeArrowFunctionExpression",
+  "params": Array [],
+}
+`;
+
+exports[`TypeArrowFunctionExpression: with infer 1`] = `
+Object {
+  "body": Object {
+    "body": Object {
+      "alternate": Object {
+        "argument": Object {
+          "kind": "StringTypeLiteral",
+          "value": "number",
+        },
+        "kind": "TypeReturnStatement",
+      },
+      "condition": Object {
+        "checkType": Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "T",
+          },
+        },
+        "extendsType": Object {
+          "kind": "InferType",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "U",
+          },
+        },
+        "kind": "ExtendsClause",
+      },
+      "consequent": Object {
+        "argument": Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "U",
+          },
+        },
+        "kind": "TypeReturnStatement",
+      },
+      "kind": "TypeIfStatement",
+    },
+    "kind": "ConditionalTypeExpression",
+  },
+  "kind": "TypeArrowFunctionExpression",
+  "params": Array [],
+}
+`;
+
+exports[`TypeArrowFunctionExpression: with params 1`] = `
+Object {
+  "body": Object {
+    "body": Object {
+      "alternate": Object {
+        "argument": Object {
+          "kind": "StringTypeLiteral",
+          "value": "number",
+        },
+        "kind": "TypeReturnStatement",
+      },
+      "condition": Object {
+        "checkType": Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "T",
+          },
+        },
+        "extendsType": Object {
+          "kind": "StringType",
+          "value": "string",
+        },
+        "kind": "ExtendsClause",
+      },
+      "consequent": Object {
+        "argument": Object {
+          "kind": "StringTypeLiteral",
+          "value": "string",
+        },
+        "kind": "TypeReturnStatement",
+      },
+      "kind": "TypeIfStatement",
+    },
+    "kind": "ConditionalTypeExpression",
+  },
+  "kind": "TypeArrowFunctionExpression",
+  "params": Array [
+    Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "T",
+      },
+    },
+  ],
+}
+`;
+
+exports[`TypeCallExpression 1`] = `
+Object {
+  "callee": Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "ParseProtocol",
+    },
+  },
+  "kind": "TypeCallExpression",
+  "params": Array [
+    Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "T",
+      },
+    },
+  ],
+}
+`;
+
+exports[`TypeCallExpression 2`] = `
+Object {
+  "callee": Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "ParseProtocol",
+    },
+  },
+  "kind": "TypeCallExpression",
+  "params": Array [
+    Object {
+      "kind": "StringTypeLiteral",
+      "value": "https://...",
+    },
+  ],
+}
+`;
+
+exports[`TypeCallExpression: empty 1`] = `
+Object {
+  "callee": Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "ParseProtocol",
+    },
+  },
+  "kind": "TypeCallExpression",
+  "params": Array [],
+}
+`;
+
+exports[`TypeFile 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "declarator": Object {
+        "initializer": Object {
+          "kind": "StringType",
+          "value": "string",
+        },
+        "kind": "TypeVariableDeclarator",
+        "name": Object {
+          "kind": "Identifier",
+          "name": "temp",
+        },
+      },
+      "kind": "TypeVariableDeclaration",
+    },
+    Object {
+      "declarator": Object {
+        "initializer": Object {
+          "body": Object {
+            "kind": "ObjectType",
+            "props": Array [
+              Object {
+                "kind": "TypeObjectProperty",
+                "name": Object {
+                  "kind": "Identifier",
+                  "name": "a",
+                },
+                "value": Object {
+                  "kind": "TypeReference",
+                  "typeName": Object {
+                    "kind": "Identifier",
+                    "name": "T",
+                  },
+                },
+              },
+            ],
+          },
+          "kind": "TypeArrowFunctionExpression",
+          "params": Array [
+            Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "T",
+              },
+            },
+          ],
+        },
+        "kind": "TypeFunctionDeclarator",
+        "name": Object {
+          "kind": "Identifier",
+          "name": "func",
+        },
+      },
+      "kind": "TypeFunctionDeclaration",
+    },
+  ],
+  "kind": "TypeFile",
+}
+`;
+
+exports[`TypeFunctionDeclaration 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "number",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "T",
+              },
+            },
+            "extendsType": Object {
+              "kind": "StringType",
+              "value": "string",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "string",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "T",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "TypeName",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`TypeFunctionDeclaration: with TemplateTypeLiteral 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "number",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "text",
+              },
+            },
+            "extendsType": Object {
+              "items": Array [
+                Object {
+                  "expression": Object {
+                    "kind": "InferType",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "protocol",
+                    },
+                  },
+                  "kind": "TemplateExpression",
+                },
+                Object {
+                  "kind": "TemplateElement",
+                  "value": "://",
+                },
+                Object {
+                  "expression": Object {
+                    "kind": "InferType",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "rest",
+                    },
+                  },
+                  "kind": "TemplateExpression",
+                },
+              ],
+              "kind": "TemplateTypeLiteral",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "string",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "ParseProtocol",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`TypeFunctionDeclaration: with infer 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "number",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "text",
+              },
+            },
+            "extendsType": Object {
+              "kind": "InferType",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "protocal",
+              },
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "string",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "ParseURL",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`TypeIfStatement 1`] = `
+Object {
+  "alternate": Object {
+    "argument": Object {
+      "kind": "StringTypeLiteral",
+      "value": "number",
+    },
+    "kind": "TypeReturnStatement",
+  },
+  "condition": Object {
+    "checkType": Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "T",
+      },
+    },
+    "extendsType": Object {
+      "kind": "StringType",
+      "value": "string",
+    },
+    "kind": "ExtendsClause",
+  },
+  "consequent": Object {
+    "argument": Object {
+      "kind": "StringTypeLiteral",
+      "value": "string",
+    },
+    "kind": "TypeReturnStatement",
+  },
+  "kind": "TypeIfStatement",
+}
+`;
+
+exports[`TypeIfStatement 2`] = `
+Object {
+  "alternate": Object {
+    "argument": Object {
+      "kind": "StringTypeLiteral",
+      "value": "number",
+    },
+    "kind": "TypeReturnStatement",
+  },
+  "condition": Object {
+    "checkType": Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "T",
+      },
+    },
+    "extendsType": Object {
+      "kind": "StringType",
+      "value": "string",
+    },
+    "kind": "ExtendsClause",
+  },
+  "consequent": Object {
+    "argument": Object {
+      "kind": "StringTypeLiteral",
+      "value": "string",
+    },
+    "kind": "TypeReturnStatement",
+  },
+  "kind": "TypeIfStatement",
+}
+`;
+
+exports[`TypeObjectProperty 1`] = `
+Object {
+  "kind": "TypeObjectProperty",
+  "name": Object {
+    "kind": "Identifier",
+    "name": "a",
+  },
+  "value": Object {
+    "kind": "NumberType",
+    "value": "number",
+  },
+}
+`;
+
+exports[`TypeObjectProperty 2`] = `
+Object {
+  "kind": "TypeObjectProperty",
+  "name": Object {
+    "kind": "Identifier",
+    "name": "b",
+  },
+  "value": Object {
+    "kind": "StringType",
+    "value": "string",
+  },
+}
+`;
+
+exports[`TypeObjectProperty 3`] = `
+Object {
+  "kind": "TypeObjectProperty",
+  "name": Object {
+    "kind": "Identifier",
+    "name": "c",
+  },
+  "value": Object {
+    "kind": "NumberTypeLiteral",
+    "value": 1,
+  },
+}
+`;
+
+exports[`TypeObjectProperty 4`] = `
+Object {
+  "kind": "TypeObjectProperty",
+  "name": Object {
+    "kind": "Identifier",
+    "name": "d",
+  },
+  "value": Object {
+    "kind": "StringTypeLiteral",
+    "value": "abc",
+  },
+}
+`;
+
+exports[`TypeReturnStatement 1`] = `
+Object {
+  "argument": Object {
+    "kind": "StringType",
+    "value": "string",
+  },
+  "kind": "TypeReturnStatement",
+}
+`;
+
+exports[`TypeVariableDeclaration 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "kind": "StringType",
+      "value": "string",
+    },
+    "kind": "TypeVariableDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "result",
+    },
+  },
+  "kind": "TypeVariableDeclaration",
+}
+`;
+
+exports[`TypeVariableDeclaration: conditional type 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "NumberType",
+              "value": "number",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "StringType",
+              "value": "string",
+            },
+            "extendsType": Object {
+              "kind": "StringType",
+              "value": "string",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "StringType",
+              "value": "string",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [],
+    },
+    "kind": "TypeVariableDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "result",
+    },
+  },
+  "kind": "TypeVariableDeclaration",
+}
+`;
+
+exports[`examples _isNumberString 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "alternate": Object {
+              "argument": Object {
+                "kind": "BooleanTypeLiteral",
+                "value": false,
+              },
+              "kind": "TypeReturnStatement",
+            },
+            "condition": Object {
+              "checkType": Object {
+                "kind": "TypeReference",
+                "typeName": Object {
+                  "kind": "Identifier",
+                  "name": "text",
+                },
+              },
+              "extendsType": Object {
+                "items": Array [
+                  Object {
+                    "expression": Object {
+                      "kind": "InferType",
+                      "typeName": Object {
+                        "kind": "Identifier",
+                        "name": "digit",
+                      },
+                    },
+                    "kind": "TemplateExpression",
+                  },
+                  Object {
+                    "expression": Object {
+                      "kind": "InferType",
+                      "typeName": Object {
+                        "kind": "Identifier",
+                        "name": "rest",
+                      },
+                    },
+                    "kind": "TemplateExpression",
+                  },
+                ],
+                "kind": "TemplateTypeLiteral",
+              },
+              "kind": "ExtendsClause",
+            },
+            "consequent": Object {
+              "argument": Object {
+                "body": Object {
+                  "alternate": Object {
+                    "argument": Object {
+                      "kind": "BooleanTypeLiteral",
+                      "value": false,
+                    },
+                    "kind": "TypeReturnStatement",
+                  },
+                  "condition": Object {
+                    "checkType": Object {
+                      "kind": "TypeReference",
+                      "typeName": Object {
+                        "kind": "Identifier",
+                        "name": "digit",
+                      },
+                    },
+                    "extendsType": Object {
+                      "kind": "TypeReference",
+                      "typeName": Object {
+                        "kind": "Identifier",
+                        "name": "Digit",
+                      },
+                    },
+                    "kind": "ExtendsClause",
+                  },
+                  "consequent": Object {
+                    "argument": Object {
+                      "callee": Object {
+                        "kind": "TypeReference",
+                        "typeName": Object {
+                          "kind": "Identifier",
+                          "name": "_isNumberString",
+                        },
+                      },
+                      "kind": "TypeCallExpression",
+                      "params": Array [
+                        Object {
+                          "kind": "TypeReference",
+                          "typeName": Object {
+                            "kind": "Identifier",
+                            "name": "rest",
+                          },
+                        },
+                      ],
+                    },
+                    "kind": "TypeReturnStatement",
+                  },
+                  "kind": "TypeIfStatement",
+                },
+                "kind": "ConditionalTypeExpression",
+              },
+              "kind": "TypeReturnStatement",
+            },
+            "kind": "TypeIfStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "text",
+              },
+            },
+            "extendsType": Object {
+              "kind": "StringTypeLiteral",
+              "value": "",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "BooleanTypeLiteral",
+              "value": true,
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "_isNumberString",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`examples isNumberString 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "callee": Object {
+                "kind": "TypeReference",
+                "typeName": Object {
+                  "kind": "Identifier",
+                  "name": "_isNumberString",
+                },
+              },
+              "kind": "TypeCallExpression",
+              "params": Array [
+                Object {
+                  "kind": "TypeReference",
+                  "typeName": Object {
+                    "kind": "Identifier",
+                    "name": "text",
+                  },
+                },
+              ],
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "text",
+              },
+            },
+            "extendsType": Object {
+              "kind": "StringTypeLiteral",
+              "value": "",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "NeverType",
+              "value": "never",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "isNumberString",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`examples parseAuthority 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "ObjectType",
+              "props": Array [
+                Object {
+                  "kind": "TypeObjectProperty",
+                  "name": Object {
+                    "kind": "Identifier",
+                    "name": "authority",
+                  },
+                  "value": Object {
+                    "kind": "TypeReference",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "null",
+                    },
+                  },
+                },
+                Object {
+                  "kind": "TypeObjectProperty",
+                  "name": Object {
+                    "kind": "Identifier",
+                    "name": "rest",
+                  },
+                  "value": Object {
+                    "kind": "TypeReference",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "text",
+                    },
+                  },
+                },
+              ],
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "text",
+              },
+            },
+            "extendsType": Object {
+              "items": Array [
+                Object {
+                  "expression": Object {
+                    "kind": "InferType",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "authority",
+                    },
+                  },
+                  "kind": "TemplateExpression",
+                },
+                Object {
+                  "kind": "TemplateElement",
+                  "value": "@",
+                },
+                Object {
+                  "expression": Object {
+                    "kind": "InferType",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "rest",
+                    },
+                  },
+                  "kind": "TemplateExpression",
+                },
+              ],
+              "kind": "TemplateTypeLiteral",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "ObjectType",
+              "props": Array [
+                Object {
+                  "kind": "TypeObjectProperty",
+                  "name": Object {
+                    "kind": "Identifier",
+                    "name": "authority",
+                  },
+                  "value": Object {
+                    "callee": Object {
+                      "kind": "TypeReference",
+                      "typeName": Object {
+                        "kind": "Identifier",
+                        "name": "parseUserInfo",
+                      },
+                    },
+                    "kind": "TypeCallExpression",
+                    "params": Array [
+                      Object {
+                        "kind": "TypeReference",
+                        "typeName": Object {
+                          "kind": "Identifier",
+                          "name": "authority",
+                        },
+                      },
+                    ],
+                  },
+                },
+                Object {
+                  "kind": "TypeObjectProperty",
+                  "name": Object {
+                    "kind": "Identifier",
+                    "name": "rest",
+                  },
+                  "value": Object {
+                    "kind": "TypeReference",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "rest",
+                    },
+                  },
+                },
+              ],
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "parseAuthority",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`examples parseHost 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "ObjectType",
+              "props": Array [
+                Object {
+                  "kind": "TypeObjectProperty",
+                  "name": Object {
+                    "kind": "Identifier",
+                    "name": "name",
+                  },
+                  "value": Object {
+                    "kind": "TypeReference",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "text",
+                    },
+                  },
+                },
+              ],
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "text",
+              },
+            },
+            "extendsType": Object {
+              "items": Array [
+                Object {
+                  "expression": Object {
+                    "kind": "InferType",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "name",
+                    },
+                  },
+                  "kind": "TemplateExpression",
+                },
+                Object {
+                  "kind": "TemplateElement",
+                  "value": ":",
+                },
+                Object {
+                  "expression": Object {
+                    "kind": "InferType",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "port",
+                    },
+                  },
+                  "kind": "TemplateExpression",
+                },
+              ],
+              "kind": "TemplateTypeLiteral",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "body": Object {
+                "alternate": Object {
+                  "argument": Object {
+                    "kind": "ObjectType",
+                    "props": Array [
+                      Object {
+                        "kind": "TypeObjectProperty",
+                        "name": Object {
+                          "kind": "Identifier",
+                          "name": "name",
+                        },
+                        "value": Object {
+                          "kind": "TypeReference",
+                          "typeName": Object {
+                            "kind": "Identifier",
+                            "name": "name",
+                          },
+                        },
+                      },
+                      Object {
+                        "kind": "TypeObjectProperty",
+                        "name": Object {
+                          "kind": "Identifier",
+                          "name": "port",
+                        },
+                        "value": Object {
+                          "kind": "TypeReference",
+                          "typeName": Object {
+                            "kind": "Identifier",
+                            "name": "port",
+                          },
+                        },
+                      },
+                    ],
+                  },
+                  "kind": "TypeReturnStatement",
+                },
+                "condition": Object {
+                  "checkType": Object {
+                    "callee": Object {
+                      "kind": "TypeReference",
+                      "typeName": Object {
+                        "kind": "Identifier",
+                        "name": "parsePort",
+                      },
+                    },
+                    "kind": "TypeCallExpression",
+                    "params": Array [
+                      Object {
+                        "kind": "TypeReference",
+                        "typeName": Object {
+                          "kind": "Identifier",
+                          "name": "port",
+                        },
+                      },
+                    ],
+                  },
+                  "extendsType": Object {
+                    "kind": "NeverType",
+                    "value": "never",
+                  },
+                  "kind": "ExtendsClause",
+                },
+                "consequent": Object {
+                  "argument": Object {
+                    "kind": "NeverType",
+                    "value": "never",
+                  },
+                  "kind": "TypeReturnStatement",
+                },
+                "kind": "TypeIfStatement",
+              },
+              "kind": "ConditionalTypeExpression",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "parseHost",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`examples parsePort 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "NeverType",
+              "value": "never",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "callee": Object {
+                "kind": "TypeReference",
+                "typeName": Object {
+                  "kind": "Identifier",
+                  "name": "isNumberString",
+                },
+              },
+              "kind": "TypeCallExpression",
+              "params": Array [
+                Object {
+                  "kind": "TypeReference",
+                  "typeName": Object {
+                    "kind": "Identifier",
+                    "name": "text",
+                  },
+                },
+              ],
+            },
+            "extendsType": Object {
+              "kind": "BooleanTypeLiteral",
+              "value": true,
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "text",
+              },
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "parsePort",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`examples parseProtocol 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "NeverType",
+              "value": "never",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "text",
+              },
+            },
+            "extendsType": Object {
+              "items": Array [
+                Object {
+                  "expression": Object {
+                    "kind": "InferType",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "protocol",
+                    },
+                  },
+                  "kind": "TemplateExpression",
+                },
+                Object {
+                  "kind": "TemplateElement",
+                  "value": "://",
+                },
+                Object {
+                  "expression": Object {
+                    "kind": "InferType",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "rest",
+                    },
+                  },
+                  "kind": "TemplateExpression",
+                },
+              ],
+              "kind": "TemplateTypeLiteral",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "items": Array [
+                Object {
+                  "kind": "ObjectType",
+                  "props": Array [
+                    Object {
+                      "kind": "TypeObjectProperty",
+                      "name": Object {
+                        "kind": "Identifier",
+                        "name": "protocol",
+                      },
+                      "value": Object {
+                        "kind": "TypeReference",
+                        "typeName": Object {
+                          "kind": "Identifier",
+                          "name": "protocol",
+                        },
+                      },
+                    },
+                  ],
+                },
+                Object {
+                  "kind": "TypeReference",
+                  "typeName": Object {
+                    "kind": "Identifier",
+                    "name": "rest",
+                  },
+                },
+              ],
+              "kind": "TupleType",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "parseProtocol",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`examples parseURL 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "NeverType",
+              "value": "never",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "callee": Object {
+                "kind": "TypeReference",
+                "typeName": Object {
+                  "kind": "Identifier",
+                  "name": "parseProtocol",
+                },
+              },
+              "kind": "TypeCallExpression",
+              "params": Array [
+                Object {
+                  "kind": "TypeReference",
+                  "typeName": Object {
+                    "kind": "Identifier",
+                    "name": "text",
+                  },
+                },
+              ],
+            },
+            "extendsType": Object {
+              "items": Array [
+                Object {
+                  "kind": "InferType",
+                  "typeName": Object {
+                    "kind": "Identifier",
+                    "name": "protocol",
+                  },
+                },
+                Object {
+                  "kind": "InferType",
+                  "typeName": Object {
+                    "kind": "Identifier",
+                    "name": "rest",
+                  },
+                },
+              ],
+              "kind": "TupleType",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "ObjectType",
+              "props": Array [
+                Object {
+                  "kind": "TypeSpreadProperty",
+                  "param": Object {
+                    "kind": "TypeReference",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "protocol",
+                    },
+                  },
+                },
+                Object {
+                  "kind": "TypeSpreadProperty",
+                  "param": Object {
+                    "callee": Object {
+                      "kind": "TypeReference",
+                      "typeName": Object {
+                        "kind": "Identifier",
+                        "name": "parseAuthority",
+                      },
+                    },
+                    "kind": "TypeCallExpression",
+                    "params": Array [
+                      Object {
+                        "kind": "TypeReference",
+                        "typeName": Object {
+                          "kind": "Identifier",
+                          "name": "rest",
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "parseURL",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`examples parseURL: 2 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "NeverType",
+              "value": "never",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "callee": Object {
+                "kind": "TypeReference",
+                "typeName": Object {
+                  "kind": "Identifier",
+                  "name": "parseProtocol",
+                },
+              },
+              "kind": "TypeCallExpression",
+              "params": Array [
+                Object {
+                  "kind": "TypeReference",
+                  "typeName": Object {
+                    "kind": "Identifier",
+                    "name": "text",
+                  },
+                },
+              ],
+            },
+            "extendsType": Object {
+              "items": Array [
+                Object {
+                  "kind": "InferType",
+                  "typeName": Object {
+                    "kind": "Identifier",
+                    "name": "protocol",
+                  },
+                },
+                Object {
+                  "kind": "InferType",
+                  "typeName": Object {
+                    "kind": "Identifier",
+                    "name": "rest",
+                  },
+                },
+              ],
+              "kind": "TupleType",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "ObjectType",
+              "props": Array [
+                Object {
+                  "kind": "TypeObjectProperty",
+                  "name": Object {
+                    "kind": "Identifier",
+                    "name": "protocol",
+                  },
+                  "value": Object {
+                    "kind": "TypeReference",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "protocol",
+                    },
+                  },
+                },
+                Object {
+                  "kind": "TypeObjectProperty",
+                  "name": Object {
+                    "kind": "Identifier",
+                    "name": "rest",
+                  },
+                  "value": Object {
+                    "kind": "TypeReference",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "rest",
+                    },
+                  },
+                },
+              ],
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "parseURL",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`examples parseUserInfo 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "ObjectType",
+              "props": Array [
+                Object {
+                  "kind": "TypeObjectProperty",
+                  "name": Object {
+                    "kind": "Identifier",
+                    "name": "username",
+                  },
+                  "value": Object {
+                    "kind": "TypeReference",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "text",
+                    },
+                  },
+                },
+              ],
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "text",
+              },
+            },
+            "extendsType": Object {
+              "items": Array [
+                Object {
+                  "expression": Object {
+                    "kind": "InferType",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "username",
+                    },
+                  },
+                  "kind": "TemplateExpression",
+                },
+                Object {
+                  "kind": "TemplateElement",
+                  "value": ":",
+                },
+                Object {
+                  "expression": Object {
+                    "kind": "InferType",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "password",
+                    },
+                  },
+                  "kind": "TemplateExpression",
+                },
+              ],
+              "kind": "TemplateTypeLiteral",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "ObjectType",
+              "props": Array [
+                Object {
+                  "kind": "TypeObjectProperty",
+                  "name": Object {
+                    "kind": "Identifier",
+                    "name": "username",
+                  },
+                  "value": Object {
+                    "kind": "TypeReference",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "username",
+                    },
+                  },
+                },
+                Object {
+                  "kind": "TypeObjectProperty",
+                  "name": Object {
+                    "kind": "Identifier",
+                    "name": "password",
+                  },
+                  "value": Object {
+                    "kind": "TypeReference",
+                    "typeName": Object {
+                      "kind": "Identifier",
+                      "name": "password",
+                    },
+                  },
+                },
+              ],
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "parseUserInfo",
+    },
+  },
+  "kind": "TypeFunctionDeclaration",
+}
+`;

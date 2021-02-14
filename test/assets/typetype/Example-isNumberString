@@ -1,0 +1,7 @@
+type function isNumberString = (text) => ^{
+    if(text extends "") {
+        return never
+    } else {
+        return _isNumberString<text>
+    }
+}

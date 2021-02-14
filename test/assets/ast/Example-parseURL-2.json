@@ -1,0 +1,112 @@
+{
+    "kind": "TypeFunctionDeclaration",
+    "declarator": {
+        "kind": "TypeFunctionDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "parseURL"
+        },
+        "initializer": {
+            "kind": "TypeArrowFunctionExpression",
+            "params": [
+                {
+                    "kind": "TypeReference",
+                    "typeName": {
+                        "kind": "Identifier",
+                        "name": "text"
+                    }
+                }
+            ],
+            "body": {
+                "kind": "ConditionalTypeExpression",
+                "body": {
+                    "kind": "TypeIfStatement",
+                    "condition": {
+                        "kind": "ExtendsClause",
+                        "checkType": {
+                            "kind": "TypeCallExpression",
+                            "callee": {
+                                "kind": "TypeReference",
+                                "typeName": {
+                                    "kind": "Identifier",
+                                    "name": "parseProtocol"
+                                }
+                            },
+                            "params": [
+                                {
+                                    "kind": "TypeReference",
+                                    "typeName": {
+                                        "kind": "Identifier",
+                                        "name": "text"
+                                    }
+                                }
+                            ]
+                        },
+                        "extendsType": {
+                            "kind": "TupleType",
+                            "items": [
+                                {
+                                    "kind": "InferType",
+                                    "typeName": {
+                                        "kind": "Identifier",
+                                        "name": "protocol"
+                                    }
+                                },
+                                {
+                                    "kind": "InferType",
+                                    "typeName": {
+                                        "kind": "Identifier",
+                                        "name": "rest"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "consequent": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "ObjectType",
+                            "props": [
+                                {
+                                    "kind": "TypeObjectProperty",
+                                    "name": {
+                                        "kind": "Identifier",
+                                        "name": "protocol"
+                                    },
+                                    "value": {
+                                        "kind": "TypeReference",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "protocol"
+                                        }
+                                    }
+                                },
+                                {
+                                    "kind": "TypeObjectProperty",
+                                    "name": {
+                                        "kind": "Identifier",
+                                        "name": "rest"
+                                    },
+                                    "value": {
+                                        "kind": "TypeReference",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "rest"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "alternate": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "NeverType",
+                            "value": "never"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

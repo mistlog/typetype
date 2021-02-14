@@ -1,0 +1,1 @@
+type _isNumberString<text> = text extends "" ? true : text extends `${infer digit}${infer rest}` ? digit extends Digit ? _isNumberString<rest> : false : false;

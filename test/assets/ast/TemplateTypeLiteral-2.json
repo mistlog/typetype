@@ -1,0 +1,47 @@
+{
+    "kind": "TemplateTypeLiteral",
+    "items": [
+        {
+            "kind": "TemplateElement",
+            "value": "    hello "
+        },
+        {
+            "kind": "TemplateExpression",
+            "expression": {
+                "kind": "TypeReference",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "World"
+                }
+            }
+        },
+        {
+            "kind": "TemplateElement",
+            "value": " and "
+        },
+        {
+            "kind": "TemplateExpression",
+            "expression": {
+                "kind": "TypeReference",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "Temp"
+                }
+            }
+        },
+        {
+            "kind": "TemplateExpression",
+            "expression": {
+                "kind": "TypeReference",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "Test"
+                }
+            }
+        },
+        {
+            "kind": "TemplateElement",
+            "value": "    "
+        }
+    ]
+}

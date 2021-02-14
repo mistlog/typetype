@@ -1,0 +1,49 @@
+{
+    "kind": "ObjectType",
+    "props": [
+        {
+            "kind": "TypeObjectProperty",
+            "name": {
+                "kind": "Identifier",
+                "name": "a"
+            },
+            "value": {
+                "kind": "NumberType",
+                "value": "number"
+            }
+        },
+        {
+            "kind": "TypeObjectProperty",
+            "name": {
+                "kind": "Identifier",
+                "name": "b"
+            },
+            "value": {
+                "kind": "StringType",
+                "value": "string"
+            }
+        },
+        {
+            "kind": "TypeObjectProperty",
+            "name": {
+                "kind": "Identifier",
+                "name": "c"
+            },
+            "value": {
+                "kind": "NumberTypeLiteral",
+                "value": 1
+            }
+        },
+        {
+            "kind": "TypeObjectProperty",
+            "name": {
+                "kind": "Identifier",
+                "name": "d"
+            },
+            "value": {
+                "kind": "StringTypeLiteral",
+                "value": "abc"
+            }
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+type function parseAuthority = (text) => ^{
+    if(text extends `${infer authority}@${infer rest}`) {
+        return {
+            authority: parseUserInfo<authority>,
+            rest
+        }
+    } else { 
+        return {
+            authority: null,
+            rest: text
+        }
+    }
+}

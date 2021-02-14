@@ -1,0 +1,125 @@
+{
+    "kind": "TypeFunctionDeclaration",
+    "declarator": {
+        "kind": "TypeFunctionDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "parseUserInfo"
+        },
+        "initializer": {
+            "kind": "TypeArrowFunctionExpression",
+            "params": [
+                {
+                    "kind": "TypeReference",
+                    "typeName": {
+                        "kind": "Identifier",
+                        "name": "text"
+                    }
+                }
+            ],
+            "body": {
+                "kind": "ConditionalTypeExpression",
+                "body": {
+                    "kind": "TypeIfStatement",
+                    "condition": {
+                        "kind": "ExtendsClause",
+                        "checkType": {
+                            "kind": "TypeReference",
+                            "typeName": {
+                                "kind": "Identifier",
+                                "name": "text"
+                            }
+                        },
+                        "extendsType": {
+                            "kind": "TemplateTypeLiteral",
+                            "items": [
+                                {
+                                    "kind": "TemplateExpression",
+                                    "expression": {
+                                        "kind": "InferType",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "username"
+                                        }
+                                    }
+                                },
+                                {
+                                    "kind": "TemplateElement",
+                                    "value": ":"
+                                },
+                                {
+                                    "kind": "TemplateExpression",
+                                    "expression": {
+                                        "kind": "InferType",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "password"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "consequent": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "ObjectType",
+                            "props": [
+                                {
+                                    "kind": "TypeObjectProperty",
+                                    "name": {
+                                        "kind": "Identifier",
+                                        "name": "username"
+                                    },
+                                    "value": {
+                                        "kind": "TypeReference",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "username"
+                                        }
+                                    }
+                                },
+                                {
+                                    "kind": "TypeObjectProperty",
+                                    "name": {
+                                        "kind": "Identifier",
+                                        "name": "password"
+                                    },
+                                    "value": {
+                                        "kind": "TypeReference",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "password"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "alternate": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "ObjectType",
+                            "props": [
+                                {
+                                    "kind": "TypeObjectProperty",
+                                    "name": {
+                                        "kind": "Identifier",
+                                        "name": "username"
+                                    },
+                                    "value": {
+                                        "kind": "TypeReference",
+                                        "typeName": {
+                                            "kind": "Identifier",
+                                            "name": "text"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

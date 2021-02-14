@@ -1,0 +1,149 @@
+{
+    "kind": "TypeFunctionDeclaration",
+    "declarator": {
+        "kind": "TypeFunctionDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "_isNumberString"
+        },
+        "initializer": {
+            "kind": "TypeArrowFunctionExpression",
+            "params": [
+                {
+                    "kind": "TypeReference",
+                    "typeName": {
+                        "kind": "Identifier",
+                        "name": "text"
+                    }
+                }
+            ],
+            "body": {
+                "kind": "ConditionalTypeExpression",
+                "body": {
+                    "kind": "TypeIfStatement",
+                    "condition": {
+                        "kind": "ExtendsClause",
+                        "checkType": {
+                            "kind": "TypeReference",
+                            "typeName": {
+                                "kind": "Identifier",
+                                "name": "text"
+                            }
+                        },
+                        "extendsType": {
+                            "kind": "StringTypeLiteral",
+                            "value": ""
+                        }
+                    },
+                    "consequent": {
+                        "kind": "TypeReturnStatement",
+                        "argument": {
+                            "kind": "BooleanTypeLiteral",
+                            "value": true
+                        }
+                    },
+                    "alternate": {
+                        "kind": "TypeIfStatement",
+                        "condition": {
+                            "kind": "ExtendsClause",
+                            "checkType": {
+                                "kind": "TypeReference",
+                                "typeName": {
+                                    "kind": "Identifier",
+                                    "name": "text"
+                                }
+                            },
+                            "extendsType": {
+                                "kind": "TemplateTypeLiteral",
+                                "items": [
+                                    {
+                                        "kind": "TemplateExpression",
+                                        "expression": {
+                                            "kind": "InferType",
+                                            "typeName": {
+                                                "kind": "Identifier",
+                                                "name": "digit"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "kind": "TemplateExpression",
+                                        "expression": {
+                                            "kind": "InferType",
+                                            "typeName": {
+                                                "kind": "Identifier",
+                                                "name": "rest"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "consequent": {
+                            "kind": "TypeReturnStatement",
+                            "argument": {
+                                "kind": "ConditionalTypeExpression",
+                                "body": {
+                                    "kind": "TypeIfStatement",
+                                    "condition": {
+                                        "kind": "ExtendsClause",
+                                        "checkType": {
+                                            "kind": "TypeReference",
+                                            "typeName": {
+                                                "kind": "Identifier",
+                                                "name": "digit"
+                                            }
+                                        },
+                                        "extendsType": {
+                                            "kind": "TypeReference",
+                                            "typeName": {
+                                                "kind": "Identifier",
+                                                "name": "Digit"
+                                            }
+                                        }
+                                    },
+                                    "consequent": {
+                                        "kind": "TypeReturnStatement",
+                                        "argument": {
+                                            "kind": "TypeCallExpression",
+                                            "callee": {
+                                                "kind": "TypeReference",
+                                                "typeName": {
+                                                    "kind": "Identifier",
+                                                    "name": "_isNumberString"
+                                                }
+                                            },
+                                            "params": [
+                                                {
+                                                    "kind": "TypeReference",
+                                                    "typeName": {
+                                                        "kind": "Identifier",
+                                                        "name": "rest"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "alternate": {
+                                        "kind": "TypeReturnStatement",
+                                        "argument": {
+                                            "kind": "BooleanTypeLiteral",
+                                            "value": false
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "alternate": {
+                            "kind": "TypeReturnStatement",
+                            "argument": {
+                                "kind": "BooleanTypeLiteral",
+                                "value": false
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

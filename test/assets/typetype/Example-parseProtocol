@@ -1,0 +1,10 @@
+type function parseProtocol = (text) => ^{
+    if(text extends `${infer protocol}://${infer rest}`) {
+        return [
+            { protocol },
+            rest
+        ]
+    } else {
+        return never
+    }
+}

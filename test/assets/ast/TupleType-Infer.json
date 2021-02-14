@@ -1,0 +1,19 @@
+{
+    "kind": "TupleType",
+    "items": [
+        {
+            "kind": "InferType",
+            "typeName": {
+                "kind": "Identifier",
+                "name": "protocol"
+            }
+        },
+        {
+            "kind": "InferType",
+            "typeName": {
+                "kind": "Identifier",
+                "name": "rest"
+            }
+        }
+    ]
+}

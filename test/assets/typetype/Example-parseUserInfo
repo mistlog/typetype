@@ -1,0 +1,7 @@
+type function parseUserInfo = (text) => ^{
+    if(text extends `${infer username}:${infer password}`) {
+        return { username, password }
+    } else {
+        return { username: text }
+    }
+}

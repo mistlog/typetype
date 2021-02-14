@@ -1,0 +1,15 @@
+type function _isNumberString = (text) => ^{
+    if(text extends "") {
+        return true
+    } else if(text extends `${infer digit}${infer rest}`) {
+        return ^{
+            if(digit extends Digit) {
+                return _isNumberString<rest>
+            } else {
+                return false
+            }
+        }
+    } else {
+        return false
+    }
+}

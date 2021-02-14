@@ -1,0 +1,29 @@
+{
+    "kind": "TemplateTypeLiteral",
+    "items": [
+        {
+            "kind": "TemplateExpression",
+            "expression": {
+                "kind": "InferType",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "authority"
+                }
+            }
+        },
+        {
+            "kind": "TemplateElement",
+            "value": "@"
+        },
+        {
+            "kind": "TemplateExpression",
+            "expression": {
+                "kind": "InferType",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "rest"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+type function parsePort = (text) => ^{
+    if(isNumberString<text> extends true) {
+        return text
+    } else {
+        return never
+    }
+}

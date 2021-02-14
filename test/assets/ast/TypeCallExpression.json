@@ -1,0 +1,19 @@
+{
+    "kind": "TypeCallExpression",
+    "callee": {
+        "kind": "TypeReference",
+        "typeName": {
+            "kind": "Identifier",
+            "name": "ParseProtocol"
+        }
+    },
+    "params": [
+        {
+            "kind": "TypeReference",
+            "typeName": {
+                "kind": "Identifier",
+                "name": "T"
+            }
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+type parseAuthority<text> = text extends `${infer authority}@${infer rest}` ? {
+  authority: parseUserInfo<authority>;
+  rest: rest;
+} : {
+  authority: null;
+  rest: text;
+};

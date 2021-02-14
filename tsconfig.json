@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "jsxFactory": "ReactPeg.createChunk",
+        "target": "es6",
+        "sourceMap": false,
+        "outDir": "./build",
+        "declaration": true,
+        "module": "commonjs"
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

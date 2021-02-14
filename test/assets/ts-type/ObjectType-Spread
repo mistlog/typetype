@@ -1,0 +1,5 @@
+object$assign<{}, [{
+  hello: hello;
+}, {
+  obj: obj;
+}]>
