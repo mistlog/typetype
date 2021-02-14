@@ -9,7 +9,7 @@
         "type"
     ],
     "scripts": {
-        "test": "jest --coverage",
+        "test": "jest --coverage --runInBand",
         "build": "tsc"
     },
     "repository": {
