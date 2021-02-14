@@ -98,6 +98,8 @@ exports[`ts-type TypeArrowFunctionExpression: with infer 1`] = `"T extends infer
 
 exports[`ts-type TypeArrowFunctionExpression: with params 1`] = `"T extends string ? \\"string\\" : \\"number\\""`;
 
+exports[`ts-type UnionType 1`] = `"\\"0\\" | \\"1\\""`;
+
 exports[`type file TypeFile 1`] = `
 "type temp = string;
 type func<T> = {

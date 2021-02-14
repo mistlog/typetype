@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType } from "../src";
+import { TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, UnionType } from "../src";
 import { saveAST, loadType } from "./common";
 
 test("Identifier", () => {
@@ -376,6 +376,13 @@ test("TypeFile", () => {
         type function func = (T) => {a: T}
     `);
     saveAST(ast, "TypeFile.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("UnionType", () => {
+    const parser = ReactPeg.render(<UnionType />);
+    const ast = parser.parse(`| "0" | "1"`);
+    saveAST(ast, "UnionType.json");
     expect(ast).toMatchSnapshot();
 })
 

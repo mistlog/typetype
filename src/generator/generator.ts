@@ -176,6 +176,7 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
             return type;
         }
         case "ConditionalTypeExpression": return tsConditionalType(ast.body);
+        case "UnionType": return t.tsUnionType(ast.types.map(each => TSType(each)));
 
         default:
             return assertNever(ast);

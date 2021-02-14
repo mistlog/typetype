@@ -38,6 +38,12 @@ describe("ts-type", () => {
         saveCode(code, `${name}`)
         return code;
     }
+
+    test("UnionType", () => {
+        const name = "UnionType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+    
     test("TypeArrowFunctionExpression", () => {
         const name = "TypeArrowFunctionExpression";
         expect(toCode(name)).toMatchSnapshot();
