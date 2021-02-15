@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ArrayType 1`] = `
+Object {
+  "dimension": 1,
+  "elementType": Object {
+    "kind": "StringType",
+    "value": "string",
+  },
+  "kind": "ArrayType",
+}
+`;
+
+exports[`ArrayType: deep 1`] = `
+Object {
+  "dimension": 2,
+  "elementType": Object {
+    "kind": "StringType",
+    "value": "string",
+  },
+  "kind": "ArrayType",
+}
+`;
+
 exports[`BasicType 1`] = `
 Object {
   "kind": "NeverType",

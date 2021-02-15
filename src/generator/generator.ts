@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -39,14 +39,14 @@ export function TSTypeAliasDeclaration(ast: IDeclaration): t.TSTypeAliasDeclarat
     }
 }
 
-export function tsConditionalType(ast: ITypeIfStatement): t.TSConditionalType {
+function tsConditionalType(ast: ITypeIfStatement): t.TSConditionalType {
     const { condition, consequent, alternate } = ast;
     const falseType = alternate.kind === "TypeIfStatement" ? tsConditionalType(alternate) : TSType(alternate.argument);
     const type = t.tsConditionalType(TSType(condition.checkType), TSType(condition.extendsType), TSType(consequent.argument), falseType);
     return type;
 }
 
-export function tsTypeLiteral(ast: IObjectType) {
+function tsTypeLiteral(ast: IObjectType) {
     const props = ast.props.map(each => {
         switch (each.kind) {
             case "TypeObjectProperty": {
@@ -148,6 +148,18 @@ function tsIndexType(ast: IIndexType): t.TSIndexedAccessType {
     return tsIndexedAccessType(ast.head, ast.members);
 }
 
+function _tsArrayType(elementType: t.TSType, dimension: number) {
+    if (dimension === 1) {
+        return t.tsArrayType(elementType);
+    } else {
+        return t.tsArrayType(_tsArrayType(elementType, dimension - 1));
+    }
+}
+
+function tsArrayType(ast: IArrayType): t.TSArrayType {
+    return _tsArrayType(TSType(ast.elementType), ast.dimension);
+}
+
 type Kind<T extends ITypeType> = T["kind"];
 type TypeInTS<T extends ITypeType> =
     /**
@@ -162,6 +174,7 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<INumberType> ? t.TSNumberKeyword :
     Kind<T> extends Kind<IObjectType> ? t.TSTypeLiteral :
     Kind<T> extends Kind<ITupleType> ? t.TSTupleType :
+    Kind<T> extends Kind<IArrayType> ? t.TSArrayType :
     /**
      */
     Kind<T> extends Kind<ITypeReference> ? t.TSTypeReference :
@@ -191,6 +204,7 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         case "NumberType": return t.tsNumberKeyword();
         case "ObjectType": return tsTypeLiteral(ast);
         case "TupleType": return t.tsTupleType(ast.items.map(item => TSType(item)));
+        case "ArrayType": return tsArrayType(ast);
         /**
          */
         case "TypeReference": return t.tsTypeReference(Identifier(ast.typeName));
@@ -223,7 +237,7 @@ function assertNever(ast: never): never {
     throw new Error("Unexpected ast: " + JSON.stringify(ast, null, 4));
 }
 
-export const TypeLibFunction = {
+const TypeLibFunction = {
     Object: {
         // Merge: "object$merge",
         Assign: "object$assign",

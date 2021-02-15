@@ -57,6 +57,16 @@ describe("ts-type", () => {
         return code;
     }
 
+    test("ArrayType", () => {
+        const name = "ArrayType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("ArrayType: deep", () => {
+        const name = "ArrayType-Deep";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("IndexType", () => {
         const name = "IndexType";
         expect(toCode(name)).toMatchSnapshot();
