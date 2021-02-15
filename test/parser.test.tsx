@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, UnionType, KeyOfType } from "../src";
+import { IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, UnionType, KeyOfType, ArrayType, TypeExpression } from "../src";
 import { saveAST, loadType } from "./common";
 
 test("Identifier", () => {
@@ -442,9 +442,23 @@ test("IndexType", () => {
 })
 
 test("IndexType: deep", () => {
-    const parser = ReactPeg.render(<IndexType />);
+    const parser = ReactPeg.render(<TypeExpression />);
     const ast = parser.parse(`obj["a"][2]`);
     saveAST(ast, "IndexType-Deep.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("ArrayType", () => {
+    const parser = ReactPeg.render(<ArrayType />);
+    const ast = parser.parse(`string[]`);
+    saveAST(ast, "ArrayType.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("ArrayType: deep", () => {
+    const parser = ReactPeg.render(<TypeExpression />);
+    const ast = parser.parse(`string[][]`);
+    saveAST(ast, "ArrayType-Deep.json");
     expect(ast).toMatchSnapshot();
 })
 

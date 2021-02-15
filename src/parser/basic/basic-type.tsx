@@ -11,10 +11,12 @@ export type IBasicType =
     | INumberType
     | IObjectType
     | ITupleType
+    | IArrayType
 
 export function BasicType() {
     return (
         <or>
+            <ArrayType />
             <NeverType />
             <NumberType />
             <StringType />
@@ -410,6 +412,38 @@ export function TypeReference() {
     return (
         <pattern action={action}>
             <Identifier label="typeName" />
+        </pattern>
+    )
+}
+
+export interface IArrayType {
+    kind: "ArrayType"
+    elementType: ITypeExpression
+    dimension: number
+}
+
+function ArrayElementType() {
+    const basicType = BasicType();
+    basicType.children = basicType.children.filter((child: { rule: Function }) => child.rule !== ArrayType);
+    return basicType;
+}
+
+export function ArrayType() {
+    const action = ({ elementType, members }): IArrayType => {
+        return {
+            kind: "ArrayType",
+            elementType,
+            dimension: members.length
+        }
+    }
+
+    return (
+        <pattern action={action}>
+            <ArrayElementType label="elementType" />
+            <repeat type="+" label="members">
+                {Text("[")}
+                {Text("]")}
+            </repeat>
         </pattern>
     )
 }
