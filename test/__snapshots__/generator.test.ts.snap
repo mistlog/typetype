@@ -10,6 +10,13 @@ exports[`declaration TypeVariableDeclaration: conditional type 1`] = `"type resu
 
 exports[`declaration TypeVariableDeclaration: export 1`] = `"export type result = string;"`;
 
+exports[`declaration TypeVariableDeclaration: keyof 1`] = `
+"type result = keyof {
+  a: 1;
+  b: 2;
+};"
+`;
+
 exports[`examples _isNumberString 1`] = `"type _isNumberString<text> = text extends \\"\\" ? true : text extends \`\${infer digit}\${infer rest}\` ? digit extends Digit ? _isNumberString<rest> : false : false;"`;
 
 exports[`examples isNumberString 1`] = `"type isNumberString<text> = text extends \\"\\" ? never : _isNumberString<text>;"`;

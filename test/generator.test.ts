@@ -28,6 +28,12 @@ describe("declaration", () => {
         expect(generateCode(tsAST)).toMatchSnapshot();
     })
 
+    test("TypeVariableDeclaration: keyof", () => {
+        const ast = loadAST(`TypeVariableDeclaration-KeyOf.json`) as ITypeVariableDeclaration;
+        const tsAST = TSTypeAliasDeclaration(ast);
+        expect(generateCode(tsAST)).toMatchSnapshot();
+    })
+
     test("TypeFunctionDeclaration", () => {
         const ast = loadAST(`TypeFunctionDeclaration.json`) as ITypeFunctionDeclaration;
         const tsAST = TSTypeAliasDeclarationWithParams(ast);

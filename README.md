@@ -98,6 +98,7 @@ type bool = true
 type tuple = [1,2,3]
 type obj = { a: 1, b: "abc"}
 type template = `value is: ${value}`
+type keys = keyof { a: 1, b: 2 }
 ```
 
 ### Complex type

@@ -181,6 +181,39 @@ Object {
 
 exports[`InferType 2`] = `"Expected InferType but \\"i\\" found."`;
 
+exports[`KeyOfType 1`] = `
+Object {
+  "kind": "KeyOfType",
+  "operand": Object {
+    "kind": "ObjectType",
+    "props": Array [
+      Object {
+        "kind": "TypeObjectProperty",
+        "name": Object {
+          "kind": "Identifier",
+          "name": "a",
+        },
+        "value": Object {
+          "kind": "NumberTypeLiteral",
+          "value": 1,
+        },
+      },
+      Object {
+        "kind": "TypeObjectProperty",
+        "name": Object {
+          "kind": "Identifier",
+          "name": "b",
+        },
+        "value": Object {
+          "kind": "NumberTypeLiteral",
+          "value": 2,
+        },
+      },
+    ],
+  },
+}
+`;
+
 exports[`ObjectType 1`] = `
 Object {
   "kind": "ObjectType",
@@ -291,6 +324,39 @@ Object {
       },
     },
   ],
+}
+`;
+
+exports[`OperatorType: keyof 1`] = `
+Object {
+  "kind": "KeyOfType",
+  "operand": Object {
+    "kind": "ObjectType",
+    "props": Array [
+      Object {
+        "kind": "TypeObjectProperty",
+        "name": Object {
+          "kind": "Identifier",
+          "name": "a",
+        },
+        "value": Object {
+          "kind": "NumberTypeLiteral",
+          "value": 1,
+        },
+      },
+      Object {
+        "kind": "TypeObjectProperty",
+        "name": Object {
+          "kind": "Identifier",
+          "name": "b",
+        },
+        "value": Object {
+          "kind": "NumberTypeLiteral",
+          "value": 2,
+        },
+      },
+    ],
+  },
 }
 `;
 
@@ -1239,6 +1305,50 @@ Object {
     },
   },
   "export": true,
+  "kind": "TypeVariableDeclaration",
+}
+`;
+
+exports[`TypeVariableDeclaration: keyof 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "kind": "KeyOfType",
+      "operand": Object {
+        "kind": "ObjectType",
+        "props": Array [
+          Object {
+            "kind": "TypeObjectProperty",
+            "name": Object {
+              "kind": "Identifier",
+              "name": "a",
+            },
+            "value": Object {
+              "kind": "NumberTypeLiteral",
+              "value": 1,
+            },
+          },
+          Object {
+            "kind": "TypeObjectProperty",
+            "name": Object {
+              "kind": "Identifier",
+              "name": "b",
+            },
+            "value": Object {
+              "kind": "NumberTypeLiteral",
+              "value": 2,
+            },
+          },
+        ],
+      },
+    },
+    "kind": "TypeVariableDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "result",
+    },
+  },
+  "export": false,
   "kind": "TypeVariableDeclaration",
 }
 `;

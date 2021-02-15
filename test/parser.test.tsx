@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, UnionType } from "../src";
+import { OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, UnionType, KeyOfType } from "../src";
 import { saveAST, loadType } from "./common";
 
 test("Identifier", () => {
@@ -134,6 +134,15 @@ test("TypeVariableDeclaration: export", () => {
         export type result = string
     `);
     saveAST(ast, "TypeVariableDeclaration-Export.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("TypeVariableDeclaration: keyof", () => {
+    const parser = ReactPeg.render(<TypeVariableDeclaration />);
+    const ast = parser.parse(`
+        type result = keyof {a:1, b:2}
+    `);
+    saveAST(ast, "TypeVariableDeclaration-KeyOf.json");
     expect(ast).toMatchSnapshot();
 })
 
@@ -408,6 +417,20 @@ test("UnionType", () => {
     const parser = ReactPeg.render(<UnionType />);
     const ast = parser.parse(`| "0" | "1"`);
     saveAST(ast, "UnionType.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("KeyOfType", () => {
+    const parser = ReactPeg.render(<KeyOfType />);
+    const ast = parser.parse(`keyof {a:1, b:2}`);
+    saveAST(ast, "KeyOfType.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("OperatorType: keyof", () => {
+    const parser = ReactPeg.render(<OperatorType />);
+    const ast = parser.parse(`keyof {a:1, b:2}`);
+    saveAST(ast, "OperatorType.json");
     expect(ast).toMatchSnapshot();
 })
 
