@@ -9,7 +9,6 @@ export type IBasicType =
     | IStringType
     | INeverType
     | INumberType
-    | IStringType
     | IObjectType
     | ITupleType
 

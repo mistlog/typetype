@@ -79,7 +79,66 @@ type function _isNumberString = (text) => ^{
 }
 ```
 
+## Syntax
+
 This project is still primitive, PR is welcomed, feel free to open issues and join us!
+
+### Basic type
+
+```ts
+type a = never
+type b = number
+type c = string
+```
+
+```ts
+type value = 1
+type str = "abc"
+type bool = true
+type tuple = [1,2,3]
+type obj = { a: 1, b: "abc"}
+type template = `value is: ${value}`
+```
+
+### Complex type
+
+```ts
+// conditional type
+type conditional = ^{
+    if(1 extends string) {
+        return "string"
+    } else {
+        return "number"
+    }
+}
+
+// nested conditional type
+type conditional2 = ^{
+    if(1 extends string) {
+        return "string"
+    } else {
+        return ^{
+            if(1 extends 1) {
+                return "is 1"
+            } else {
+                return "not 1"
+            }
+        }
+    }
+}
+```
+
+### Generic
+
+```ts
+type function Foo = (T) => ^{
+    if(T extends {a: infer U, b: infer U}) {
+        return U
+    } else {
+        return never
+    }
+}
+```
 
 ## How it works?
 
