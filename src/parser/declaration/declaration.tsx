@@ -7,20 +7,26 @@ import { TypeExpression, ITypeExpression, ITypeArrowFunctionExpression, TypeArro
 export interface ITypeFunctionDeclaration {
     kind: "TypeFunctionDeclaration"
     declarator: ITypeFunctionDeclarator
+    export: boolean
 }
 
 export type IDeclarator = ITypeFunctionDeclarator | ITypeVariableDeclarator;
+export type IDeclaration = ITypeVariableDeclaration | ITypeFunctionDeclaration;
 
 export function TypeFunctionDeclaration() {
-    const action = ({ declarator }) => {
+    const action = ({ declarator, _export }): ITypeFunctionDeclaration => {
         return {
             kind: "TypeFunctionDeclaration",
-            declarator
+            declarator,
+            export: Boolean(_export)
         }
     }
 
     return (
         <pattern action={action}>
+            <opt label="_export">
+                {Text("export")}
+            </opt>
             {Text("type")}
             {Text("function")}
             <TypeFunctionDeclarator label="declarator" />
@@ -57,18 +63,23 @@ export function TypeFunctionDeclarator() {
 export interface ITypeVariableDeclaration {
     kind: "TypeVariableDeclaration"
     declarator: ITypeVariableDeclarator
+    export: boolean
 }
 
 export function TypeVariableDeclaration() {
-    const action = ({ declarator }) => {
+    const action = ({ declarator, _export }): ITypeVariableDeclaration => {
         return {
             kind: "TypeVariableDeclaration",
-            declarator
+            declarator,
+            export: Boolean(_export)
         }
     }
 
     return (
         <pattern action={action}>
+            <opt label="_export">
+                {Text("export")}
+            </opt>
             {Text("type")}
             <TypeVariableDeclarator label="declarator" />
         </pattern>

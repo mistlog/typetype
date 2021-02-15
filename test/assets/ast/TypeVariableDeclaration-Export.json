@@ -11,5 +11,5 @@
             "value": "string"
         }
     },
-    "export": false
+    "export": true
 }

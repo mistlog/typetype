@@ -2,9 +2,13 @@
 
 exports[`declaration TypeFunctionDeclaration 1`] = `"type TypeName<T> = T extends string ? \\"string\\" : \\"number\\";"`;
 
+exports[`declaration TypeFunctionDeclaration: export 1`] = `"export type TypeName<T> = T extends string ? \\"string\\" : \\"number\\";"`;
+
 exports[`declaration TypeVariableDeclaration 1`] = `"type result = string;"`;
 
 exports[`declaration TypeVariableDeclaration: conditional type 1`] = `"type result = string extends string ? string : number;"`;
+
+exports[`declaration TypeVariableDeclaration: export 1`] = `"export type result = string;"`;
 
 exports[`examples _isNumberString 1`] = `"type _isNumberString<text> = text extends \\"\\" ? true : text extends \`\${infer digit}\${infer rest}\` ? digit extends Digit ? _isNumberString<rest> : false : false;"`;
 

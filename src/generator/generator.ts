@@ -1,12 +1,12 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, IDeclarator, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
         switch (each.kind) {
-            case "TypeVariableDeclaration": return TSTypeAliasDeclaration(each.declarator);
-            case "TypeFunctionDeclaration": return TSTypeAliasDeclarationWithParams(each.declarator);
+            case "TypeVariableDeclaration": return TSTypeAliasDeclaration(each);
+            case "TypeFunctionDeclaration": return TSTypeAliasDeclarationWithParams(each);
             default:
                 assertNever(each);
         }
@@ -17,17 +17,26 @@ export function TSFile(ast: ITypeFile): t.File {
 
 export type ITypeType = ITypeExpression
 
-export function TSTypeAliasDeclarationWithParams(ast: ITypeFunctionDeclarator): t.TSTypeAliasDeclaration {
-    const type = TSTypeAliasDeclaration(ast);
-    const params = ast.initializer.params.map((param) =>
+export function TSTypeAliasDeclarationWithParams(ast: ITypeFunctionDeclaration): t.TSTypeAliasDeclaration | t.ExportNamedDeclaration {
+    const _type = TSTypeAliasDeclaration(ast);
+    const type = t.isExportNamedDeclaration(_type) ? _type.declaration as t.TSTypeAliasDeclaration : _type;
+    const params = ast.declarator.initializer.params.map((param) =>
         t.tSTypeParameter(null, null, (param as ITypeReference).typeName.name)
     );
+
     type.typeParameters = t.tsTypeParameterDeclaration(params);
-    return type;
+    return _type;
 }
 
-export function TSTypeAliasDeclaration(ast: IDeclarator): t.TSTypeAliasDeclaration {
-    return t.tsTypeAliasDeclaration(Identifier(ast.name), null, TSType(ast.initializer));
+export function TSTypeAliasDeclaration(ast: IDeclaration): t.TSTypeAliasDeclaration | t.ExportNamedDeclaration {
+    const declarator = ast.declarator;
+    const declaraion = t.tsTypeAliasDeclaration(Identifier(declarator.name), null, TSType(declarator.initializer));
+
+    if(ast.export) {
+        return t.exportNamedDeclaration(declaraion);
+    } else {
+        return declaraion;
+    }
 }
 
 export function tsConditionalType(ast: ITypeIfStatement): t.TSConditionalType {

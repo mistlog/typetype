@@ -12,19 +12,31 @@ describe("type file", () => {
 describe("declaration", () => {
     test("TypeVariableDeclaration", () => {
         const ast = loadAST(`TypeVariableDeclaration.json`) as ITypeVariableDeclaration;
-        const tsAST = TSTypeAliasDeclaration(ast.declarator);
+        const tsAST = TSTypeAliasDeclaration(ast);
         expect(generateCode(tsAST)).toMatchSnapshot();
     })
 
     test("TypeVariableDeclaration: conditional type", () => {
         const ast = loadAST(`TypeVariableDeclaration-ConditionalType.json`) as ITypeVariableDeclaration;
-        const tsAST = TSTypeAliasDeclaration(ast.declarator);
+        const tsAST = TSTypeAliasDeclaration(ast);
+        expect(generateCode(tsAST)).toMatchSnapshot();
+    })
+
+    test("TypeVariableDeclaration: export", () => {
+        const ast = loadAST(`TypeVariableDeclaration-Export.json`) as ITypeVariableDeclaration;
+        const tsAST = TSTypeAliasDeclaration(ast);
         expect(generateCode(tsAST)).toMatchSnapshot();
     })
 
     test("TypeFunctionDeclaration", () => {
         const ast = loadAST(`TypeFunctionDeclaration.json`) as ITypeFunctionDeclaration;
-        const tsAST = TSTypeAliasDeclarationWithParams(ast.declarator);
+        const tsAST = TSTypeAliasDeclarationWithParams(ast);
+        expect(generateCode(tsAST)).toMatchSnapshot();
+    })
+
+    test("TypeFunctionDeclaration: export", () => {
+        const ast = loadAST(`TypeFunctionDeclaration-Export.json`) as ITypeFunctionDeclaration;
+        const tsAST = TSTypeAliasDeclarationWithParams(ast);
         expect(generateCode(tsAST)).toMatchSnapshot();
     })
 })
@@ -43,7 +55,7 @@ describe("ts-type", () => {
         const name = "UnionType";
         expect(toCode(name)).toMatchSnapshot();
     })
-    
+
     test("TypeArrowFunctionExpression", () => {
         const name = "TypeArrowFunctionExpression";
         expect(toCode(name)).toMatchSnapshot();
@@ -98,7 +110,7 @@ describe("ts-type", () => {
 describe("examples", () => {
     function toCode(name: string) {
         const ast = loadAST(`${name}.json`) as ITypeFunctionDeclaration;
-        const tsAST = TSTypeAliasDeclarationWithParams(ast.declarator);
+        const tsAST = TSTypeAliasDeclarationWithParams(ast);
         const code = generateCode(tsAST);
         saveCode(code, `${name}`)
         return code;

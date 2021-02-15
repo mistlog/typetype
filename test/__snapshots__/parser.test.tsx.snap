@@ -706,6 +706,7 @@ Object {
           "name": "temp",
         },
       },
+      "export": false,
       "kind": "TypeVariableDeclaration",
     },
     Object {
@@ -747,6 +748,7 @@ Object {
           "name": "func",
         },
       },
+      "export": false,
       "kind": "TypeFunctionDeclaration",
     },
   ],
@@ -809,6 +811,67 @@ Object {
       "name": "TypeName",
     },
   },
+  "export": false,
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`TypeFunctionDeclaration: export 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "number",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "T",
+              },
+            },
+            "extendsType": Object {
+              "kind": "StringType",
+              "value": "string",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "string",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "T",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "TypeName",
+    },
+  },
+  "export": true,
   "kind": "TypeFunctionDeclaration",
 }
 `;
@@ -893,6 +956,7 @@ Object {
       "name": "ParseProtocol",
     },
   },
+  "export": false,
   "kind": "TypeFunctionDeclaration",
 }
 `;
@@ -955,6 +1019,7 @@ Object {
       "name": "ParseURL",
     },
   },
+  "export": false,
   "kind": "TypeFunctionDeclaration",
 }
 `;
@@ -1106,6 +1171,7 @@ Object {
       "name": "result",
     },
   },
+  "export": false,
   "kind": "TypeVariableDeclaration",
 }
 `;
@@ -1154,6 +1220,25 @@ Object {
       "name": "result",
     },
   },
+  "export": false,
+  "kind": "TypeVariableDeclaration",
+}
+`;
+
+exports[`TypeVariableDeclaration: export 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "kind": "StringType",
+      "value": "string",
+    },
+    "kind": "TypeVariableDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "result",
+    },
+  },
+  "export": true,
   "kind": "TypeVariableDeclaration",
 }
 `;
@@ -1322,6 +1407,7 @@ Object {
       "name": "_isNumberString",
     },
   },
+  "export": false,
   "kind": "TypeFunctionDeclaration",
 }
 `;
@@ -1396,6 +1482,7 @@ Object {
       "name": "isNumberString",
     },
   },
+  "export": false,
   "kind": "TypeFunctionDeclaration",
 }
 `;
@@ -1550,6 +1637,7 @@ Object {
       "name": "parseAuthority",
     },
   },
+  "export": false,
   "kind": "TypeFunctionDeclaration",
 }
 `;
@@ -1720,6 +1808,7 @@ Object {
       "name": "parseHost",
     },
   },
+  "export": false,
   "kind": "TypeFunctionDeclaration",
 }
 `;
@@ -1794,6 +1883,7 @@ Object {
       "name": "parsePort",
     },
   },
+  "export": false,
   "kind": "TypeFunctionDeclaration",
 }
 `;
@@ -1905,6 +1995,7 @@ Object {
       "name": "parseProtocol",
     },
   },
+  "export": false,
   "kind": "TypeFunctionDeclaration",
 }
 `;
@@ -2024,6 +2115,7 @@ Object {
       "name": "parseURL",
     },
   },
+  "export": false,
   "kind": "TypeFunctionDeclaration",
 }
 `;
@@ -2139,6 +2231,7 @@ Object {
       "name": "parseURL",
     },
   },
+  "export": false,
   "kind": "TypeFunctionDeclaration",
 }
 `;
@@ -2267,6 +2360,7 @@ Object {
       "name": "parseUserInfo",
     },
   },
+  "export": false,
   "kind": "TypeFunctionDeclaration",
 }
 `;

@@ -128,6 +128,15 @@ test("TypeVariableDeclaration", () => {
     expect(ast).toMatchSnapshot();
 })
 
+test("TypeVariableDeclaration: export", () => {
+    const parser = ReactPeg.render(<TypeVariableDeclaration />);
+    const ast = parser.parse(`
+        export type result = string
+    `);
+    saveAST(ast, "TypeVariableDeclaration-Export.json");
+    expect(ast).toMatchSnapshot();
+})
+
 // type result<> = ...
 test("TypeVariableDeclaration: conditional type", () => {
     const parser = ReactPeg.render(<TypeVariableDeclaration />);
@@ -156,6 +165,7 @@ test("TypeIfStatement", () => {
     saveAST(ast, "TypeIfStatement.json");
     expect(ast).toMatchSnapshot();
 })
+
 test("TypeFunctionDeclaration", () => {
     const parser = ReactPeg.render(<TypeFunctionDeclaration />);
     const ast = parser.parse(`
@@ -168,6 +178,21 @@ test("TypeFunctionDeclaration", () => {
         }
     `);
     saveAST(ast, "TypeFunctionDeclaration.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("TypeFunctionDeclaration: export", () => {
+    const parser = ReactPeg.render(<TypeFunctionDeclaration />);
+    const ast = parser.parse(`
+        export type function TypeName = (T) => ^{
+            if(T extends string) {
+                return "string"
+            } else {
+                return "number"
+            }
+        }
+    `);
+    saveAST(ast, "TypeFunctionDeclaration-Export.json");
     expect(ast).toMatchSnapshot();
 })
 
