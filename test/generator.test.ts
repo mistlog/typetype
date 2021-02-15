@@ -57,6 +57,16 @@ describe("ts-type", () => {
         return code;
     }
 
+    test("IndexType", () => {
+        const name = "IndexType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("IndexType: deep", () => {
+        const name = "IndexType-Deep";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("UnionType", () => {
         const name = "UnionType";
         expect(toCode(name)).toMatchSnapshot();

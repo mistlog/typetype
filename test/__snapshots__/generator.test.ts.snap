@@ -76,6 +76,10 @@ exports[`ts-type ConditionalTypeExpression 1`] = `"string extends string ? \\"st
 
 exports[`ts-type ConditionalTypeExpression: 2 1`] = `"T extends string ? \\"string\\" : T extends number ? \\"number\\" : never"`;
 
+exports[`ts-type IndexType 1`] = `"obj[\\"a\\"]"`;
+
+exports[`ts-type IndexType: deep 1`] = `"obj[\\"a\\"][2]"`;
+
 exports[`ts-type ObjectType 1`] = `
 "{
   a: number;
