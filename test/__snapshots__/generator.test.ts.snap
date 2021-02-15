@@ -72,6 +72,10 @@ exports[`examples parseUserInfo 1`] = `
 };"
 `;
 
+exports[`ts-type ArrayType 1`] = `"string[]"`;
+
+exports[`ts-type ArrayType: deep 1`] = `"string[][]"`;
+
 exports[`ts-type ConditionalTypeExpression 1`] = `"string extends string ? \\"string\\" : \\"number\\""`;
 
 exports[`ts-type ConditionalTypeExpression: 2 1`] = `"T extends string ? \\"string\\" : T extends number ? \\"number\\" : never"`;
