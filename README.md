@@ -88,20 +88,21 @@ This project is still primitive, PR is welcomed, feel free to open issues and jo
 ### Basic type
 
 ```ts
-type a = never;
-type b = number;
-type c = string;
+type a = never
+type b = number
+type c = string
 ```
 
 ```ts
-type value = 1;
-type str = "abc";
-type bool = true;
-type tuple = [1, 2, 3];
-type obj = { a: 1; b: "abc"; c: [1, 2] };
-type template = `value is: ${value}`;
-type keys = keyof { a: 1; b: 2 };
-type valueDeep = obj["c"][1];
+type value = 1
+type str = "abc"
+type bool = true
+type tuple = [1, 2, 3]
+type obj = { a: 1; b: "abc"; c: [1, 2] }
+type template = `value is: ${value}`
+type keys = keyof { a: 1; b: 2 }
+type valueDeep = obj["c"][1]
+type array = string[][]
 ```
 
 ### Complex type
