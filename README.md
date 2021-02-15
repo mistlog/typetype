@@ -2,11 +2,34 @@
 
 TypeType is designed to generate complex typescript type with ease.
 
-## Get started & Examples
+## Usage
+
+```bash
+> npm i -D @mistlog/typetype
+```
+
+```ts
+import { transform } from "@mistlog/typetype";
+
+const input = `
+    type function TypeName = (T) => ^{
+        if(T extends string) {
+            return "string"
+        } else {
+            return "number"
+        }
+    }
+`;
+const output = transform(input).code;
+console.log(output); 
+// output: type TypeName<T> = T extends string ? "string" : "number";
+```
+
+## Examples
 
 * repo: https://github.com/mistlog/typetype-examples
 
-In [url-parser](https://github.com/mistlog/typetype-examples/blob/main/examples/url-parser/url-parser.type) example, the `function parseURL` will be translated to generic type `parseURL<text>` in typescript:
+In the [url-parser](https://github.com/mistlog/typetype-examples/blob/main/examples/url-parser/url-parser.type) example, `function parseURL` will be translated to generic type `parseURL<text>` in typescript:
 
 ```ts
 // input
