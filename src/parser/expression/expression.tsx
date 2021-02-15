@@ -3,11 +3,12 @@ import { _, Text } from "../common";
 import { IBasicType, BasicType, ITypeReference, TypeReference, IIdentifier, Identifier } from "../basic";
 import { ITypeIfStatement, TypeIfStatement } from "../statement";
 
-export type ITypeExpression = IBasicType | ITypeReference | ITypeCallExpression | IInferType | ITypeArrowFunctionExpression | IConditionalTypeExpression | IUnionType
+export type ITypeExpression = IBasicType | ITypeReference | ITypeCallExpression | IInferType | ITypeArrowFunctionExpression | IConditionalTypeExpression | IUnionType | IOperatorType
 
 export function TypeExpression() {
     return (
         <or>
+            <OperatorType />
             <UnionType />
             <ConditionalTypeExpression />
             <TypeArrowFunctionExpression />
@@ -167,6 +168,35 @@ export function UnionType() {
                     <TypeExpression label="type" />
                 </pattern>
             </repeat>
+        </pattern>
+    )
+}
+
+export type IOperatorType = IKeyOfType
+
+export function OperatorType() {
+    return (
+        <KeyOfType />
+    )
+}
+
+export interface IKeyOfType {
+    kind: "KeyOfType"
+    operand: ITypeExpression
+}
+
+export function KeyOfType() {
+    const action = ({ operand }): IKeyOfType => {
+        return {
+            kind: "KeyOfType",
+            operand
+        }
+    }
+
+    return (
+        <pattern action={action}>
+            {Text("keyof")}
+            <TypeExpression label="operand" />
         </pattern>
     )
 }

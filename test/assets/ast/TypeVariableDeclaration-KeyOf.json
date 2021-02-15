@@ -1,0 +1,41 @@
+{
+    "kind": "TypeVariableDeclaration",
+    "declarator": {
+        "kind": "TypeVariableDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "result"
+        },
+        "initializer": {
+            "kind": "KeyOfType",
+            "operand": {
+                "kind": "ObjectType",
+                "props": [
+                    {
+                        "kind": "TypeObjectProperty",
+                        "name": {
+                            "kind": "Identifier",
+                            "name": "a"
+                        },
+                        "value": {
+                            "kind": "NumberTypeLiteral",
+                            "value": 1
+                        }
+                    },
+                    {
+                        "kind": "TypeObjectProperty",
+                        "name": {
+                            "kind": "Identifier",
+                            "name": "b"
+                        },
+                        "value": {
+                            "kind": "NumberTypeLiteral",
+                            "value": 2
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "export": false
+}

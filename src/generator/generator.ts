@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -32,7 +32,7 @@ export function TSTypeAliasDeclaration(ast: IDeclaration): t.TSTypeAliasDeclarat
     const declarator = ast.declarator;
     const declaraion = t.tsTypeAliasDeclaration(Identifier(declarator.name), null, TSType(declarator.initializer));
 
-    if(ast.export) {
+    if (ast.export) {
         return t.exportNamedDeclaration(declaraion);
     } else {
         return declaraion;
@@ -151,6 +151,8 @@ type TypeInTS<T extends ITypeType> =
      */
     Kind<T> extends Kind<ITypeReference> ? t.TSTypeReference :
     Kind<T> extends Kind<IInferType> ? t.TSInferType :
+    Kind<T> extends Kind<IUnionType> ? t.TSUnionType :
+    Kind<T> extends Kind<IKeyOfType> ? t.TSTypeOperator :
     Kind<T> extends Kind<ITypeArrowFunctionExpression> ? t.TSConditionalType :
     Kind<T> extends Kind<IConditionalTypeExpression> ? t.TSConditionalType :
     Kind<T> extends Kind<ITypeCallExpression> ? t.TSConditionalType : t.TSType;
@@ -186,7 +188,10 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         }
         case "ConditionalTypeExpression": return tsConditionalType(ast.body);
         case "UnionType": return t.tsUnionType(ast.types.map(each => TSType(each)));
-
+        case "KeyOfType": return {
+            ...t.tsTypeOperator(TSType(ast.operand)),
+            operator: "keyof"
+        } as t.TSTypeOperator; /** TODO: use t.tsTypeOperator to create it */
         default:
             return assertNever(ast);
     }
