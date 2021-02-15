@@ -3,12 +3,22 @@ import { _, Text } from "../common";
 import { IBasicType, BasicType, ITypeReference, TypeReference, IIdentifier, Identifier } from "../basic";
 import { ITypeIfStatement, TypeIfStatement } from "../statement";
 
-export type ITypeExpression = IBasicType | ITypeReference | ITypeCallExpression | IInferType | ITypeArrowFunctionExpression | IConditionalTypeExpression | IUnionType | IOperatorType
+export type ITypeExpression =
+    | IBasicType
+    | ITypeReference
+    | ITypeCallExpression
+    | IInferType
+    | ITypeArrowFunctionExpression
+    | IConditionalTypeExpression
+    | IUnionType
+    | IOperatorType
+    | IIndexType
 
 export function TypeExpression() {
     return (
         <or>
             <OperatorType />
+            <IndexType />
             <UnionType />
             <ConditionalTypeExpression />
             <TypeArrowFunctionExpression />
@@ -197,6 +207,41 @@ export function KeyOfType() {
         <pattern action={action}>
             {Text("keyof")}
             <TypeExpression label="operand" />
+        </pattern>
+    )
+}
+
+export interface IIndexType {
+    kind: "IndexType"
+    head: ITypeExpression
+    members: ITypeExpression[]
+}
+
+function IndexTypeHead() {
+    const typeExpression = TypeExpression();
+    typeExpression.children = typeExpression.children.filter((child: { rule: Function }) => child.rule !== IndexType);
+    return typeExpression;
+}
+
+export function IndexType() {
+    const action = ({ head, members }): IIndexType => {
+        return {
+            kind: "IndexType",
+            head,
+            members
+        }
+    }
+
+    return (
+        <pattern action={action}>
+            <IndexTypeHead label="head" />
+            <repeat type="+" label="members">
+                <pattern action={({ indexType }) => indexType}>
+                    {Text("[")}
+                    <TypeExpression label="indexType" />
+                    {Text("]")}
+                </pattern>
+            </repeat>
         </pattern>
     )
 }

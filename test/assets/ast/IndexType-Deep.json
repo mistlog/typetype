@@ -1,0 +1,20 @@
+{
+    "kind": "IndexType",
+    "head": {
+        "kind": "TypeReference",
+        "typeName": {
+            "kind": "Identifier",
+            "name": "obj"
+        }
+    },
+    "members": [
+        {
+            "kind": "StringTypeLiteral",
+            "value": "a"
+        },
+        {
+            "kind": "NumberTypeLiteral",
+            "value": 2
+        }
+    ]
+}
