@@ -21,13 +21,13 @@ const input = `
     }
 `;
 const output = transform(input).code;
-console.log(output); 
+console.log(output);
 // output: type TypeName<T> = T extends string ? "string" : "number";
 ```
 
 ## Examples
 
-* repo: https://github.com/mistlog/typetype-examples
+- repo: https://github.com/mistlog/typetype-examples
 
 In the [url-parser](https://github.com/mistlog/typetype-examples/blob/main/examples/url-parser/url-parser.type) example, `function parseURL` will be translated to generic type `parseURL<text>` in typescript:
 
@@ -47,13 +47,15 @@ type function parseURL = (text) => ^{
 
 ```ts
 // output
-type parseURL<text> = parseProtocol<text> extends [infer protocol, infer rest] ? {
-  protocol: protocol;
-  rest: rest;
-} : never;
+type parseURL<text> = parseProtocol<text> extends [infer protocol, infer rest]
+  ? {
+      protocol: protocol;
+      rest: rest;
+    }
+  : never;
 ```
 
-Conditional type is presented in this way: 
+Conditional type is presented in this way:
 
 ```ts
 ^{ if ... else ...}
@@ -86,19 +88,20 @@ This project is still primitive, PR is welcomed, feel free to open issues and jo
 ### Basic type
 
 ```ts
-type a = never
-type b = number
-type c = string
+type a = never;
+type b = number;
+type c = string;
 ```
 
 ```ts
-type value = 1
-type str = "abc"
-type bool = true
-type tuple = [1,2,3]
-type obj = { a: 1, b: "abc"}
-type template = `value is: ${value}`
-type keys = keyof { a: 1, b: 2 }
+type value = 1;
+type str = "abc";
+type bool = true;
+type tuple = [1, 2, 3];
+type obj = { a: 1; b: "abc"; c: [1, 2] };
+type template = `value is: ${value}`;
+type keys = keyof { a: 1; b: 2 };
+type valueDeep = obj["c"][1];
 ```
 
 ### Complex type

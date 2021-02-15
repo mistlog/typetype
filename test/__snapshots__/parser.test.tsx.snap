@@ -169,6 +169,48 @@ Object {
 }
 `;
 
+exports[`IndexType 1`] = `
+Object {
+  "head": Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "obj",
+    },
+  },
+  "kind": "IndexType",
+  "members": Array [
+    Object {
+      "kind": "StringTypeLiteral",
+      "value": "a",
+    },
+  ],
+}
+`;
+
+exports[`IndexType: deep 1`] = `
+Object {
+  "head": Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "obj",
+    },
+  },
+  "kind": "IndexType",
+  "members": Array [
+    Object {
+      "kind": "StringTypeLiteral",
+      "value": "a",
+    },
+    Object {
+      "kind": "NumberTypeLiteral",
+      "value": 2,
+    },
+  ],
+}
+`;
+
 exports[`InferType 1`] = `
 Object {
   "kind": "InferType",

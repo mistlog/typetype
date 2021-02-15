@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -132,8 +132,23 @@ function templateLiteral(ast: ITemplateTypeLiteral): t.TemplateLiteral {
     return t.templateLiteral(quasis, expressions);
 }
 
-type Kind<T extends ITypeType> = T["kind"];
+function tsIndexedAccessType(head: ITypeExpression, members: ITypeExpression[]): t.TSIndexedAccessType {
+    const indexType = TSType(members[members.length - 1]);
+    if (members.length === 1) {
+        const type = t.tsIndexedAccessType(TSType(head), indexType);
+        return type;
+    } else {
+        const rest = members.slice(0, members.length - 1);
+        const objectType = tsIndexedAccessType(head, rest);
+        return t.tsIndexedAccessType(objectType, indexType);
+    }
+}
 
+function tsIndexType(ast: IIndexType): t.TSIndexedAccessType {
+    return tsIndexedAccessType(ast.head, ast.members);
+}
+
+type Kind<T extends ITypeType> = T["kind"];
 type TypeInTS<T extends ITypeType> =
     /**
      */
@@ -153,6 +168,7 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<IInferType> ? t.TSInferType :
     Kind<T> extends Kind<IUnionType> ? t.TSUnionType :
     Kind<T> extends Kind<IKeyOfType> ? t.TSTypeOperator :
+    Kind<T> extends Kind<IIndexType> ? t.TSIndexedAccessType :
     Kind<T> extends Kind<ITypeArrowFunctionExpression> ? t.TSConditionalType :
     Kind<T> extends Kind<IConditionalTypeExpression> ? t.TSConditionalType :
     Kind<T> extends Kind<ITypeCallExpression> ? t.TSConditionalType : t.TSType;
@@ -192,6 +208,8 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
             ...t.tsTypeOperator(TSType(ast.operand)),
             operator: "keyof"
         } as t.TSTypeOperator; /** TODO: use t.tsTypeOperator to create it */
+        case "IndexType": return tsIndexType(ast);
+
         default:
             return assertNever(ast);
     }
