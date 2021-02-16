@@ -95,20 +95,30 @@ type c = string
 
 ```ts
 type value = 1
-type str = "abc"
 type bool = true
 type tuple = [1, 2, 3]
-type obj = { a: 1; b: "abc"; c: [1, 2] }
-type template = `value is: ${value}`
-type keys = keyof { a: 1; b: 2 }
-type valueDeep = obj["c"][1]
 type array = string[][]
+
+type str = "abc"
+type template = `value is: ${value}`
+
+type obj = { a: 1; b: "abc"; c: [1, 2] }
+type valueDeep = obj["c"][1]
+
+type keys = keyof { a: 1; b: 2 }
 ```
 
-### Complex type
+### Function type
 
 ```ts
-// conditional type
+type f1 = type () => void
+type f2 = type (a:number, b:string) => number
+type f3 = type () => type (a:number, b:string) => void
+```
+
+### Conditional type
+
+```ts
 type conditional = ^{
     if(1 extends string) {
         return "string"
@@ -116,8 +126,11 @@ type conditional = ^{
         return "number"
     }
 }
+```
 
-// nested conditional type
+nested: 
+
+```ts
 type conditional2 = ^{
     if(1 extends string) {
         return "string"
