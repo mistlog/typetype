@@ -1,0 +1,1 @@
+{ [K in Keys as `get${K}`]: () => string }
