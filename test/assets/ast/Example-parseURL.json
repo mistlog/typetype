@@ -14,7 +14,8 @@
                     "typeName": {
                         "kind": "Identifier",
                         "name": "text"
-                    }
+                    },
+                    "constraint": null
                 }
             ],
             "body": {
@@ -38,7 +39,8 @@
                                     "typeName": {
                                         "kind": "Identifier",
                                         "name": "text"
-                                    }
+                                    },
+                                    "constraint": null
                                 }
                             ]
                         },
@@ -94,7 +96,8 @@
                                                 "typeName": {
                                                     "kind": "Identifier",
                                                     "name": "rest"
-                                                }
+                                                },
+                                                "constraint": null
                                             }
                                         ]
                                     }

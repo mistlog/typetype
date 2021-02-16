@@ -173,6 +173,11 @@ describe("examples", () => {
         return code;
     }
 
+    test("pick", () => {
+        const name = "Example-pick";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("parseURL", () => {
         const name = "Example-parseURL";
         expect(toCode(name)).toMatchSnapshot();

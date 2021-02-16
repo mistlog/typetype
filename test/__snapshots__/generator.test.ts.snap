@@ -74,6 +74,8 @@ exports[`examples parseUserInfo 1`] = `
 };"
 `;
 
+exports[`examples pick 1`] = `"export type pick<T, Keys extends keyof T> = { [K in Keys]: T[K] };"`;
+
 exports[`ts-type ArrayType 1`] = `"string[]"`;
 
 exports[`ts-type ArrayType: deep 1`] = `"string[][]"`;

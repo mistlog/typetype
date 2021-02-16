@@ -1,0 +1,84 @@
+{
+    "kind": "TypeFunctionDeclaration",
+    "declarator": {
+        "kind": "TypeFunctionDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "pick"
+        },
+        "initializer": {
+            "kind": "TypeArrowFunctionExpression",
+            "params": [
+                {
+                    "kind": "TypeReference",
+                    "typeName": {
+                        "kind": "Identifier",
+                        "name": "T"
+                    },
+                    "constraint": null
+                },
+                {
+                    "kind": "TypeReference",
+                    "typeName": {
+                        "kind": "Identifier",
+                        "name": "Keys"
+                    },
+                    "constraint": {
+                        "kind": "KeyOfType",
+                        "operand": {
+                            "kind": "TypeReference",
+                            "typeName": {
+                                "kind": "Identifier",
+                                "name": "T"
+                            }
+                        }
+                    }
+                }
+            ],
+            "body": {
+                "kind": "MappedTypeExpression",
+                "body": {
+                    "kind": "TypeForInStatement",
+                    "key": {
+                        "kind": "Identifier",
+                        "name": "K"
+                    },
+                    "keys": {
+                        "kind": "TypeReference",
+                        "typeName": {
+                            "kind": "Identifier",
+                            "name": "Keys"
+                        }
+                    },
+                    "as": {
+                        "kind": "TypeReference",
+                        "typeName": {
+                            "kind": "Identifier",
+                            "name": "K"
+                        }
+                    },
+                    "value": {
+                        "kind": "IndexType",
+                        "head": {
+                            "kind": "TypeReference",
+                            "typeName": {
+                                "kind": "Identifier",
+                                "name": "T"
+                            }
+                        },
+                        "members": [
+                            {
+                                "kind": "TypeReference",
+                                "typeName": {
+                                    "kind": "Identifier",
+                                    "name": "K"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "export": true
+}

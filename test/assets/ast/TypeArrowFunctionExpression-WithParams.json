@@ -6,7 +6,8 @@
             "typeName": {
                 "kind": "Identifier",
                 "name": "T"
-            }
+            },
+            "constraint": null
         }
     ],
     "body": {
