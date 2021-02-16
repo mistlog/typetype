@@ -193,6 +193,21 @@ type function Foo = (T) => ^{
 }
 ```
 
+With constraint:
+
+* [examples/type-challenges/4-easy-pick](https://github.com/mistlog/typetype-examples/blob/main/examples/type-challenges/4-easy-pick.type)
+
+```ts
+export type function MyPick = (T, Keys extends keyof T) => ^{
+    for(K in Keys) {
+        return {
+            key: K,
+            value: T[K]
+        }
+    }
+}
+```
+
 ## How it works?
 
 It's `AST -> AST` transformation.
