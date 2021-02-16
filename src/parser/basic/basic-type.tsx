@@ -12,12 +12,14 @@ export type IBasicType =
     | IObjectType
     | ITupleType
     | IArrayType
+    | IVoidType
 
 export function BasicType() {
     return (
         <or>
             <ArrayType />
             <NeverType />
+            <VoidType />
             <NumberType />
             <StringType />
             <TupleType />
@@ -275,6 +277,25 @@ export function NeverType() {
     return (
         <pattern action={action}>
             {Text("never")}
+        </pattern>
+    )
+}
+
+export interface IVoidType {
+    kind: "VoidType"
+    value: "void"
+}
+
+export function VoidType() {
+    const action = () => {
+        return {
+            kind: "VoidType",
+            value: "void"
+        }
+    }
+    return (
+        <pattern action={action}>
+            {Text("void")}
         </pattern>
     )
 }

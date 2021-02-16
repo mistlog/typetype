@@ -184,6 +184,89 @@ Object {
 }
 `;
 
+exports[`FunctionType 1`] = `
+Object {
+  "kind": "FunctionType",
+  "params": Array [],
+  "returnType": Object {
+    "kind": "VoidType",
+    "value": "void",
+  },
+}
+`;
+
+exports[`FunctionType: nested 1`] = `
+Object {
+  "kind": "FunctionType",
+  "params": Array [],
+  "returnType": Object {
+    "kind": "FunctionType",
+    "params": Array [
+      Object {
+        "kind": "FunctionTypeParam",
+        "name": Object {
+          "kind": "Identifier",
+          "name": "a",
+        },
+        "type": Object {
+          "kind": "NumberType",
+          "value": "number",
+        },
+      },
+      Object {
+        "kind": "FunctionTypeParam",
+        "name": Object {
+          "kind": "Identifier",
+          "name": "b",
+        },
+        "type": Object {
+          "kind": "StringType",
+          "value": "string",
+        },
+      },
+    ],
+    "returnType": Object {
+      "kind": "VoidType",
+      "value": "void",
+    },
+  },
+}
+`;
+
+exports[`FunctionType: params 1`] = `
+Object {
+  "kind": "FunctionType",
+  "params": Array [
+    Object {
+      "kind": "FunctionTypeParam",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "a",
+      },
+      "type": Object {
+        "kind": "NumberType",
+        "value": "number",
+      },
+    },
+    Object {
+      "kind": "FunctionTypeParam",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "b",
+      },
+      "type": Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+    },
+  ],
+  "returnType": Object {
+    "kind": "NumberType",
+    "value": "number",
+  },
+}
+`;
+
 exports[`Identifier 1`] = `
 Object {
   "kind": "Identifier",

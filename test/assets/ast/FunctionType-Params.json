@@ -1,0 +1,31 @@
+{
+    "kind": "FunctionType",
+    "params": [
+        {
+            "kind": "FunctionTypeParam",
+            "name": {
+                "kind": "Identifier",
+                "name": "a"
+            },
+            "type": {
+                "kind": "NumberType",
+                "value": "number"
+            }
+        },
+        {
+            "kind": "FunctionTypeParam",
+            "name": {
+                "kind": "Identifier",
+                "name": "b"
+            },
+            "type": {
+                "kind": "StringType",
+                "value": "string"
+            }
+        }
+    ],
+    "returnType": {
+        "kind": "NumberType",
+        "value": "number"
+    }
+}

@@ -74,7 +74,7 @@ test("ConditionalTypeExpression: 2", () => {
 })
 
 test("TypeArrowFunctionExpression", () => {
-    const parser = ReactPeg.render(<TypeArrowFunctionExpression />);
+    const parser = ReactPeg.render(<TypeExpression />);
     const ast = parser.parse(`
         () => ^{
             if(string extends string) {
@@ -89,7 +89,7 @@ test("TypeArrowFunctionExpression", () => {
 })
 
 test("TypeArrowFunctionExpression: with params", () => {
-    const parser = ReactPeg.render(<TypeArrowFunctionExpression />);
+    const parser = ReactPeg.render(<TypeExpression />);
     const ast = parser.parse(`
         (T) => ^{
             if(T extends string) {
@@ -104,7 +104,7 @@ test("TypeArrowFunctionExpression: with params", () => {
 })
 
 test("TypeArrowFunctionExpression: with infer", () => {
-    const parser = ReactPeg.render(<TypeArrowFunctionExpression />);
+    const parser = ReactPeg.render(<TypeExpression />);
     const ast = parser.parse(`
         () => ^{
             if(T extends infer U) {
@@ -459,6 +459,27 @@ test("ArrayType: deep", () => {
     const parser = ReactPeg.render(<TypeExpression />);
     const ast = parser.parse(`string[][]`);
     saveAST(ast, "ArrayType-Deep.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("FunctionType", () => {
+    const parser = ReactPeg.render(<TypeExpression />);
+    const ast = parser.parse(`type () => void`);
+    saveAST(ast, "FunctionType.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("FunctionType: params", () => {
+    const parser = ReactPeg.render(<TypeExpression />);
+    const ast = parser.parse(`type (a:number, b: string) => number`);
+    saveAST(ast, "FunctionType-Params.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("FunctionType: nested", () => {
+    const parser = ReactPeg.render(<TypeExpression />);
+    const ast = parser.parse(`type () => type (a: number, b: string) => void`);
+    saveAST(ast, "FunctionType-Nested.json");
     expect(ast).toMatchSnapshot();
 })
 

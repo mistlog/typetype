@@ -1,0 +1,8 @@
+{
+    "kind": "FunctionType",
+    "params": [],
+    "returnType": {
+        "kind": "VoidType",
+        "value": "void"
+    }
+}

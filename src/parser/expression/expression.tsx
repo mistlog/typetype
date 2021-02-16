@@ -2,6 +2,7 @@ import { ReactPeg } from "react-peg";
 import { _, Text } from "../common";
 import { IBasicType, BasicType, ITypeReference, TypeReference, IIdentifier, Identifier } from "../basic";
 import { ITypeIfStatement, TypeIfStatement } from "../statement";
+import { FunctionType, IFunctionType } from "../function";
 
 export type ITypeExpression =
     | IBasicType
@@ -13,10 +14,12 @@ export type ITypeExpression =
     | IUnionType
     | IOperatorType
     | IIndexType
+    | IFunctionType
 
 export function TypeExpression() {
     return (
         <or>
+            <FunctionType/>
             <OperatorType />
             <IndexType />
             <UnionType />
