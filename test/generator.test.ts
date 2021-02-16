@@ -34,6 +34,12 @@ describe("declaration", () => {
         expect(generateCode(tsAST)).toMatchSnapshot();
     })
 
+    test("TypeVariableDeclaration: function", () => {
+        const ast = loadAST(`TypeVariableDeclaration-Function.json`) as ITypeVariableDeclaration;
+        const tsAST = TSTypeAliasDeclaration(ast);
+        expect(generateCode(tsAST)).toMatchSnapshot();
+    })
+
     test("TypeFunctionDeclaration", () => {
         const ast = loadAST(`TypeFunctionDeclaration.json`) as ITypeFunctionDeclaration;
         const tsAST = TSTypeAliasDeclarationWithParams(ast);
@@ -56,6 +62,21 @@ describe("ts-type", () => {
         saveCode(code, `${name}`)
         return code;
     }
+
+    test("FunctionType", () => {
+        const name = "FunctionType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("FunctionType: params", () => {
+        const name = "FunctionType-Params";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("FunctionType: nested", () => {
+        const name = "FunctionType-Nested";
+        expect(toCode(name)).toMatchSnapshot();
+    })
 
     test("ArrayType", () => {
         const name = "ArrayType";

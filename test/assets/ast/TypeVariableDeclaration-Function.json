@@ -1,0 +1,42 @@
+{
+    "kind": "TypeVariableDeclaration",
+    "declarator": {
+        "kind": "TypeVariableDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "result"
+        },
+        "initializer": {
+            "kind": "FunctionType",
+            "params": [
+                {
+                    "kind": "FunctionTypeParam",
+                    "name": {
+                        "kind": "Identifier",
+                        "name": "a"
+                    },
+                    "type": {
+                        "kind": "NumberType",
+                        "value": "number"
+                    }
+                },
+                {
+                    "kind": "FunctionTypeParam",
+                    "name": {
+                        "kind": "Identifier",
+                        "name": "b"
+                    },
+                    "type": {
+                        "kind": "StringType",
+                        "value": "string"
+                    }
+                }
+            ],
+            "returnType": {
+                "kind": "VoidType",
+                "value": "void"
+            }
+        }
+    },
+    "export": false
+}
