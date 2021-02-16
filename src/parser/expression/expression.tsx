@@ -177,12 +177,13 @@ export function UnionType() {
 
     return (
         <pattern action={action}>
-            <repeat type="+" label="types">
-                <pattern action={({ type }) => type}>
-                    {Text("|")}
-                    <TypeExpression label="type" />
-                </pattern>
-            </repeat>
+            <or>
+                {Text("|")}
+                {Text("union")}
+            </or>
+            {Text("[")}
+            <TypeExpressionList label="types" />
+            {Text("]")}
         </pattern>
     )
 }

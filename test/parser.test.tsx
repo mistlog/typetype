@@ -450,9 +450,14 @@ test("TypeFile", () => {
 
 test("UnionType", () => {
     const parser = ReactPeg.render(<UnionType />);
-    const ast = parser.parse(`| "0" | "1"`);
+    const ast = parser.parse(`union ["0", "1"]`);
     saveAST(ast, "UnionType.json");
     expect(ast).toMatchSnapshot();
+
+    {
+        const ast = parser.parse(`| ["0", "1"]`);
+        expect(ast).toMatchSnapshot();
+    }
 })
 
 test("KeyOfType", () => {

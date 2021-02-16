@@ -1717,6 +1717,22 @@ Object {
 }
 `;
 
+exports[`UnionType 2`] = `
+Object {
+  "kind": "UnionType",
+  "types": Array [
+    Object {
+      "kind": "StringTypeLiteral",
+      "value": "0",
+    },
+    Object {
+      "kind": "StringTypeLiteral",
+      "value": "1",
+    },
+  ],
+}
+`;
+
 exports[`examples _isNumberString 1`] = `
 Object {
   "declarator": Object {
