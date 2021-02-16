@@ -20,9 +20,11 @@ export type ITypeType = ITypeExpression
 export function TSTypeAliasDeclarationWithParams(ast: ITypeFunctionDeclaration): t.TSTypeAliasDeclaration | t.ExportNamedDeclaration {
     const _type = TSTypeAliasDeclaration(ast);
     const type = t.isExportNamedDeclaration(_type) ? _type.declaration as t.TSTypeAliasDeclaration : _type;
-    const params = ast.declarator.initializer.params.map((param) =>
-        t.tSTypeParameter(null, null, (param as ITypeReference).typeName.name)
-    );
+    const params = ast.declarator.initializer.params.map((param) => {
+        const constraint = param.constraint ? TSType(param.constraint) : null;
+        const tsParam = t.tSTypeParameter(constraint , /* TODO */null, (param as ITypeReference).typeName.name)
+        return tsParam;
+    });
 
     type.typeParameters = t.tsTypeParameterDeclaration(params);
     return _type;

@@ -2919,3 +2919,90 @@ Object {
   "kind": "TypeFunctionDeclaration",
 }
 `;
+
+exports[`examples pick 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "as": Object {
+            "kind": "TypeReference",
+            "typeName": Object {
+              "kind": "Identifier",
+              "name": "K",
+            },
+          },
+          "key": Object {
+            "kind": "Identifier",
+            "name": "K",
+          },
+          "keys": Object {
+            "kind": "TypeReference",
+            "typeName": Object {
+              "kind": "Identifier",
+              "name": "Keys",
+            },
+          },
+          "kind": "TypeForInStatement",
+          "value": Object {
+            "head": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "T",
+              },
+            },
+            "kind": "IndexType",
+            "members": Array [
+              Object {
+                "kind": "TypeReference",
+                "typeName": Object {
+                  "kind": "Identifier",
+                  "name": "K",
+                },
+              },
+            ],
+          },
+        },
+        "kind": "MappedTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "constraint": null,
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "T",
+          },
+        },
+        Object {
+          "constraint": Object {
+            "kind": "KeyOfType",
+            "operand": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "T",
+              },
+            },
+          },
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "Keys",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "pick",
+    },
+  },
+  "export": true,
+  "kind": "TypeFunctionDeclaration",
+}
+`;
