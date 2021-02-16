@@ -1456,6 +1456,51 @@ Object {
 }
 `;
 
+exports[`TypeVariableDeclaration: function 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "kind": "FunctionType",
+      "params": Array [
+        Object {
+          "kind": "FunctionTypeParam",
+          "name": Object {
+            "kind": "Identifier",
+            "name": "a",
+          },
+          "type": Object {
+            "kind": "NumberType",
+            "value": "number",
+          },
+        },
+        Object {
+          "kind": "FunctionTypeParam",
+          "name": Object {
+            "kind": "Identifier",
+            "name": "b",
+          },
+          "type": Object {
+            "kind": "StringType",
+            "value": "string",
+          },
+        },
+      ],
+      "returnType": Object {
+        "kind": "VoidType",
+        "value": "void",
+      },
+    },
+    "kind": "TypeVariableDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "result",
+    },
+  },
+  "export": false,
+  "kind": "TypeVariableDeclaration",
+}
+`;
+
 exports[`TypeVariableDeclaration: keyof 1`] = `
 Object {
   "declarator": Object {

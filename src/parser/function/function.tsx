@@ -5,7 +5,7 @@ import { ITypeExpression, TypeExpression } from "../expression";
 
 export interface IFunctionType {
     kind: "FunctionType"
-    params: ITypeExpression[]
+    params: IFunctionTypeParam[]
     returnType: ITypeExpression
 }
 

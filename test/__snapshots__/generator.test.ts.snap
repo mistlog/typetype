@@ -10,6 +10,8 @@ exports[`declaration TypeVariableDeclaration: conditional type 1`] = `"type resu
 
 exports[`declaration TypeVariableDeclaration: export 1`] = `"export type result = string;"`;
 
+exports[`declaration TypeVariableDeclaration: function 1`] = `"type result = (a: number, b: string) => void;"`;
+
 exports[`declaration TypeVariableDeclaration: keyof 1`] = `
 "type result = keyof {
   a: 1;
@@ -79,6 +81,12 @@ exports[`ts-type ArrayType: deep 1`] = `"string[][]"`;
 exports[`ts-type ConditionalTypeExpression 1`] = `"string extends string ? \\"string\\" : \\"number\\""`;
 
 exports[`ts-type ConditionalTypeExpression: 2 1`] = `"T extends string ? \\"string\\" : T extends number ? \\"number\\" : never"`;
+
+exports[`ts-type FunctionType 1`] = `"() => void"`;
+
+exports[`ts-type FunctionType: nested 1`] = `"() => (a: number, b: string) => void"`;
+
+exports[`ts-type FunctionType: params 1`] = `"(a: number, b: string) => number"`;
 
 exports[`ts-type IndexType 1`] = `"obj[\\"a\\"]"`;
 

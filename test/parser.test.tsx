@@ -128,6 +128,15 @@ test("TypeVariableDeclaration", () => {
     expect(ast).toMatchSnapshot();
 })
 
+test("TypeVariableDeclaration: function", () => {
+    const parser = ReactPeg.render(<TypeVariableDeclaration />);
+    const ast = parser.parse(`
+        type result = type (a:number, b:string) => void
+    `);
+    saveAST(ast, "TypeVariableDeclaration-Function.json");
+    expect(ast).toMatchSnapshot();
+})
+
 test("TypeVariableDeclaration: export", () => {
     const parser = ReactPeg.render(<TypeVariableDeclaration />);
     const ast = parser.parse(`
