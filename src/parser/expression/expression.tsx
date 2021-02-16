@@ -1,7 +1,7 @@
 import { ReactPeg } from "react-peg";
 import { _, Text } from "../common";
 import { IBasicType, BasicType, ITypeReference, TypeReference, IIdentifier, Identifier } from "../basic";
-import { ITypeIfStatement, TypeIfStatement } from "../statement";
+import { ITypeForInStatement, ITypeIfStatement, TypeForInStatement, TypeIfStatement } from "../statement";
 import { FunctionType, IFunctionType } from "../function";
 
 export type ITypeExpression =
@@ -11,6 +11,7 @@ export type ITypeExpression =
     | IInferType
     | ITypeArrowFunctionExpression
     | IConditionalTypeExpression
+    | IMappedTypeExpression
     | IUnionType
     | IOperatorType
     | IIndexType
@@ -19,11 +20,12 @@ export type ITypeExpression =
 export function TypeExpression() {
     return (
         <or>
-            <FunctionType/>
+            <FunctionType />
             <OperatorType />
             <IndexType />
             <UnionType />
             <ConditionalTypeExpression />
+            <MappedTypeExpression />
             <TypeArrowFunctionExpression />
             <TypeCallExpression />
             <BasicType />
@@ -245,6 +247,28 @@ export function IndexType() {
                     {Text("]")}
                 </pattern>
             </repeat>
+        </pattern>
+    )
+}
+
+export interface IMappedTypeExpression {
+    kind: "MappedTypeExpression"
+    body: ITypeForInStatement
+}
+
+export function MappedTypeExpression() {
+    const action = ({ statement }): IMappedTypeExpression => {
+        return {
+            kind: "MappedTypeExpression",
+            body: statement
+        }
+    }
+
+    return (
+        <pattern action={action}>
+            {Text("^{")}
+            <TypeForInStatement label="statement" />
+            {Text("}")}
         </pattern>
     )
 }

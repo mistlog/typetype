@@ -1,0 +1,44 @@
+{
+    "kind": "MappedTypeExpression",
+    "body": {
+        "kind": "TypeForInStatement",
+        "key": {
+            "kind": "Identifier",
+            "name": "K"
+        },
+        "keys": {
+            "kind": "TypeReference",
+            "typeName": {
+                "kind": "Identifier",
+                "name": "Keys"
+            }
+        },
+        "as": {
+            "kind": "TemplateTypeLiteral",
+            "items": [
+                {
+                    "kind": "TemplateElement",
+                    "value": "get"
+                },
+                {
+                    "kind": "TemplateExpression",
+                    "expression": {
+                        "kind": "TypeReference",
+                        "typeName": {
+                            "kind": "Identifier",
+                            "name": "K"
+                        }
+                    }
+                }
+            ]
+        },
+        "value": {
+            "kind": "FunctionType",
+            "params": [],
+            "returnType": {
+                "kind": "StringType",
+                "value": "string"
+            }
+        }
+    }
+}
