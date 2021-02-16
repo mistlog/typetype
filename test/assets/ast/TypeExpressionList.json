@@ -4,18 +4,13 @@
         "typeName": {
             "kind": "Identifier",
             "name": "protocol"
-        },
-        "constraint": null
+        }
     },
     {
         "kind": "TypeReference",
         "typeName": {
             "kind": "Identifier",
             "name": "rest"
-        },
-        "constraint": {
-            "kind": "NumberType",
-            "value": "number"
         }
     }
 ]

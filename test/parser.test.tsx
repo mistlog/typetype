@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { TypeForInStatement, IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, UnionType, KeyOfType, ArrayType, TypeExpression } from "../src";
+import { TypeExpressionList, TypeForInStatement, IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, UnionType, KeyOfType, ArrayType, TypeExpression } from "../src";
 import { saveAST, loadType } from "./common";
 
 test("Identifier", () => {
@@ -344,12 +344,23 @@ test("TemplateExpression", () => {
 
 test("ParamList", () => {
     const parser = ReactPeg.render(<ParamList />);
-    const ast = parser.parse(`protocol, rest`);
+    const ast = parser.parse(`protocol, rest extends number`);
     saveAST(ast, "ParamList.json");
     expect(ast).toMatchSnapshot();
 
 
     expect(parser.parse(`protocol`)).toMatchSnapshot();
+    expect(parser.parse(`protocol extends string`)).toMatchSnapshot();
+})
+
+test("TypeExpressionList", () => {
+    const parser = ReactPeg.render(<TypeExpressionList />);
+    const ast = parser.parse(`protocol, rest`);
+    saveAST(ast, "TypeExpressionList.json");
+    expect(ast).toMatchSnapshot();
+
+    expect(parser.parse(`protocol`)).toMatchSnapshot();
+    expect(parser.parse(``)).toMatchSnapshot();
 })
 
 test("ParamList: empty", () => {

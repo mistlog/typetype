@@ -168,6 +168,7 @@ Object {
     "kind": "TypeCallExpression",
     "params": Array [
       Object {
+        "constraint": null,
         "kind": "TypeReference",
         "typeName": Object {
           "kind": "Identifier",
@@ -591,6 +592,7 @@ Object {
 exports[`ParamList 1`] = `
 Array [
   Object {
+    "constraint": null,
     "kind": "TypeReference",
     "typeName": Object {
       "kind": "Identifier",
@@ -598,6 +600,10 @@ Array [
     },
   },
   Object {
+    "constraint": Object {
+      "kind": "NumberType",
+      "value": "number",
+    },
     "kind": "TypeReference",
     "typeName": Object {
       "kind": "Identifier",
@@ -610,6 +616,23 @@ Array [
 exports[`ParamList 2`] = `
 Array [
   Object {
+    "constraint": null,
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "protocol",
+    },
+  },
+]
+`;
+
+exports[`ParamList 3`] = `
+Array [
+  Object {
+    "constraint": Object {
+      "kind": "StringType",
+      "value": "string",
+    },
     "kind": "TypeReference",
     "typeName": Object {
       "kind": "Identifier",
@@ -920,6 +943,7 @@ Object {
   "kind": "TypeArrowFunctionExpression",
   "params": Array [
     Object {
+      "constraint": null,
       "kind": "TypeReference",
       "typeName": Object {
         "kind": "Identifier",
@@ -942,6 +966,7 @@ Object {
   "kind": "TypeCallExpression",
   "params": Array [
     Object {
+      "constraint": null,
       "kind": "TypeReference",
       "typeName": Object {
         "kind": "Identifier",
@@ -964,6 +989,7 @@ Object {
   "kind": "TypeCallExpression",
   "params": Array [
     Object {
+      "constraint": null,
       "kind": "StringTypeLiteral",
       "value": "https://...",
     },
@@ -984,6 +1010,39 @@ Object {
   "params": Array [],
 }
 `;
+
+exports[`TypeExpressionList 1`] = `
+Array [
+  Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "protocol",
+    },
+  },
+  Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "rest",
+    },
+  },
+]
+`;
+
+exports[`TypeExpressionList 2`] = `
+Array [
+  Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "protocol",
+    },
+  },
+]
+`;
+
+exports[`TypeExpressionList 3`] = `Array []`;
 
 exports[`TypeFile 1`] = `
 Object {
@@ -1028,6 +1087,7 @@ Object {
           "kind": "TypeArrowFunctionExpression",
           "params": Array [
             Object {
+              "constraint": null,
               "kind": "TypeReference",
               "typeName": Object {
                 "kind": "Identifier",
@@ -1166,6 +1226,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -1226,6 +1287,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -1311,6 +1373,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -1374,6 +1437,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -1821,6 +1885,7 @@ Object {
                       "kind": "TypeCallExpression",
                       "params": Array [
                         Object {
+                          "constraint": null,
                           "kind": "TypeReference",
                           "typeName": Object {
                             "kind": "Identifier",
@@ -1867,6 +1932,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -1904,6 +1970,7 @@ Object {
               "kind": "TypeCallExpression",
               "params": Array [
                 Object {
+                  "constraint": null,
                   "kind": "TypeReference",
                   "typeName": Object {
                     "kind": "Identifier",
@@ -1942,6 +2009,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -2063,6 +2131,7 @@ Object {
                     "kind": "TypeCallExpression",
                     "params": Array [
                       Object {
+                        "constraint": null,
                         "kind": "TypeReference",
                         "typeName": Object {
                           "kind": "Identifier",
@@ -2097,6 +2166,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -2234,6 +2304,7 @@ Object {
                     "kind": "TypeCallExpression",
                     "params": Array [
                       Object {
+                        "constraint": null,
                         "kind": "TypeReference",
                         "typeName": Object {
                           "kind": "Identifier",
@@ -2268,6 +2339,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -2312,6 +2384,7 @@ Object {
               "kind": "TypeCallExpression",
               "params": Array [
                 Object {
+                  "constraint": null,
                   "kind": "TypeReference",
                   "typeName": Object {
                     "kind": "Identifier",
@@ -2343,6 +2416,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -2455,6 +2529,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -2499,6 +2574,7 @@ Object {
               "kind": "TypeCallExpression",
               "params": Array [
                 Object {
+                  "constraint": null,
                   "kind": "TypeReference",
                   "typeName": Object {
                     "kind": "Identifier",
@@ -2555,6 +2631,7 @@ Object {
                     "kind": "TypeCallExpression",
                     "params": Array [
                       Object {
+                        "constraint": null,
                         "kind": "TypeReference",
                         "typeName": Object {
                           "kind": "Identifier",
@@ -2575,6 +2652,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -2619,6 +2697,7 @@ Object {
               "kind": "TypeCallExpression",
               "params": Array [
                 Object {
+                  "constraint": null,
                   "kind": "TypeReference",
                   "typeName": Object {
                     "kind": "Identifier",
@@ -2691,6 +2770,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -2820,6 +2900,7 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "constraint": null,
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
