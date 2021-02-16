@@ -63,6 +63,16 @@ describe("ts-type", () => {
         return code;
     }
 
+    test("MappedType", () => {
+        const name = "MappedType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("MappedType: as", () => {
+        const name = "MappedType-As";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("FunctionType", () => {
         const name = "FunctionType";
         expect(toCode(name)).toMatchSnapshot();

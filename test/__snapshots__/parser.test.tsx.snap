@@ -361,6 +361,87 @@ Object {
 }
 `;
 
+exports[`MappedType 1`] = `
+Object {
+  "body": Object {
+    "as": Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "K",
+      },
+    },
+    "key": Object {
+      "kind": "Identifier",
+      "name": "K",
+    },
+    "keys": Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "Keys",
+      },
+    },
+    "kind": "TypeForInStatement",
+    "value": Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "boolean",
+      },
+    },
+  },
+  "kind": "MappedTypeExpression",
+}
+`;
+
+exports[`MappedType: as 1`] = `
+Object {
+  "body": Object {
+    "as": Object {
+      "items": Array [
+        Object {
+          "kind": "TemplateElement",
+          "value": "get",
+        },
+        Object {
+          "expression": Object {
+            "kind": "TypeReference",
+            "typeName": Object {
+              "kind": "Identifier",
+              "name": "K",
+            },
+          },
+          "kind": "TemplateExpression",
+        },
+      ],
+      "kind": "TemplateTypeLiteral",
+    },
+    "key": Object {
+      "kind": "Identifier",
+      "name": "K",
+    },
+    "keys": Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "Keys",
+      },
+    },
+    "kind": "TypeForInStatement",
+    "value": Object {
+      "kind": "FunctionType",
+      "params": Array [],
+      "returnType": Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+    },
+  },
+  "kind": "MappedTypeExpression",
+}
+`;
+
 exports[`ObjectType 1`] = `
 Object {
   "kind": "ObjectType",
@@ -969,6 +1050,81 @@ Object {
 }
 `;
 
+exports[`TypeForInStatement 1`] = `
+Object {
+  "as": Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "K",
+    },
+  },
+  "key": Object {
+    "kind": "Identifier",
+    "name": "K",
+  },
+  "keys": Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "Keys",
+    },
+  },
+  "kind": "TypeForInStatement",
+  "value": Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "boolean",
+    },
+  },
+}
+`;
+
+exports[`TypeForInStatement: 2 1`] = `
+Object {
+  "as": Object {
+    "items": Array [
+      Object {
+        "kind": "TemplateElement",
+        "value": "get",
+      },
+      Object {
+        "expression": Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "K",
+          },
+        },
+        "kind": "TemplateExpression",
+      },
+    ],
+    "kind": "TemplateTypeLiteral",
+  },
+  "key": Object {
+    "kind": "Identifier",
+    "name": "K",
+  },
+  "keys": Object {
+    "kind": "TypeReference",
+    "typeName": Object {
+      "kind": "Identifier",
+      "name": "Keys",
+    },
+  },
+  "kind": "TypeForInStatement",
+  "value": Object {
+    "kind": "FunctionType",
+    "params": Array [],
+    "returnType": Object {
+      "kind": "StringType",
+      "value": "string",
+    },
+  },
+}
+`;
+
 exports[`TypeFunctionDeclaration 1`] = `
 Object {
   "declarator": Object {
@@ -1546,6 +1702,22 @@ Object {
 `;
 
 exports[`UnionType 1`] = `
+Object {
+  "kind": "UnionType",
+  "types": Array [
+    Object {
+      "kind": "StringTypeLiteral",
+      "value": "0",
+    },
+    Object {
+      "kind": "StringTypeLiteral",
+      "value": "1",
+    },
+  ],
+}
+`;
+
+exports[`UnionType 2`] = `
 Object {
   "kind": "UnionType",
   "types": Array [

@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -171,6 +171,22 @@ function tsFunctionType(ast: IFunctionType): t.TSFunctionType {
     return t.tsFunctionType(null, params, t.tsTypeAnnotation(TSType(ast.returnType)));
 }
 
+
+function resolveMappedTypeAsClause(as: ITypeExpression, key: IIdentifier) {
+    if (as.kind === "TypeReference" && as.typeName.name === key.name) {
+        return null;
+    }
+    return TSType(as);
+}
+
+function tsMappedType(ast: ITypeForInStatement): t.TSMappedType {
+    const { as, key, keys, value } = ast;
+    const typeParam = t.tsTypeParameter(TSType(keys), null, key.name);
+    const nameType = resolveMappedTypeAsClause(as, key);
+    const type = t.tsMappedType(typeParam, TSType(value), nameType);
+    return type;
+}
+
 type Kind<T extends ITypeType> = T["kind"];
 type TypeInTS<T extends ITypeType> =
     /**
@@ -196,6 +212,7 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<IFunctionType> ? t.TSFunctionType :
     Kind<T> extends Kind<ITypeArrowFunctionExpression> ? t.TSConditionalType :
     Kind<T> extends Kind<IConditionalTypeExpression> ? t.TSConditionalType :
+    Kind<T> extends Kind<IMappedTypeExpression> ? t.TSMappedType :
     Kind<T> extends Kind<ITypeCallExpression> ? t.TSConditionalType : t.TSType;
 
 export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
@@ -230,6 +247,7 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
             return type;
         }
         case "ConditionalTypeExpression": return tsConditionalType(ast.body);
+        case "MappedTypeExpression": return tsMappedType(ast.body);
         case "UnionType": return t.tsUnionType(ast.types.map(each => TSType(each)));
         case "KeyOfType": return {
             ...t.tsTypeOperator(TSType(ast.operand)),

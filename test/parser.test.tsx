@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, UnionType, KeyOfType, ArrayType, TypeExpression } from "../src";
+import { TypeForInStatement, IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, UnionType, KeyOfType, ArrayType, TypeExpression } from "../src";
 import { saveAST, loadType } from "./common";
 
 test("Identifier", () => {
@@ -37,6 +37,32 @@ test("TypeIfStatement", () => {
             return "string"
         } else {
             return "number"
+        }
+    `)).toMatchSnapshot();
+})
+
+test("TypeForInStatement", () => {
+    const parser = ReactPeg.render(<TypeForInStatement />);
+
+    expect(parser.parse(`
+        for(K in Keys) {
+            return {
+                key: K,
+                value: boolean
+            }
+        }
+    `)).toMatchSnapshot();
+})
+
+test("TypeForInStatement: 2", () => {
+    const parser = ReactPeg.render(<TypeForInStatement />);
+
+    expect(parser.parse(`
+        for(K in Keys) {
+            return {
+                key: \`get\${K}\`,
+                value: type () => string
+            }
         }
     `)).toMatchSnapshot();
 })
@@ -424,9 +450,14 @@ test("TypeFile", () => {
 
 test("UnionType", () => {
     const parser = ReactPeg.render(<UnionType />);
-    const ast = parser.parse(`| "0" | "1"`);
+    const ast = parser.parse(`union ["0", "1"]`);
     saveAST(ast, "UnionType.json");
     expect(ast).toMatchSnapshot();
+
+    {
+        const ast = parser.parse(`| ["0", "1"]`);
+        expect(ast).toMatchSnapshot();
+    }
 })
 
 test("KeyOfType", () => {
@@ -489,6 +520,40 @@ test("FunctionType: nested", () => {
     const parser = ReactPeg.render(<TypeExpression />);
     const ast = parser.parse(`type () => type (a: number, b: string) => void`);
     saveAST(ast, "FunctionType-Nested.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("MappedType", () => {
+    const parser = ReactPeg.render(<TypeExpression />);
+    // { [K in Keys]: boolean }
+    const ast = parser.parse(`
+        ^{
+            for(K in Keys) {
+                return {
+                    key: K,
+                    value: boolean
+                }
+            }
+        }
+    `);
+    saveAST(ast, "MappedType.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("MappedType: as", ()=>{
+    const parser = ReactPeg.render(<TypeExpression />);
+    // { [K in Keys as `get${K}`]: () => string }
+    const ast = parser.parse( `
+        ^{
+            for(K in Keys) {
+                return {
+                    key: \`get\${K}\`,
+                    value: type () => string
+                }
+            }
+        }
+    `);
+    saveAST(ast, "MappedType-As.json");
     expect(ast).toMatchSnapshot();
 })
 

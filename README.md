@@ -110,6 +110,15 @@ type valueDeep = obj["c"][1]
 type keys = keyof { a: 1; b: 2 }
 ```
 
+### Union type
+
+We use "union [...]" or "| [...]" to denote union type.
+
+```ts
+type u1 = union [0, 1, 2]
+type u2 = | [0, 1, 2]
+``` 
+
 ### Function type
 
 ```ts
@@ -143,6 +152,30 @@ type conditional2 = ^{
             } else {
                 return "not 1"
             }
+        }
+    }
+}
+```
+
+### Mapped type
+
+```ts
+// type map1 = { [K in Keys]: boolean }
+type mapped1 = ^{
+    for(K in Keys) {
+        return {
+            key: K,
+            value: boolean
+        }
+    }
+}
+
+// type map2 = { [K in Keys as `get${K}`]: () => string }
+type mapped2 = ^{
+    for(K in Keys) {
+        return {
+            key: \`get\${K}\`,
+            value: type () => string
         }
     }
 }

@@ -1,0 +1,31 @@
+{
+    "kind": "MappedTypeExpression",
+    "body": {
+        "kind": "TypeForInStatement",
+        "key": {
+            "kind": "Identifier",
+            "name": "K"
+        },
+        "keys": {
+            "kind": "TypeReference",
+            "typeName": {
+                "kind": "Identifier",
+                "name": "Keys"
+            }
+        },
+        "as": {
+            "kind": "TypeReference",
+            "typeName": {
+                "kind": "Identifier",
+                "name": "K"
+            }
+        },
+        "value": {
+            "kind": "TypeReference",
+            "typeName": {
+                "kind": "Identifier",
+                "name": "boolean"
+            }
+        }
+    }
+}
