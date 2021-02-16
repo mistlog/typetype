@@ -160,7 +160,7 @@ type conditional2 = ^{
 ### Mapped type
 
 ```ts
-// type map1 = { [K in Keys]: boolean }
+// type mapped1 = { [K in Keys]: boolean }
 type mapped1 = ^{
     for(K in Keys) {
         return {
@@ -170,7 +170,7 @@ type mapped1 = ^{
     }
 }
 
-// type map2 = { [K in Keys as `get${K}`]: () => string }
+// type mapped2 = { [K in Keys as `get${K}`]: () => string }
 type mapped2 = ^{
     for(K in Keys) {
         return {
