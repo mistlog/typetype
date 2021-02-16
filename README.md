@@ -174,7 +174,7 @@ type mapped1 = ^{
 type mapped2 = ^{
     for(K in Keys) {
         return {
-            key: \`get\${K}\`,
+            key: `get${K}`,
             value: type () => string
         }
     }
