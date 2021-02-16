@@ -83,6 +83,8 @@ type function _isNumberString = (text) => ^{
 
 ## Syntax
 
+* [examples/syntax](https://github.com/mistlog/typetype-examples/blob/main/examples/syntax/syntax.type)
+
 This project is still primitive, PR is welcomed, feel free to open issues and join us!
 
 ### Basic type
