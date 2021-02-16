@@ -4,8 +4,7 @@
         "typeName": {
             "kind": "Identifier",
             "name": "protocol"
-        },
-        "constraint": null
+        }
     },
     {
         "kind": "TypeReference",

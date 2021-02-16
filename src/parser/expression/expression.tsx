@@ -134,11 +134,15 @@ export function TypeExpressionList() {
     )
 }
 
-export type IITypeExpressionWithConstraint = ITypeExpression & { constraint: ITypeExpression }
+export type IITypeExpressionWithConstraint = ITypeExpression & { constraint?: ITypeExpression }
 export type IParamList = IITypeExpressionWithConstraint[]
 
 export function ParamList() {
     const action = ({ head, tail }): IParamList => head ? [head, ...tail] : [];
+    const actionReturnParam = ({ param, constraint }) => {
+        return constraint ? { ...param, constraint } : param
+    }
+
     const paramWithConstraint = () => {
         return (
             <list>
@@ -152,20 +156,16 @@ export function ParamList() {
             </list>
         )
     }
-    
+
     return (
         <pattern action={action}>
             <opt label="head">
-                <pattern action={({ param, constraint }) => {
-                    return { ...param, constraint }
-                }}>
+                <pattern action={actionReturnParam}>
                     {paramWithConstraint()}
                 </pattern>
             </opt>
             <repeat type="*" label="tail">
-                <pattern action={({ param, constraint }) => {
-                    return { ...param, constraint }
-                }}>
+                <pattern action={actionReturnParam}>
                     {Text(",")}
                     {paramWithConstraint()}
                 </pattern>

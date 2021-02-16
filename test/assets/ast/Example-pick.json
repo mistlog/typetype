@@ -14,8 +14,7 @@
                     "typeName": {
                         "kind": "Identifier",
                         "name": "T"
-                    },
-                    "constraint": null
+                    }
                 },
                 {
                     "kind": "TypeReference",
