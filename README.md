@@ -2,6 +2,8 @@
 
 TypeType is designed to generate complex typescript type with ease.
 
+* playground: https://mistlog.github.io/typetype-playground/
+
 ## Usage
 
 ```bash
