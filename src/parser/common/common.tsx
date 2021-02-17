@@ -1,10 +1,14 @@
 import { ReactPeg } from "react-peg";
+import { MultiLineComment } from "../basic";
 
 // white space
 export function _() {
     return (
         <repeat type="*">
-            <set> \t\n\r</set>
+            <or>
+                <MultiLineComment />
+                <set> \t\n\r</set>
+            </or>
         </repeat>
     );
 }

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser: comment MultiLineComment 1`] = `
+Object {
+  "comment": " this is comment ",
+}
+`;
+
+exports[`parser: comment MultiLineComment: 2 1`] = `
+Array [
+  "
+",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  Object {
+    "comment": " 
+                this is comment 
+            ",
+  },
+  "
+",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+]
+`;
