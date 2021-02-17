@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { TypeExpressionList, TypeForInStatement, IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, UnionType, KeyOfType, ArrayType, TypeExpression } from "../src";
+import { TypeExpressionList, TypeForInStatement, IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, KeyOfType, ArrayType, TypeExpression } from "../src";
 import { saveAST, loadType } from "./common";
 
 /**
@@ -460,18 +460,6 @@ test("TypeFile", () => {
     `);
     saveAST(ast, "TypeFile.json");
     expect(ast).toMatchSnapshot();
-})
-
-test("UnionType", () => {
-    const parser = ReactPeg.render(<UnionType />);
-    const ast = parser.parse(`union ["0", "1"]`);
-    saveAST(ast, "UnionType.json");
-    expect(ast).toMatchSnapshot();
-
-    {
-        const ast = parser.parse(`| ["0", "1"]`);
-        expect(ast).toMatchSnapshot();
-    }
 })
 
 test("KeyOfType", () => {

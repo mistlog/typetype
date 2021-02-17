@@ -13,6 +13,7 @@ export type ITypeExpression =
     | IConditionalTypeExpression
     | IMappedTypeExpression
     | IUnionType
+    | IIntersectionType
     | IOperatorType
     | IIndexType
     | IFunctionType
@@ -24,6 +25,7 @@ export function TypeExpression() {
             <OperatorType />
             <IndexType />
             <UnionType />
+            <IntersectionType />
             <ConditionalTypeExpression />
             <MappedTypeExpression />
             <TypeArrowFunctionExpression />
@@ -212,6 +214,33 @@ export function UnionType() {
             <or>
                 {Text("|")}
                 {Text("union")}
+            </or>
+            {Text("[")}
+            <TypeExpressionList label="types" />
+            {Text("]")}
+        </pattern>
+    )
+}
+
+export interface IIntersectionType {
+    kind: "IntersectionType"
+    types: ITypeExpression[]
+}
+
+export function IntersectionType() {
+    const action = ({ types }): IIntersectionType => {
+        return {
+            kind: "IntersectionType",
+            types
+        }
+    }
+
+    /** An intersection type combines multiple types into one */
+    return (
+        <pattern action={action}>
+            <or>
+                {Text("&")}
+                {Text("combine")}
             </or>
             {Text("[")}
             <TypeExpressionList label="types" />

@@ -113,6 +113,11 @@ describe("ts-type", () => {
         expect(toCode(name)).toMatchSnapshot();
     })
 
+    test("IntersectionType", () => {
+        const name = "IntersectionType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("TypeArrowFunctionExpression", () => {
         const name = "TypeArrowFunctionExpression";
         expect(toCode(name)).toMatchSnapshot();
