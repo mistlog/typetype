@@ -577,6 +577,11 @@ describe("examples", () => {
         return ast;
     }
 
+    test("comment", () => {
+        const name = "Example-comment";
+        expect(toAST(name)).toMatchSnapshot();
+    })
+
     test("pick", () => {
         const name = "Example-pick";
         expect(toAST(name)).toMatchSnapshot();

@@ -1,0 +1,23 @@
+/**
+ * this is comment
+ */
+type function _isNumberString = ( /* this is comment */ text) => ^{
+    /**
+     * this is comment
+     */
+    if(text extends "") {
+        return true
+        /* this is comment */
+    } else if(text extends `${infer digit}${infer rest}`) {
+        return ^{
+            if(digit extends Digit) {
+                return _isNumberString<rest>
+            } else {
+                /* this is comment */
+                return false
+            }
+        }
+    } else {
+        return false
+    }
+}

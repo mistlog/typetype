@@ -1939,6 +1939,159 @@ Object {
 }
 `;
 
+exports[`examples comment 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "alternate": Object {
+              "argument": Object {
+                "kind": "BooleanTypeLiteral",
+                "value": false,
+              },
+              "kind": "TypeReturnStatement",
+            },
+            "condition": Object {
+              "checkType": Object {
+                "kind": "TypeReference",
+                "typeName": Object {
+                  "kind": "Identifier",
+                  "name": "text",
+                },
+              },
+              "extendsType": Object {
+                "items": Array [
+                  Object {
+                    "expression": Object {
+                      "kind": "InferType",
+                      "typeName": Object {
+                        "kind": "Identifier",
+                        "name": "digit",
+                      },
+                    },
+                    "kind": "TemplateExpression",
+                  },
+                  Object {
+                    "expression": Object {
+                      "kind": "InferType",
+                      "typeName": Object {
+                        "kind": "Identifier",
+                        "name": "rest",
+                      },
+                    },
+                    "kind": "TemplateExpression",
+                  },
+                ],
+                "kind": "TemplateTypeLiteral",
+              },
+              "kind": "ExtendsClause",
+            },
+            "consequent": Object {
+              "argument": Object {
+                "body": Object {
+                  "alternate": Object {
+                    "argument": Object {
+                      "kind": "BooleanTypeLiteral",
+                      "value": false,
+                    },
+                    "kind": "TypeReturnStatement",
+                  },
+                  "condition": Object {
+                    "checkType": Object {
+                      "kind": "TypeReference",
+                      "typeName": Object {
+                        "kind": "Identifier",
+                        "name": "digit",
+                      },
+                    },
+                    "extendsType": Object {
+                      "kind": "TypeReference",
+                      "typeName": Object {
+                        "kind": "Identifier",
+                        "name": "Digit",
+                      },
+                    },
+                    "kind": "ExtendsClause",
+                  },
+                  "consequent": Object {
+                    "argument": Object {
+                      "callee": Object {
+                        "kind": "TypeReference",
+                        "typeName": Object {
+                          "kind": "Identifier",
+                          "name": "_isNumberString",
+                        },
+                      },
+                      "kind": "TypeCallExpression",
+                      "params": Array [
+                        Object {
+                          "kind": "TypeReference",
+                          "typeName": Object {
+                            "kind": "Identifier",
+                            "name": "rest",
+                          },
+                        },
+                      ],
+                    },
+                    "kind": "TypeReturnStatement",
+                  },
+                  "kind": "TypeIfStatement",
+                },
+                "kind": "ConditionalTypeExpression",
+              },
+              "kind": "TypeReturnStatement",
+            },
+            "kind": "TypeIfStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "text",
+              },
+            },
+            "extendsType": Object {
+              "kind": "StringTypeLiteral",
+              "value": "",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "BooleanTypeLiteral",
+              "value": true,
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "text",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "_isNumberString",
+    },
+  },
+  "export": false,
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
 exports[`examples isNumberString 1`] = `
 Object {
   "declarator": Object {

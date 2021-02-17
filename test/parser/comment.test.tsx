@@ -15,4 +15,13 @@ describe("parser: comment", () => {
             */
         `)).toMatchSnapshot();
     })
+    
+    test("MultiLineComment: 3", () => {
+        const parser = ReactPeg.render(<_ />);
+        expect(parser.parse(`
+            /**
+             * this is comment
+             */
+        `)).toMatchSnapshot();
+    })
 })
