@@ -1,11 +1,6 @@
 import { ReactPeg } from "react-peg";
 import { _ } from "../common";
 
-/**
- * The basic source character set consists of 96 characters: 
- * the space character, the control characters representing horizontal tab, vertical tab, form feed, and new-line, 
- * plus the following 91 graphical characters:
- */
 export function SourceCharacter() {
     const all = [
         /**
@@ -13,11 +8,7 @@ export function SourceCharacter() {
          * A-Z 
          * 0-9 
          * 
-         * count: 26 + 26 + 10 = 62
-         * 
-         * ' ' \t \v \f \n
-         * 
-         * count: 5
+         * ' ' \t \v \f \n \r
          * 
          * \ ' _ [ ]
          * # ( ) % : 
@@ -25,10 +16,8 @@ export function SourceCharacter() {
          * / ^ | ~ ! 
          * ? , = & "
          * 
-         * count: 5 * 5 = 25
-         * 
          */
-        <set>a-zA-Z0-9\ \t\v\f\n\\\'_\[\]#\(\)%:;\.\+\-\*\/^|~!?,=&"</set>,
+        <set>a-zA-Z0-9\ \t\v\f\n\r\\\'_\[\]#\(\)%:;\.\+\-\*\/^|~!?,=&"</set>,
 
         // count: 4
         <set>{'{}<>'}</set>
