@@ -130,6 +130,9 @@ type f3 = type () => type (a:number, b:string) => void
 ### Conditional type
 
 ```ts
+/*
+  type conditional = 1 extends string ? "string" : "number"
+*/
 type conditional = ^{
     if(1 extends string) {
         return "string"
@@ -142,6 +145,9 @@ type conditional = ^{
 nested: 
 
 ```ts
+/*
+  type conditional2 = 1 extends string ? "string" : 1 extends 1 ? "is 1" : "not 1";
+*/
 type conditional2 = ^{
     if(1 extends string) {
         return "string"
@@ -160,7 +166,7 @@ type conditional2 = ^{
 ### Mapped type
 
 ```ts
-// type mapped1 = { [K in Keys]: boolean }
+/* type mapped1 = { [K in Keys]: boolean } */
 type mapped1 = ^{
     for(K in Keys) {
         return {
@@ -169,8 +175,10 @@ type mapped1 = ^{
         }
     }
 }
+```
 
-// type mapped2 = { [K in Keys as `get${K}`]: () => string }
+```ts
+/* type mapped2 = { [K in Keys as `get${K}`]: () => string }*/
 type mapped2 = ^{
     for(K in Keys) {
         return {
@@ -184,6 +192,9 @@ type mapped2 = ^{
 ### Generic
 
 ```ts
+/* 
+  export type Foo<T> = T extends { a: infer U; b: infer U; } ? U : never
+*/
 type function Foo = (T) => ^{
     if(T extends {a: infer U, b: infer U}) {
         return U
@@ -198,6 +209,9 @@ With constraint:
 * [examples/type-challenges/4-easy-pick](https://github.com/mistlog/typetype-examples/blob/main/examples/type-challenges/4-easy-pick.type)
 
 ```ts
+/* 
+  export type MyPick<T, Keys extends keyof T> = { [K in Keys]: T[K] } 
+*/
 export type function MyPick = (T, Keys extends keyof T) => ^{
     for(K in Keys) {
         return {
