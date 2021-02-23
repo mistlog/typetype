@@ -153,6 +153,11 @@ describe("ts-type", () => {
         expect(toCode(name)).toMatchSnapshot();
     })
 
+    test("ObjectType: modifier", () => {
+        const name = "ObjectType-Modifier";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("ConditionalTypeExpression", () => {
         const name = "ConditionalTypeExpression";
         expect(toCode(name)).toMatchSnapshot();

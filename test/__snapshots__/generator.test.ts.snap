@@ -109,6 +109,12 @@ exports[`ts-type ObjectType 1`] = `
 }"
 `;
 
+exports[`ts-type ObjectType: modifier 1`] = `
+"{
+  readonly a?: number;
+}"
+`;
+
 exports[`ts-type ObjectType: shorthand 1`] = `
 "{
   hello: hello;

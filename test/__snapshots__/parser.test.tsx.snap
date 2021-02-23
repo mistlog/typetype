@@ -340,6 +340,8 @@ Object {
           "kind": "Identifier",
           "name": "a",
         },
+        "optional": false,
+        "readonly": false,
         "value": Object {
           "kind": "NumberTypeLiteral",
           "value": 1,
@@ -351,6 +353,8 @@ Object {
           "kind": "Identifier",
           "name": "b",
         },
+        "optional": false,
+        "readonly": false,
         "value": Object {
           "kind": "NumberTypeLiteral",
           "value": 2,
@@ -442,119 +446,6 @@ Object {
 }
 `;
 
-exports[`ObjectType 1`] = `
-Object {
-  "kind": "ObjectType",
-  "props": Array [
-    Object {
-      "kind": "TypeObjectProperty",
-      "name": Object {
-        "kind": "Identifier",
-        "name": "a",
-      },
-      "value": Object {
-        "kind": "NumberType",
-        "value": "number",
-      },
-    },
-    Object {
-      "kind": "TypeObjectProperty",
-      "name": Object {
-        "kind": "Identifier",
-        "name": "b",
-      },
-      "value": Object {
-        "kind": "StringType",
-        "value": "string",
-      },
-    },
-    Object {
-      "kind": "TypeObjectProperty",
-      "name": Object {
-        "kind": "Identifier",
-        "name": "c",
-      },
-      "value": Object {
-        "kind": "NumberTypeLiteral",
-        "value": 1,
-      },
-    },
-    Object {
-      "kind": "TypeObjectProperty",
-      "name": Object {
-        "kind": "Identifier",
-        "name": "d",
-      },
-      "value": Object {
-        "kind": "StringTypeLiteral",
-        "value": "abc",
-      },
-    },
-  ],
-}
-`;
-
-exports[`ObjectType 2`] = `
-Object {
-  "kind": "ObjectType",
-  "props": Array [],
-}
-`;
-
-exports[`ObjectType: shorthand 1`] = `
-Object {
-  "kind": "ObjectType",
-  "props": Array [
-    Object {
-      "kind": "TypeObjectProperty",
-      "name": Object {
-        "kind": "Identifier",
-        "name": "hello",
-      },
-      "value": Object {
-        "kind": "TypeReference",
-        "typeName": Object {
-          "kind": "Identifier",
-          "name": "hello",
-        },
-      },
-    },
-  ],
-}
-`;
-
-exports[`ObjectType: spread 1`] = `
-Object {
-  "kind": "ObjectType",
-  "props": Array [
-    Object {
-      "kind": "TypeObjectProperty",
-      "name": Object {
-        "kind": "Identifier",
-        "name": "hello",
-      },
-      "value": Object {
-        "kind": "TypeReference",
-        "typeName": Object {
-          "kind": "Identifier",
-          "name": "hello",
-        },
-      },
-    },
-    Object {
-      "kind": "TypeSpreadProperty",
-      "param": Object {
-        "kind": "TypeReference",
-        "typeName": Object {
-          "kind": "Identifier",
-          "name": "obj",
-        },
-      },
-    },
-  ],
-}
-`;
-
 exports[`OperatorType: keyof 1`] = `
 Object {
   "kind": "KeyOfType",
@@ -567,6 +458,8 @@ Object {
           "kind": "Identifier",
           "name": "a",
         },
+        "optional": false,
+        "readonly": false,
         "value": Object {
           "kind": "NumberTypeLiteral",
           "value": 1,
@@ -578,6 +471,8 @@ Object {
           "kind": "Identifier",
           "name": "b",
         },
+        "optional": false,
+        "readonly": false,
         "value": Object {
           "kind": "NumberTypeLiteral",
           "value": 2,
@@ -1068,6 +963,8 @@ Object {
                   "kind": "Identifier",
                   "name": "a",
                 },
+                "optional": false,
+                "readonly": false,
                 "value": Object {
                   "kind": "TypeReference",
                   "typeName": Object {
@@ -1514,62 +1411,6 @@ Object {
 }
 `;
 
-exports[`TypeObjectProperty 1`] = `
-Object {
-  "kind": "TypeObjectProperty",
-  "name": Object {
-    "kind": "Identifier",
-    "name": "a",
-  },
-  "value": Object {
-    "kind": "NumberType",
-    "value": "number",
-  },
-}
-`;
-
-exports[`TypeObjectProperty 2`] = `
-Object {
-  "kind": "TypeObjectProperty",
-  "name": Object {
-    "kind": "Identifier",
-    "name": "b",
-  },
-  "value": Object {
-    "kind": "StringType",
-    "value": "string",
-  },
-}
-`;
-
-exports[`TypeObjectProperty 3`] = `
-Object {
-  "kind": "TypeObjectProperty",
-  "name": Object {
-    "kind": "Identifier",
-    "name": "c",
-  },
-  "value": Object {
-    "kind": "NumberTypeLiteral",
-    "value": 1,
-  },
-}
-`;
-
-exports[`TypeObjectProperty 4`] = `
-Object {
-  "kind": "TypeObjectProperty",
-  "name": Object {
-    "kind": "Identifier",
-    "name": "d",
-  },
-  "value": Object {
-    "kind": "StringTypeLiteral",
-    "value": "abc",
-  },
-}
-`;
-
 exports[`TypeReturnStatement 1`] = `
 Object {
   "argument": Object {
@@ -1724,6 +1565,8 @@ Object {
               "kind": "Identifier",
               "name": "a",
             },
+            "optional": false,
+            "readonly": false,
             "value": Object {
               "kind": "NumberTypeLiteral",
               "value": 1,
@@ -1735,6 +1578,8 @@ Object {
               "kind": "Identifier",
               "name": "b",
             },
+            "optional": false,
+            "readonly": false,
             "value": Object {
               "kind": "NumberTypeLiteral",
               "value": 2,

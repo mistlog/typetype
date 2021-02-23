@@ -50,7 +50,9 @@
                                         "kind": "Identifier",
                                         "name": "T"
                                     }
-                                }
+                                },
+                                "optional": false,
+                                "readonly": false
                             }
                         ]
                     }
