@@ -1,0 +1,18 @@
+{
+    "kind": "ObjectType",
+    "props": [
+        {
+            "kind": "TypeObjectProperty",
+            "name": {
+                "kind": "Identifier",
+                "name": "a"
+            },
+            "value": {
+                "kind": "NumberType",
+                "value": "number"
+            },
+            "optional": true,
+            "readonly": true
+        }
+    ]
+}

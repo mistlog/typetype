@@ -1,5 +1,6 @@
 import { ReactPeg } from "react-peg";
 import { ObjectType } from "../../src";
+import { saveAST } from "../common";
 
 describe("parser: object", () => {
     test("ObjectType: modifier", () => {
@@ -9,6 +10,8 @@ describe("parser: object", () => {
                     readonly a ?: number
                 }
             `);
+
+            saveAST(ast, "ObjectType-Modifier.json");
             expect(ast).toMatchSnapshot();
     })
 })

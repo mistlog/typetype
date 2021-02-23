@@ -55,7 +55,11 @@ function tsTypeLiteral(ast: IObjectType) {
                 const key = Identifier(each.name);
                 const value = TSType(each.value);
                 const prop = t.tsPropertySignature(key, t.tsTypeAnnotation(value));
-                return prop;
+                return {
+                    ...prop,
+                    readonly: each.readonly,
+                    optional: each.optional
+                } as t.TSPropertySignature;
             }
             case "TypeSpreadProperty": {
                 if (each.param.kind === "TypeReference") {
