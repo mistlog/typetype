@@ -4,7 +4,7 @@
         "kind": "TypeFunctionDeclarator",
         "name": {
             "kind": "Identifier",
-            "name": "pick"
+            "name": "MyReadonly"
         },
         "initializer": {
             "kind": "TypeArrowFunctionExpression",
@@ -14,23 +14,6 @@
                     "typeName": {
                         "kind": "Identifier",
                         "name": "T"
-                    }
-                },
-                {
-                    "kind": "TypeReference",
-                    "typeName": {
-                        "kind": "Identifier",
-                        "name": "Keys"
-                    },
-                    "constraint": {
-                        "kind": "KeyOfType",
-                        "operand": {
-                            "kind": "TypeReference",
-                            "typeName": {
-                                "kind": "Identifier",
-                                "name": "T"
-                            }
-                        }
                     }
                 }
             ],
@@ -43,10 +26,13 @@
                         "name": "K"
                     },
                     "keys": {
-                        "kind": "TypeReference",
-                        "typeName": {
-                            "kind": "Identifier",
-                            "name": "Keys"
+                        "kind": "KeyOfType",
+                        "operand": {
+                            "kind": "TypeReference",
+                            "typeName": {
+                                "kind": "Identifier",
+                                "name": "T"
+                            }
                         }
                     },
                     "as": {
@@ -63,7 +49,7 @@
                             }
                         },
                         "optional": false,
-                        "readonly": false
+                        "readonly": true
                     },
                     "value": {
                         "kind": "IndexType",

@@ -14,11 +14,20 @@
             }
         },
         "as": {
-            "kind": "TypeReference",
-            "typeName": {
+            "kind": "TypeObjectProperty",
+            "name": {
                 "kind": "Identifier",
-                "name": "K"
-            }
+                "name": "key"
+            },
+            "value": {
+                "kind": "TypeReference",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "K"
+                }
+            },
+            "optional": false,
+            "readonly": false
         },
         "value": {
             "kind": "TypeReference",

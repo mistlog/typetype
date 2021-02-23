@@ -14,23 +14,32 @@
             }
         },
         "as": {
-            "kind": "TemplateTypeLiteral",
-            "items": [
-                {
-                    "kind": "TemplateElement",
-                    "value": "get"
-                },
-                {
-                    "kind": "TemplateExpression",
-                    "expression": {
-                        "kind": "TypeReference",
-                        "typeName": {
-                            "kind": "Identifier",
-                            "name": "K"
+            "kind": "TypeObjectProperty",
+            "name": {
+                "kind": "Identifier",
+                "name": "key"
+            },
+            "value": {
+                "kind": "TemplateTypeLiteral",
+                "items": [
+                    {
+                        "kind": "TemplateElement",
+                        "value": "get"
+                    },
+                    {
+                        "kind": "TemplateExpression",
+                        "expression": {
+                            "kind": "TypeReference",
+                            "typeName": {
+                                "kind": "Identifier",
+                                "name": "K"
+                            }
                         }
                     }
-                }
-            ]
+                ]
+            },
+            "optional": false,
+            "readonly": false
         },
         "value": {
             "kind": "FunctionType",

@@ -183,6 +183,11 @@ describe("examples", () => {
         return code;
     }
 
+    test("readonly", () => {
+        const name = "Example-readonly";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("pick", () => {
         const name = "Example-pick";
         expect(toCode(name)).toMatchSnapshot();

@@ -8,7 +8,7 @@ export interface ITypeForInStatement {
     kind: "TypeForInStatement"
     key: IIdentifier
     keys: ITypeExpression
-    as: ITypeExpression
+    as: ITypeObjectProperty
     value: ITypeExpression
 }
 
@@ -22,7 +22,7 @@ export function TypeForInStatement() {
         const pair = returnType.argument as IObjectType;
 
         // may be used in as clause
-        const as = findProp(pair, "key").value;
+        const as = findProp(pair, "key");
         const value = findProp(pair, "value").value;
 
         return {

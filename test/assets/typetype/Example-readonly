@@ -1,0 +1,8 @@
+export type function MyReadonly = (T) => ^{
+    for(K in keyof T) {
+        return {
+            readonly key: K,
+            value: T[K]
+        }
+    }
+}
