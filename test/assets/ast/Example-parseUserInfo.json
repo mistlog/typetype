@@ -77,7 +77,9 @@
                                             "kind": "Identifier",
                                             "name": "username"
                                         }
-                                    }
+                                    },
+                                    "optional": false,
+                                    "readonly": false
                                 },
                                 {
                                     "kind": "TypeObjectProperty",
@@ -91,7 +93,9 @@
                                             "kind": "Identifier",
                                             "name": "password"
                                         }
-                                    }
+                                    },
+                                    "optional": false,
+                                    "readonly": false
                                 }
                             ]
                         }
@@ -113,7 +117,9 @@
                                             "kind": "Identifier",
                                             "name": "text"
                                         }
-                                    }
+                                    },
+                                    "optional": false,
+                                    "readonly": false
                                 }
                             ]
                         }

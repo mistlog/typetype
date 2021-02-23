@@ -79,7 +79,9 @@
                                             "kind": "Identifier",
                                             "name": "protocol"
                                         }
-                                    }
+                                    },
+                                    "optional": false,
+                                    "readonly": false
                                 },
                                 {
                                     "kind": "TypeObjectProperty",
@@ -93,7 +95,9 @@
                                             "kind": "Identifier",
                                             "name": "rest"
                                         }
-                                    }
+                                    },
+                                    "optional": false,
+                                    "readonly": false
                                 }
                             ]
                         }

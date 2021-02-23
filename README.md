@@ -106,20 +106,27 @@ type array = string[][]
 type str = "abc"
 type template = `value is: ${value}`
 
-type obj = { a: 1; b: "abc"; c: [1, 2] }
+type obj = { a: 1, b: "abc", c: [1, 2] }
 type valueDeep = obj["c"][1]
 
-type keys = keyof { a: 1; b: 2 }
+type keys = keyof { readonly a?: 1, b: 2 }
 ```
 
-### Union type
+### Union and Intersection
 
-We use "union [...]" or "| [...]" to denote union type.
+We use `union [...]` or `| [...]` to denote union type.
 
 ```ts
 type u1 = union [0, 1, 2]
 type u2 = | [0, 1, 2]
 ``` 
+
+Because [an intersection type combines multiple types into one](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html?ref=hackernoon.com#intersection-types), we use `combine [...]` or `& [...]` for intersection type:
+
+```ts
+type i1 = combine [{ a: 1 }, { b: 2 }]
+type i2 = & [{ a: 1 }, { b: 2 }]
+```
 
 ### Function type
 

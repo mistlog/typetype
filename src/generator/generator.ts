@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -55,7 +55,11 @@ function tsTypeLiteral(ast: IObjectType) {
                 const key = Identifier(each.name);
                 const value = TSType(each.value);
                 const prop = t.tsPropertySignature(key, t.tsTypeAnnotation(value));
-                return prop;
+                return {
+                    ...prop,
+                    readonly: each.readonly,
+                    optional: each.optional
+                } as t.TSPropertySignature;
             }
             case "TypeSpreadProperty": {
                 if (each.param.kind === "TypeReference") {
@@ -209,6 +213,7 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<ITypeReference> ? t.TSTypeReference :
     Kind<T> extends Kind<IInferType> ? t.TSInferType :
     Kind<T> extends Kind<IUnionType> ? t.TSUnionType :
+    Kind<T> extends Kind<IIntersectionType> ? t.TSIntersectionType :
     Kind<T> extends Kind<IKeyOfType> ? t.TSTypeOperator :
     Kind<T> extends Kind<IIndexType> ? t.TSIndexedAccessType :
     Kind<T> extends Kind<IFunctionType> ? t.TSFunctionType :
@@ -251,6 +256,7 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         case "ConditionalTypeExpression": return tsConditionalType(ast.body);
         case "MappedTypeExpression": return tsMappedType(ast.body);
         case "UnionType": return t.tsUnionType(ast.types.map(each => TSType(each)));
+        case "IntersectionType": return t.tsIntersectionType(ast.types.map(each => TSType(each)));
         case "KeyOfType": return {
             ...t.tsTypeOperator(TSType(ast.operand)),
             operator: "keyof"

@@ -397,6 +397,8 @@ Object {
                     "kind": "Identifier",
                     "name": "authority",
                   },
+                  "optional": false,
+                  "readonly": false,
                   "value": Object {
                     "kind": "TypeReference",
                     "typeName": Object {
@@ -411,6 +413,8 @@ Object {
                     "kind": "Identifier",
                     "name": "rest",
                   },
+                  "optional": false,
+                  "readonly": false,
                   "value": Object {
                     "kind": "TypeReference",
                     "typeName": Object {
@@ -472,6 +476,8 @@ Object {
                     "kind": "Identifier",
                     "name": "authority",
                   },
+                  "optional": false,
+                  "readonly": false,
                   "value": Object {
                     "callee": Object {
                       "kind": "TypeReference",
@@ -498,6 +504,8 @@ Object {
                     "kind": "Identifier",
                     "name": "rest",
                   },
+                  "optional": false,
+                  "readonly": false,
                   "value": Object {
                     "kind": "TypeReference",
                     "typeName": Object {
@@ -552,6 +560,8 @@ Object {
                     "kind": "Identifier",
                     "name": "name",
                   },
+                  "optional": false,
+                  "readonly": false,
                   "value": Object {
                     "kind": "TypeReference",
                     "typeName": Object {
@@ -616,6 +626,8 @@ Object {
                           "kind": "Identifier",
                           "name": "name",
                         },
+                        "optional": false,
+                        "readonly": false,
                         "value": Object {
                           "kind": "TypeReference",
                           "typeName": Object {
@@ -630,6 +642,8 @@ Object {
                           "kind": "Identifier",
                           "name": "port",
                         },
+                        "optional": false,
+                        "readonly": false,
                         "value": Object {
                           "kind": "TypeReference",
                           "typeName": Object {
@@ -846,6 +860,8 @@ Object {
                         "kind": "Identifier",
                         "name": "protocol",
                       },
+                      "optional": false,
+                      "readonly": false,
                       "value": Object {
                         "kind": "TypeReference",
                         "typeName": Object {
@@ -1078,6 +1094,8 @@ Object {
                     "kind": "Identifier",
                     "name": "protocol",
                   },
+                  "optional": false,
+                  "readonly": false,
                   "value": Object {
                     "kind": "TypeReference",
                     "typeName": Object {
@@ -1092,6 +1110,8 @@ Object {
                     "kind": "Identifier",
                     "name": "rest",
                   },
+                  "optional": false,
+                  "readonly": false,
                   "value": Object {
                     "kind": "TypeReference",
                     "typeName": Object {
@@ -1146,6 +1166,8 @@ Object {
                     "kind": "Identifier",
                     "name": "username",
                   },
+                  "optional": false,
+                  "readonly": false,
                   "value": Object {
                     "kind": "TypeReference",
                     "typeName": Object {
@@ -1207,6 +1229,8 @@ Object {
                     "kind": "Identifier",
                     "name": "username",
                   },
+                  "optional": false,
+                  "readonly": false,
                   "value": Object {
                     "kind": "TypeReference",
                     "typeName": Object {
@@ -1221,6 +1245,8 @@ Object {
                     "kind": "Identifier",
                     "name": "password",
                   },
+                  "optional": false,
+                  "readonly": false,
                   "value": Object {
                     "kind": "TypeReference",
                     "typeName": Object {

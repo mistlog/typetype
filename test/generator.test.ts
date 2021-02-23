@@ -113,6 +113,11 @@ describe("ts-type", () => {
         expect(toCode(name)).toMatchSnapshot();
     })
 
+    test("IntersectionType", () => {
+        const name = "IntersectionType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("TypeArrowFunctionExpression", () => {
         const name = "TypeArrowFunctionExpression";
         expect(toCode(name)).toMatchSnapshot();
@@ -145,6 +150,11 @@ describe("ts-type", () => {
 
     test("ObjectType: spread", () => {
         const name = "ObjectType-Spread";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("ObjectType: modifier", () => {
+        const name = "ObjectType-Modifier";
         expect(toCode(name)).toMatchSnapshot();
     })
 

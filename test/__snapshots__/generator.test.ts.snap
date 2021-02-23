@@ -94,6 +94,8 @@ exports[`ts-type IndexType 1`] = `"obj[\\"a\\"]"`;
 
 exports[`ts-type IndexType: deep 1`] = `"obj[\\"a\\"][2]"`;
 
+exports[`ts-type IntersectionType 1`] = `"\\"0\\" & \\"1\\""`;
+
 exports[`ts-type MappedType 1`] = `"{ [K in Keys]: boolean }"`;
 
 exports[`ts-type MappedType: as 1`] = `"{ [K in Keys as \`get\${K}\`]: () => string }"`;
@@ -104,6 +106,12 @@ exports[`ts-type ObjectType 1`] = `
   b: string;
   c: 1;
   d: \\"abc\\";
+}"
+`;
+
+exports[`ts-type ObjectType: modifier 1`] = `
+"{
+  readonly a?: number;
 }"
 `;
 

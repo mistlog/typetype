@@ -13,7 +13,9 @@
                     "kind": "Identifier",
                     "name": "hello"
                 }
-            }
+            },
+            "optional": false,
+            "readonly": false
         },
         {
             "kind": "TypeSpreadProperty",
