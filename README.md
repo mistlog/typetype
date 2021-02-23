@@ -109,7 +109,7 @@ type template = `value is: ${value}`
 type obj = { a: 1; b: "abc"; c: [1, 2] }
 type valueDeep = obj["c"][1]
 
-type keys = keyof { a: 1; b: 2 }
+type keys = keyof { readonly a?: 1; b: 2 }
 ```
 
 ### Union type

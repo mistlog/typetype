@@ -1,5 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`parser: object ObjectType 1`] = `
+Object {
+  "kind": "ObjectType",
+  "props": Array [
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "a",
+      },
+      "optional": false,
+      "readonly": false,
+      "value": Object {
+        "kind": "NumberType",
+        "value": "number",
+      },
+    },
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "b",
+      },
+      "optional": false,
+      "readonly": false,
+      "value": Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+    },
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "c",
+      },
+      "optional": false,
+      "readonly": false,
+      "value": Object {
+        "kind": "NumberTypeLiteral",
+        "value": 1,
+      },
+    },
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "d",
+      },
+      "optional": false,
+      "readonly": false,
+      "value": Object {
+        "kind": "StringTypeLiteral",
+        "value": "abc",
+      },
+    },
+  ],
+}
+`;
+
+exports[`parser: object ObjectType 2`] = `
+Object {
+  "kind": "ObjectType",
+  "props": Array [],
+}
+`;
+
 exports[`parser: object ObjectType: modifier 1`] = `
 Object {
   "kind": "ObjectType",
@@ -18,5 +85,127 @@ Object {
       },
     },
   ],
+}
+`;
+
+exports[`parser: object ObjectType: shorthand 1`] = `
+Object {
+  "kind": "ObjectType",
+  "props": Array [
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "hello",
+      },
+      "optional": false,
+      "readonly": false,
+      "value": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "hello",
+        },
+      },
+    },
+  ],
+}
+`;
+
+exports[`parser: object ObjectType: spread 1`] = `
+Object {
+  "kind": "ObjectType",
+  "props": Array [
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "hello",
+      },
+      "optional": false,
+      "readonly": false,
+      "value": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "hello",
+        },
+      },
+    },
+    Object {
+      "kind": "TypeSpreadProperty",
+      "param": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "obj",
+        },
+      },
+    },
+  ],
+}
+`;
+
+exports[`parser: object TypeObjectProperty 1`] = `
+Object {
+  "kind": "TypeObjectProperty",
+  "name": Object {
+    "kind": "Identifier",
+    "name": "a",
+  },
+  "optional": false,
+  "readonly": false,
+  "value": Object {
+    "kind": "NumberType",
+    "value": "number",
+  },
+}
+`;
+
+exports[`parser: object TypeObjectProperty 2`] = `
+Object {
+  "kind": "TypeObjectProperty",
+  "name": Object {
+    "kind": "Identifier",
+    "name": "b",
+  },
+  "optional": false,
+  "readonly": false,
+  "value": Object {
+    "kind": "StringType",
+    "value": "string",
+  },
+}
+`;
+
+exports[`parser: object TypeObjectProperty 3`] = `
+Object {
+  "kind": "TypeObjectProperty",
+  "name": Object {
+    "kind": "Identifier",
+    "name": "c",
+  },
+  "optional": false,
+  "readonly": false,
+  "value": Object {
+    "kind": "NumberTypeLiteral",
+    "value": 1,
+  },
+}
+`;
+
+exports[`parser: object TypeObjectProperty 4`] = `
+Object {
+  "kind": "TypeObjectProperty",
+  "name": Object {
+    "kind": "Identifier",
+    "name": "d",
+  },
+  "optional": false,
+  "readonly": false,
+  "value": Object {
+    "kind": "StringTypeLiteral",
+    "value": "abc",
+  },
 }
 `;
