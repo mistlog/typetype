@@ -340,6 +340,8 @@ Object {
           "kind": "Identifier",
           "name": "a",
         },
+        "optional": false,
+        "readonly": false,
         "value": Object {
           "kind": "NumberTypeLiteral",
           "value": 1,
@@ -351,6 +353,8 @@ Object {
           "kind": "Identifier",
           "name": "b",
         },
+        "optional": false,
+        "readonly": false,
         "value": Object {
           "kind": "NumberTypeLiteral",
           "value": 2,
@@ -452,6 +456,8 @@ Object {
         "kind": "Identifier",
         "name": "a",
       },
+      "optional": false,
+      "readonly": false,
       "value": Object {
         "kind": "NumberType",
         "value": "number",
@@ -463,6 +469,8 @@ Object {
         "kind": "Identifier",
         "name": "b",
       },
+      "optional": false,
+      "readonly": false,
       "value": Object {
         "kind": "StringType",
         "value": "string",
@@ -474,6 +482,8 @@ Object {
         "kind": "Identifier",
         "name": "c",
       },
+      "optional": false,
+      "readonly": false,
       "value": Object {
         "kind": "NumberTypeLiteral",
         "value": 1,
@@ -485,6 +495,8 @@ Object {
         "kind": "Identifier",
         "name": "d",
       },
+      "optional": false,
+      "readonly": false,
       "value": Object {
         "kind": "StringTypeLiteral",
         "value": "abc",
@@ -511,6 +523,8 @@ Object {
         "kind": "Identifier",
         "name": "hello",
       },
+      "optional": false,
+      "readonly": false,
       "value": Object {
         "kind": "TypeReference",
         "typeName": Object {
@@ -533,6 +547,8 @@ Object {
         "kind": "Identifier",
         "name": "hello",
       },
+      "optional": false,
+      "readonly": false,
       "value": Object {
         "kind": "TypeReference",
         "typeName": Object {
@@ -567,6 +583,8 @@ Object {
           "kind": "Identifier",
           "name": "a",
         },
+        "optional": false,
+        "readonly": false,
         "value": Object {
           "kind": "NumberTypeLiteral",
           "value": 1,
@@ -578,6 +596,8 @@ Object {
           "kind": "Identifier",
           "name": "b",
         },
+        "optional": false,
+        "readonly": false,
         "value": Object {
           "kind": "NumberTypeLiteral",
           "value": 2,
@@ -1068,6 +1088,8 @@ Object {
                   "kind": "Identifier",
                   "name": "a",
                 },
+                "optional": false,
+                "readonly": false,
                 "value": Object {
                   "kind": "TypeReference",
                   "typeName": Object {
@@ -1521,6 +1543,8 @@ Object {
     "kind": "Identifier",
     "name": "a",
   },
+  "optional": false,
+  "readonly": false,
   "value": Object {
     "kind": "NumberType",
     "value": "number",
@@ -1535,6 +1559,8 @@ Object {
     "kind": "Identifier",
     "name": "b",
   },
+  "optional": false,
+  "readonly": false,
   "value": Object {
     "kind": "StringType",
     "value": "string",
@@ -1549,6 +1575,8 @@ Object {
     "kind": "Identifier",
     "name": "c",
   },
+  "optional": false,
+  "readonly": false,
   "value": Object {
     "kind": "NumberTypeLiteral",
     "value": 1,
@@ -1563,6 +1591,8 @@ Object {
     "kind": "Identifier",
     "name": "d",
   },
+  "optional": false,
+  "readonly": false,
   "value": Object {
     "kind": "StringTypeLiteral",
     "value": "abc",
@@ -1724,6 +1754,8 @@ Object {
               "kind": "Identifier",
               "name": "a",
             },
+            "optional": false,
+            "readonly": false,
             "value": Object {
               "kind": "NumberTypeLiteral",
               "value": 1,
@@ -1735,6 +1767,8 @@ Object {
               "kind": "Identifier",
               "name": "b",
             },
+            "optional": false,
+            "readonly": false,
             "value": Object {
               "kind": "NumberTypeLiteral",
               "value": 2,

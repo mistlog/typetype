@@ -116,7 +116,9 @@
                                                         "kind": "Identifier",
                                                         "name": "name"
                                                     }
-                                                }
+                                                },
+                                                "optional": false,
+                                                "readonly": false
                                             },
                                             {
                                                 "kind": "TypeObjectProperty",
@@ -130,7 +132,9 @@
                                                         "kind": "Identifier",
                                                         "name": "port"
                                                     }
-                                                }
+                                                },
+                                                "optional": false,
+                                                "readonly": false
                                             }
                                         ]
                                     }
@@ -155,7 +159,9 @@
                                             "kind": "Identifier",
                                             "name": "text"
                                         }
-                                    }
+                                    },
+                                    "optional": false,
+                                    "readonly": false
                                 }
                             ]
                         }

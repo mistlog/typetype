@@ -12,7 +12,9 @@
                 "value": {
                     "kind": "NumberTypeLiteral",
                     "value": 1
-                }
+                },
+                "optional": false,
+                "readonly": false
             },
             {
                 "kind": "TypeObjectProperty",
@@ -23,7 +25,9 @@
                 "value": {
                     "kind": "NumberTypeLiteral",
                     "value": 2
-                }
+                },
+                "optional": false,
+                "readonly": false
             }
         ]
     }

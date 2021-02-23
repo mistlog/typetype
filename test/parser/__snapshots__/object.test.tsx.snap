@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser: object ObjectType: modifier 1`] = `
+Object {
+  "kind": "ObjectType",
+  "props": Array [
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "a",
+      },
+      "optional": true,
+      "readonly": true,
+      "value": Object {
+        "kind": "NumberType",
+        "value": "number",
+      },
+    },
+  ],
+}
+`;

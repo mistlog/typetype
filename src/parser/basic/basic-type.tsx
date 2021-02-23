@@ -387,10 +387,12 @@ export interface ITypeObjectProperty {
     kind: "TypeObjectProperty"
     name: IIdentifier
     value: ITypeExpression
+    readonly: boolean
+    optional: boolean
 }
 
 export function TypeObjectProperty() {
-    const action = ({ name, value: rawValue }): ITypeObjectProperty => {
+    const action = ({ name, value: rawValue, optional, readonly }): ITypeObjectProperty => {
         const value = rawValue || /** shorthand */ {
             kind: "TypeReference",
             typeName: { ...name }
@@ -399,14 +401,22 @@ export function TypeObjectProperty() {
         return {
             kind: "TypeObjectProperty",
             name,
-            value
+            value,
+            optional: Boolean(optional),
+            readonly: Boolean(readonly)
         }
     }
 
     return (
         <pattern action={action}>
             <_ />
+            <opt label="readonly">
+                {Text("readonly")}
+            </opt>
             <Identifier label="name" />
+            <opt label="optional">
+                {Text("?")}
+            </opt>
             <opt label="value">
                 <pattern action={({ expression }) => expression}>
                     {Text(":")}
