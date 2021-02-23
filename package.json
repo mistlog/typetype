@@ -10,7 +10,8 @@
     ],
     "scripts": {
         "test": "jest --coverage --runInBand",
-        "build": "tsc"
+        "build": "tsc",
+        "prerelease": "npm publish --tag temp"
     },
     "repository": {
         "type": "git",
