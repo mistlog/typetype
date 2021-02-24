@@ -369,10 +369,19 @@ exports[`MappedType 1`] = `
 Object {
   "body": Object {
     "as": Object {
-      "kind": "TypeReference",
-      "typeName": Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
         "kind": "Identifier",
-        "name": "K",
+        "name": "key",
+      },
+      "optional": false,
+      "readonly": false,
+      "value": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "K",
+        },
       },
     },
     "key": Object {
@@ -403,23 +412,32 @@ exports[`MappedType: as 1`] = `
 Object {
   "body": Object {
     "as": Object {
-      "items": Array [
-        Object {
-          "kind": "TemplateElement",
-          "value": "get",
-        },
-        Object {
-          "expression": Object {
-            "kind": "TypeReference",
-            "typeName": Object {
-              "kind": "Identifier",
-              "name": "K",
-            },
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "key",
+      },
+      "optional": false,
+      "readonly": false,
+      "value": Object {
+        "items": Array [
+          Object {
+            "kind": "TemplateElement",
+            "value": "get",
           },
-          "kind": "TemplateExpression",
-        },
-      ],
-      "kind": "TemplateTypeLiteral",
+          Object {
+            "expression": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "K",
+              },
+            },
+            "kind": "TemplateExpression",
+          },
+        ],
+        "kind": "TemplateTypeLiteral",
+      },
     },
     "key": Object {
       "kind": "Identifier",
@@ -1003,10 +1021,19 @@ Object {
 exports[`TypeForInStatement 1`] = `
 Object {
   "as": Object {
-    "kind": "TypeReference",
-    "typeName": Object {
+    "kind": "TypeObjectProperty",
+    "name": Object {
       "kind": "Identifier",
-      "name": "K",
+      "name": "key",
+    },
+    "optional": false,
+    "readonly": false,
+    "value": Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "K",
+      },
     },
   },
   "key": Object {
@@ -1034,23 +1061,32 @@ Object {
 exports[`TypeForInStatement: 2 1`] = `
 Object {
   "as": Object {
-    "items": Array [
-      Object {
-        "kind": "TemplateElement",
-        "value": "get",
-      },
-      Object {
-        "expression": Object {
-          "kind": "TypeReference",
-          "typeName": Object {
-            "kind": "Identifier",
-            "name": "K",
-          },
+    "kind": "TypeObjectProperty",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "key",
+    },
+    "optional": false,
+    "readonly": false,
+    "value": Object {
+      "items": Array [
+        Object {
+          "kind": "TemplateElement",
+          "value": "get",
         },
-        "kind": "TemplateExpression",
-      },
-    ],
-    "kind": "TemplateTypeLiteral",
+        Object {
+          "expression": Object {
+            "kind": "TypeReference",
+            "typeName": Object {
+              "kind": "Identifier",
+              "name": "K",
+            },
+          },
+          "kind": "TemplateExpression",
+        },
+      ],
+      "kind": "TemplateTypeLiteral",
+    },
   },
   "key": Object {
     "kind": "Identifier",

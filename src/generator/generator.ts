@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -48,18 +48,22 @@ function tsConditionalType(ast: ITypeIfStatement): t.TSConditionalType {
     return type;
 }
 
+function tsPropertySignature(ast: ITypeObjectProperty) {
+    const key = Identifier(ast.name);
+    const value = TSType(ast.value);
+    const prop = t.tsPropertySignature(key, t.tsTypeAnnotation(value));
+    return {
+        ...prop,
+        readonly: ast.readonly,
+        optional: ast.optional
+    } as t.TSPropertySignature;
+}
+
 function tsTypeLiteral(ast: IObjectType) {
     const props = ast.props.map(each => {
         switch (each.kind) {
             case "TypeObjectProperty": {
-                const key = Identifier(each.name);
-                const value = TSType(each.value);
-                const prop = t.tsPropertySignature(key, t.tsTypeAnnotation(value));
-                return {
-                    ...prop,
-                    readonly: each.readonly,
-                    optional: each.optional
-                } as t.TSPropertySignature;
+                return tsPropertySignature(each);
             }
             case "TypeSpreadProperty": {
                 if (each.param.kind === "TypeReference") {
@@ -178,11 +182,11 @@ function tsFunctionType(ast: IFunctionType): t.TSFunctionType {
 }
 
 
-function resolveMappedTypeAsClause(as: ITypeExpression, key: IIdentifier) {
-    if (as.kind === "TypeReference" && as.typeName.name === key.name) {
+function resolveMappedTypeAsClause(as: ITypeObjectProperty, key: IIdentifier) {
+    if (as.value.kind === "TypeReference" && as.value.typeName.name === key.name) {
         return null;
     }
-    return TSType(as);
+    return TSType(as.value);
 }
 
 function tsMappedType(ast: ITypeForInStatement): t.TSMappedType {
@@ -190,7 +194,11 @@ function tsMappedType(ast: ITypeForInStatement): t.TSMappedType {
     const typeParam = t.tsTypeParameter(TSType(keys), null, key.name);
     const nameType = resolveMappedTypeAsClause(as, key);
     const type = t.tsMappedType(typeParam, TSType(value), nameType);
-    return type;
+    return {
+        ...type,
+        readonly: as.readonly,
+        optional: as.optional
+    } as t.TSMappedType;
 }
 
 type Kind<T extends ITypeType> = T["kind"];

@@ -11,6 +11,11 @@ describe("parser: examples", () => {
         return ast;
     }
 
+    test("readonly", () => {
+        const name = "Example-readonly";
+        expect(toAST(name)).toMatchSnapshot();
+    })
+
     test("comment", () => {
         const name = "Example-comment";
         expect(toAST(name)).toMatchSnapshot();
