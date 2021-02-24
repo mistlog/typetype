@@ -291,6 +291,7 @@ test("TemplateTypeLiteral", () => {
     const templateTypeLiteral2 = loadType("TemplateTypeLiteral-2");
     const templateTypeLiteral3 = loadType("TemplateTypeLiteral-3");
     const templateTypeLiteral4 = loadType("TemplateTypeLiteral-4");
+    const templateTypeLiteral5 = loadType("TemplateTypeLiteral-5");
 
     {
         const parser = ReactPeg.render(<TemplateTypeLiteral />);
@@ -317,6 +318,13 @@ test("TemplateTypeLiteral", () => {
         const parser = ReactPeg.render(<TemplateTypeLiteral />);
         const ast = parser.parse(templateTypeLiteral4);
         saveAST(ast, "TemplateTypeLiteral-4.json");
+        expect(ast).toMatchSnapshot();
+    }
+
+    {
+        const parser = ReactPeg.render(<TemplateTypeLiteral />);
+        const ast = parser.parse(templateTypeLiteral5);
+        saveAST(ast, "TemplateTypeLiteral-5.json");
         expect(ast).toMatchSnapshot();
     }
 })
