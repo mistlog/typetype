@@ -231,6 +231,35 @@ export type function MyPick = (T, Keys extends keyof T) => ^{
 }
 ```
 
+### Object spread
+
+Object spread syntax can be used, and it will be translated to `object$assign<{}, [...]>`:
+
+* [examples/url-parser-2/url-parser-2.type](https://github.com/mistlog/typetype-examples/blob/main/examples/url-parser-2/url-parser-2.type)
+
+```ts
+export type function parseURL = (text) => ^{
+    if (parseProtocol<text> extends [infer protocol, infer rest]) {
+        return {
+            protocol,
+            ...parseAuthority<rest>
+        }
+    } else {
+        return never
+    }
+}
+```
+
+as long as `object$assign` is available globally, this works fine:
+
+```ts
+export type parseURL<text> = parseProtocol<text> extends [infer protocol, infer rest] ? object$assign<{}, [{
+  protocol: protocol;
+}, parseAuthority<rest>]> : never;
+```
+
+you can polyfill it using type lib such as [ts-toolbelt](https://github.com/millsp/ts-toolbelt), for example: [polyfill/global.d.ts](https://github.com/mistlog/typetype-examples/blob/main/polyfill/global.d.ts).
+
 ## How it works?
 
 It's `AST -> AST` transformation.
