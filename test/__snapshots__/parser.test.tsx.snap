@@ -685,6 +685,18 @@ Object {
 }
 `;
 
+exports[`TemplateTypeLiteral 5`] = `
+Object {
+  "items": Array [
+    Object {
+      "kind": "TemplateElement",
+      "value": "\\\\\`",
+    },
+  ],
+  "kind": "TemplateTypeLiteral",
+}
+`;
+
 exports[`TupleType 1`] = `
 Object {
   "items": Array [

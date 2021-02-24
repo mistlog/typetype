@@ -73,3 +73,40 @@ Array [
   " ",
 ]
 `;
+
+exports[`parser: comment MultiLineComment: 4 1`] = `
+Array [
+  "
+",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  Object {
+    "comment": "*
+             * test it in typescript playgorund:
+             * 
+             * type url = \`http://admin:123456@github.com:8080\`;
+             * type result = parseURL<url>
+             ",
+  },
+  "
+",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+]
+`;

@@ -33,6 +33,6 @@
     },
     "dependencies": {
         "@babel/core": "^7.12.10",
-        "react-peg": "^0.1.5"
+        "react-peg": "^0.1.6"
     }
 }

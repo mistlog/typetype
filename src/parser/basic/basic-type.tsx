@@ -143,19 +143,20 @@ export function TemplateCharSequence() {
     )
 }
 
-// TODO: refine character
 export function TemplateChar() {
     return (
-        <or>
-            <pattern action={({ char }) => char}>
-                <assert type="without">
-                    <set>\\`</set>
-                </assert>
+        <pattern action={({ char }) => char}>
+            <assert type="without">
+                <or>
+                    <text>`</text>
+                    <text>$</text>
+                </or>
+            </assert>
+            <or label="char">
+                <text>\\`</text>
                 <SourceCharacter label="char" />
-            </pattern>
-            <text>{`\\\\\``}</text>
-            <text>{`@`}</text>
-        </or>
+            </or>
+        </pattern>
     )
 }
 

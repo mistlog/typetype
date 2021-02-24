@@ -2,31 +2,8 @@ import { ReactPeg } from "react-peg";
 import { _ } from "../common";
 
 export function SourceCharacter() {
-    const all = [
-        /**
-         * a-z 
-         * A-Z 
-         * 0-9 
-         * 
-         * ' ' \t \v \f \n \r
-         * 
-         * \ ' _ [ ]
-         * # ( ) % : 
-         * ; . + - * 
-         * / ^ | ~ ! 
-         * ? , = & "
-         * 
-         */
-        <set>a-zA-Z0-9\ \t\v\f\n\r\\\'_\[\]#\(\)%:;\.\+\-\*\/^|~!?,=&"</set>,
-
-        // count: 4
-        <set>{'{}<>'}</set>
-    ]
-
     return (
-        <or label="char">
-            {all}
-        </or>
+        <any/>
     )
 }
 

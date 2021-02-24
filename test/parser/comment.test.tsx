@@ -24,4 +24,17 @@ describe("parser: comment", () => {
              */
         `)).toMatchSnapshot();
     })
+
+    test("MultiLineComment: 4", () => {
+        const parser = ReactPeg.render(<_ />);
+        expect(parser.parse(`
+            /**
+             * test it in typescript playgorund:
+             * 
+             * type url = \`http://admin:123456@github.com:8080\`;
+             * type result = parseURL<url>
+             */
+        `)).toMatchSnapshot();
+        
+    })
 })
