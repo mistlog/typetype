@@ -22,7 +22,7 @@ export function TSTypeAliasDeclarationWithParams(ast: ITypeFunctionDeclaration):
     const type = t.isExportNamedDeclaration(_type) ? _type.declaration as t.TSTypeAliasDeclaration : _type;
     const params = ast.declarator.initializer.params.map((param) => {
         const constraint = param.constraint ? TSType(param.constraint) : null;
-        const tsParam = t.tSTypeParameter(constraint , /* TODO */null, (param as ITypeReference).typeName.name)
+        const tsParam = t.tSTypeParameter(constraint, /* TODO */null, (param as ITypeReference).typeName.name)
         return tsParam;
     });
 
@@ -68,8 +68,7 @@ function tsTypeLiteral(ast: IObjectType) {
             case "TypeSpreadProperty": {
                 if (each.param.kind === "TypeReference") {
                     const type = TSType(each.param) as t.TSTypeReference;
-                    const prop = t.tsPropertySignature(Identifier(each.param.typeName), t.tsTypeAnnotation(type));
-                    return prop;
+                    return type;
                 } else if (each.param.kind === "TypeCallExpression") {
                     const typeName = Identifier(each.param.callee.typeName);
                     const params = each.param.params.map(each => {
@@ -80,8 +79,7 @@ function tsTypeLiteral(ast: IObjectType) {
                         throw new Error(`unkonwn param: ${JSON.stringify(each, null, 4)}`);
                     })
                     const typeReference = t.tsTypeReference(typeName, t.tsTypeParameterInstantiation(params));
-                    const prop = t.tsPropertySignature(typeName, t.tsTypeAnnotation(typeReference));
-                    return prop;
+                    return typeReference;
                 }
             }
         }
@@ -89,7 +87,13 @@ function tsTypeLiteral(ast: IObjectType) {
 
     const isSpread = ast.props.some(prop => prop.kind === "TypeSpreadProperty");
     if (isSpread) {
-        const tsTypeProps = props.map(each => t.tsTypeLiteral([each as t.TSPropertySignature]));
+        const tsTypeProps = props.map(each => {
+            if (t.isTSPropertySignature(each)) {
+                return t.tsTypeLiteral([each]);
+            } else {
+                return each;
+            }
+        });
         const assigned = assignObjects(tsTypeProps as t.TSTypeLiteral[]);
         return assigned;
     } else {
