@@ -1,5 +1,1 @@
-type parseURL<text> = parseProtocol<text> extends [infer protocol, infer rest] ? object$assign<{}, [{
-  protocol: protocol;
-}, {
-  parseAuthority: parseAuthority<rest>;
-}]> : never;
+type parseURL<text> = parseProtocol<text> extends [infer protocol, infer rest] ? object$assign<{}, [protocol, parseAuthority<rest>]> : never;

@@ -50,13 +50,7 @@ exports[`examples parseProtocol 1`] = `
 }, rest] : never;"
 `;
 
-exports[`examples parseURL 1`] = `
-"type parseURL<text> = parseProtocol<text> extends [infer protocol, infer rest] ? object$assign<{}, [{
-  protocol: protocol;
-}, {
-  parseAuthority: parseAuthority<rest>;
-}]> : never;"
-`;
+exports[`examples parseURL 1`] = `"type parseURL<text> = parseProtocol<text> extends [infer protocol, infer rest] ? object$assign<{}, [protocol, parseAuthority<rest>]> : never;"`;
 
 exports[`examples parseURL: 2 1`] = `
 "type parseURL<text> = parseProtocol<text> extends [infer protocol, infer rest] ? {
@@ -126,9 +120,7 @@ exports[`ts-type ObjectType: shorthand 1`] = `
 exports[`ts-type ObjectType: spread 1`] = `
 "object$assign<{}, [{
   hello: hello;
-}, {
-  obj: obj;
-}]>"
+}, obj]>"
 `;
 
 exports[`ts-type TemplateTypeLiteral 1`] = `"\`hello \${World}\`"`;
