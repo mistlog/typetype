@@ -11,6 +11,17 @@ Object {
 }
 `;
 
+exports[`ArrayType: any 1`] = `
+Object {
+  "dimension": 1,
+  "elementType": Object {
+    "kind": "AnyType",
+    "value": "any",
+  },
+  "kind": "ArrayType",
+}
+`;
+
 exports[`ArrayType: deep 1`] = `
 Object {
   "dimension": 2,
@@ -40,6 +51,13 @@ exports[`BasicType 3`] = `
 Object {
   "kind": "NumberType",
   "value": "number",
+}
+`;
+
+exports[`BasicType 4`] = `
+Object {
+  "kind": "AnyType",
+  "value": "any",
 }
 `;
 

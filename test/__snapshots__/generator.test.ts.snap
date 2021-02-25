@@ -74,6 +74,8 @@ exports[`examples readonly 1`] = `"export type MyReadonly<T> = { readonly [K in 
 
 exports[`ts-type ArrayType 1`] = `"string[]"`;
 
+exports[`ts-type ArrayType: any 1`] = `"any[]"`;
+
 exports[`ts-type ArrayType: deep 1`] = `"string[][]"`;
 
 exports[`ts-type ConditionalTypeExpression 1`] = `"string extends string ? \\"string\\" : \\"number\\""`;

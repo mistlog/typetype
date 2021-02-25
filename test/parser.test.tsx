@@ -15,6 +15,7 @@ test("BasicType", () => {
     expect(parser.parse("never")).toMatchSnapshot();
     expect(parser.parse("string")).toMatchSnapshot();
     expect(parser.parse("number")).toMatchSnapshot();
+    expect(parser.parse("any")).toMatchSnapshot();
 })
 
 test("ExtendsClause", () => {
@@ -457,6 +458,13 @@ test("ArrayType", () => {
     expect(ast).toMatchSnapshot();
 })
 
+test("ArrayType: any", () => {
+    const parser = ReactPeg.render(<ArrayType />);
+    const ast = parser.parse(`any[]`);
+    saveAST(ast, "ArrayType-Any.json");
+    expect(ast).toMatchSnapshot();
+})
+
 test("ArrayType: deep", () => {
     const parser = ReactPeg.render(<TypeExpression />);
     const ast = parser.parse(`string[][]`);
@@ -502,10 +510,10 @@ test("MappedType", () => {
     expect(ast).toMatchSnapshot();
 })
 
-test("MappedType: as", ()=>{
+test("MappedType: as", () => {
     const parser = ReactPeg.render(<TypeExpression />);
     // { [K in Keys as `get${K}`]: () => string }
-    const ast = parser.parse( `
+    const ast = parser.parse(`
         ^{
             for(K in Keys) {
                 return {

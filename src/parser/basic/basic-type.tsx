@@ -8,6 +8,7 @@ export type IBasicType =
     | ITypeLiteral
     | IStringType
     | INeverType
+    | IAnyType
     | INumberType
     | IObjectType
     | ITupleType
@@ -19,6 +20,7 @@ export function BasicType() {
         <or>
             <ArrayType />
             <NeverType />
+            <AnyType />
             <VoidType />
             <NumberType />
             <StringType />
@@ -278,6 +280,25 @@ export function NeverType() {
     return (
         <pattern action={action}>
             {Text("never")}
+        </pattern>
+    )
+}
+
+export interface IAnyType {
+    kind: "AnyType"
+    value: "any"
+}
+
+export function AnyType() {
+    const action = (): IAnyType => {
+        return {
+            kind: "AnyType",
+            value: "any"
+        }
+    }
+    return (
+        <pattern action={action}>
+            {Text("any")}
         </pattern>
     )
 }
