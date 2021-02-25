@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { TypeExpressionList, TypeForInStatement, IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, KeyOfType, ArrayType, TypeExpression } from "../src";
+import { TypeExpressionList, TypeForInStatement, IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, KeyOfType, TypeExpression } from "../src";
 import { saveAST, loadType } from "./common";
 
 /**
@@ -15,6 +15,7 @@ test("BasicType", () => {
     expect(parser.parse("never")).toMatchSnapshot();
     expect(parser.parse("string")).toMatchSnapshot();
     expect(parser.parse("number")).toMatchSnapshot();
+    expect(parser.parse("any")).toMatchSnapshot();
 })
 
 test("ExtendsClause", () => {
@@ -450,20 +451,6 @@ test("IndexType: deep", () => {
     expect(ast).toMatchSnapshot();
 })
 
-test("ArrayType", () => {
-    const parser = ReactPeg.render(<ArrayType />);
-    const ast = parser.parse(`string[]`);
-    saveAST(ast, "ArrayType.json");
-    expect(ast).toMatchSnapshot();
-})
-
-test("ArrayType: deep", () => {
-    const parser = ReactPeg.render(<TypeExpression />);
-    const ast = parser.parse(`string[][]`);
-    saveAST(ast, "ArrayType-Deep.json");
-    expect(ast).toMatchSnapshot();
-})
-
 test("FunctionType", () => {
     const parser = ReactPeg.render(<TypeExpression />);
     const ast = parser.parse(`type () => void`);
@@ -502,10 +489,10 @@ test("MappedType", () => {
     expect(ast).toMatchSnapshot();
 })
 
-test("MappedType: as", ()=>{
+test("MappedType: as", () => {
     const parser = ReactPeg.render(<TypeExpression />);
     // { [K in Keys as `get${K}`]: () => string }
-    const ast = parser.parse( `
+    const ast = parser.parse(`
         ^{
             for(K in Keys) {
                 return {

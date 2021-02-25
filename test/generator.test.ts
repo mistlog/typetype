@@ -93,6 +93,11 @@ describe("ts-type", () => {
         expect(toCode(name)).toMatchSnapshot();
     })
 
+    test("ArrayType: any", () => {
+        const name = "ArrayType-Any";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("ArrayType: deep", () => {
         const name = "ArrayType-Deep";
         expect(toCode(name)).toMatchSnapshot();
