@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser: array ArrayType 1`] = `
+Object {
+  "dimension": 1,
+  "elementType": Object {
+    "kind": "StringType",
+    "value": "string",
+  },
+  "kind": "ArrayType",
+}
+`;
+
+exports[`parser: array ArrayType: any 1`] = `
+Object {
+  "dimension": 1,
+  "elementType": Object {
+    "kind": "AnyType",
+    "value": "any",
+  },
+  "kind": "ArrayType",
+}
+`;
+
+exports[`parser: array ArrayType: deep 1`] = `
+Object {
+  "dimension": 2,
+  "elementType": Object {
+    "kind": "StringType",
+    "value": "string",
+  },
+  "kind": "ArrayType",
+}
+`;
