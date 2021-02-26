@@ -32,3 +32,17 @@ Object {
   "kind": "ArrayType",
 }
 `;
+
+exports[`parser: array ArrayType: readonly 1`] = `
+Object {
+  "kind": "ReadonlyArray",
+  "operand": Object {
+    "dimension": 1,
+    "elementType": Object {
+      "kind": "StringType",
+      "value": "string",
+    },
+    "kind": "ArrayType",
+  },
+}
+`;

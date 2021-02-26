@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -198,6 +198,13 @@ function tsMappedType(ast: ITypeForInStatement): t.TSMappedType {
     } as t.TSMappedType;
 }
 
+function tsTypeOperator(ast: IOperatorType, operator: string): t.TSTypeOperator {
+    return {
+        ...t.tsTypeOperator(TSType(ast.operand)),
+        operator
+    }  /** TODO: use t.tsTypeOperator to create it? */
+}
+
 type Kind<T extends ITypeType> = T["kind"];
 type TypeInTS<T extends ITypeType> =
     /**
@@ -221,6 +228,8 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<IUnionType> ? t.TSUnionType :
     Kind<T> extends Kind<IIntersectionType> ? t.TSIntersectionType :
     Kind<T> extends Kind<IKeyOfType> ? t.TSTypeOperator :
+    Kind<T> extends Kind<IReadonlyArray> ? t.TSTypeOperator :
+    Kind<T> extends Kind<IReadonlyTuple> ? t.TSTypeOperator :
     Kind<T> extends Kind<IIndexType> ? t.TSIndexedAccessType :
     Kind<T> extends Kind<IFunctionType> ? t.TSFunctionType :
     Kind<T> extends Kind<ITypeArrowFunctionExpression> ? t.TSConditionalType :
@@ -264,10 +273,9 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         case "MappedTypeExpression": return tsMappedType(ast.body);
         case "UnionType": return t.tsUnionType(ast.types.map(each => TSType(each)));
         case "IntersectionType": return t.tsIntersectionType(ast.types.map(each => TSType(each)));
-        case "KeyOfType": return {
-            ...t.tsTypeOperator(TSType(ast.operand)),
-            operator: "keyof"
-        } as t.TSTypeOperator; /** TODO: use t.tsTypeOperator to create it */
+        case "KeyOfType": return tsTypeOperator(ast, "keyof");
+        case "ReadonlyArray": return tsTypeOperator(ast, "readonly");
+        case "ReadonlyTuple": return tsTypeOperator(ast, "readonly");
         case "IndexType": return tsIndexType(ast);
         case "FunctionType": return tsFunctionType(ast);
 

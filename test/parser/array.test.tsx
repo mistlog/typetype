@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { ArrayType, TypeExpression } from "../../src";
+import { ArrayType, OperatorType, TypeExpression } from "../../src";
 import { saveAST } from "../common";
 
 describe("parser: array", () => {
@@ -7,6 +7,13 @@ describe("parser: array", () => {
         const parser = ReactPeg.render(<ArrayType />);
         const ast = parser.parse(`string[]`);
         saveAST(ast, "ArrayType.json");
+        expect(ast).toMatchSnapshot();
+    })
+
+    test("ArrayType: readonly", () => {
+        const parser = ReactPeg.render(<OperatorType />);
+        const ast = parser.parse(`readonly string[]`);
+        saveAST(ast, "ArrayType-Readonly.json");
         expect(ast).toMatchSnapshot();
     })
 
