@@ -78,6 +78,8 @@ exports[`ts-type ArrayType: any 1`] = `"any[]"`;
 
 exports[`ts-type ArrayType: deep 1`] = `"string[][]"`;
 
+exports[`ts-type ArrayType:readonly 1`] = `"readonly string[]"`;
+
 exports[`ts-type ConditionalTypeExpression 1`] = `"string extends string ? \\"string\\" : \\"number\\""`;
 
 exports[`ts-type ConditionalTypeExpression: 2 1`] = `"T extends string ? \\"string\\" : T extends number ? \\"number\\" : never"`;
