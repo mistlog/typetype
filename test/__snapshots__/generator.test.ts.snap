@@ -78,7 +78,7 @@ exports[`ts-type ArrayType: any 1`] = `"any[]"`;
 
 exports[`ts-type ArrayType: deep 1`] = `"string[][]"`;
 
-exports[`ts-type ArrayType:readonly 1`] = `"readonly string[]"`;
+exports[`ts-type ArrayType: readonly 1`] = `"readonly string[]"`;
 
 exports[`ts-type ConditionalTypeExpression 1`] = `"string extends string ? \\"string\\" : \\"number\\""`;
 
@@ -128,6 +128,8 @@ exports[`ts-type ObjectType: spread 1`] = `
 `;
 
 exports[`ts-type TemplateTypeLiteral 1`] = `"\`hello \${World}\`"`;
+
+exports[`ts-type TupleType: readonly 1`] = `"readonly [string, number]"`;
 
 exports[`ts-type TupleType: with infer 1`] = `"[infer protocol, infer rest]"`;
 

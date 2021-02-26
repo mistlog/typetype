@@ -704,6 +704,25 @@ Object {
 }
 `;
 
+exports[`TupleType: readonly 1`] = `
+Object {
+  "kind": "ReadonlyTuple",
+  "operand": Object {
+    "items": Array [
+      Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+      Object {
+        "kind": "NumberType",
+        "value": "number",
+      },
+    ],
+    "kind": "TupleType",
+  },
+}
+`;
+
 exports[`TupleType: with infer 1`] = `
 Object {
   "items": Array [

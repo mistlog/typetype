@@ -1,6 +1,6 @@
 import { ReactPeg } from "react-peg";
 import { _, Text } from "../common";
-import { IBasicType, BasicType, ITypeReference, TypeReference, IIdentifier, Identifier, IArrayType, ArrayType } from "../basic";
+import { IBasicType, BasicType, ITypeReference, TypeReference, IIdentifier, Identifier, IArrayType, ArrayType, ITupleType, TupleType } from "../basic";
 import { ITypeForInStatement, ITypeIfStatement, TypeForInStatement, TypeIfStatement } from "../statement";
 import { FunctionType, IFunctionType } from "../function";
 
@@ -249,14 +249,36 @@ export function IntersectionType() {
     )
 }
 
-export type IOperatorType = IKeyOfType | IReadonlyArray
+export type IOperatorType = IKeyOfType | IReadonlyArray | IReadonlyTuple
 
 export function OperatorType() {
     return (
         <or>
             <KeyOfType />
             <ReadonlyArray />
+            <ReadonlyTuple />
         </or>
+    )
+}
+
+export interface IReadonlyTuple {
+    kind: "ReadonlyTuple"
+    operand: ITupleType
+}
+
+export function ReadonlyTuple() {
+    const action = ({ operand }): IReadonlyTuple => {
+        return {
+            kind: "ReadonlyTuple",
+            operand
+        }
+    }
+
+    return (
+        <pattern action={action}>
+            {Text("readonly")}
+            <TupleType label="operand" />
+        </pattern>
     )
 }
 

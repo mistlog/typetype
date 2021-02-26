@@ -1,0 +1,16 @@
+{
+    "kind": "ReadonlyTuple",
+    "operand": {
+        "kind": "TupleType",
+        "items": [
+            {
+                "kind": "StringType",
+                "value": "string"
+            },
+            {
+                "kind": "NumberType",
+                "value": "number"
+            }
+        ]
+    }
+}

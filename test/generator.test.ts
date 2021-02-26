@@ -93,7 +93,7 @@ describe("ts-type", () => {
         expect(toCode(name)).toMatchSnapshot();
     })
 
-    test("ArrayType:readonly", () => {
+    test("ArrayType: readonly", () => {
         const name = "ArrayType-Readonly";
         expect(toCode(name)).toMatchSnapshot();
     })
@@ -145,6 +145,11 @@ describe("ts-type", () => {
 
     test("TupleType: with infer", () => {
         const name = "TupleType-Infer";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("TupleType: readonly", () => {
+        const name = "TupleType-Readonly";
         expect(toCode(name)).toMatchSnapshot();
     })
 
