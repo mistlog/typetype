@@ -1,0 +1,11 @@
+{
+    "kind": "ReadonlyArray",
+    "operand": {
+        "kind": "ArrayType",
+        "elementType": {
+            "kind": "StringType",
+            "value": "string"
+        },
+        "dimension": 1
+    }
+}

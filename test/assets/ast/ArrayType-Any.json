@@ -1,0 +1,8 @@
+{
+    "kind": "ArrayType",
+    "elementType": {
+        "kind": "AnyType",
+        "value": "any"
+    },
+    "dimension": 1
+}
