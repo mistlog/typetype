@@ -10,7 +10,6 @@ export type IBasicType =
     | INeverType
     | IAnyType
     | INumberType
-    | IObjectType
     | ITupleType
     | IArrayType
     | IVoidType
@@ -25,7 +24,6 @@ export function BasicType() {
             <NumberType />
             <StringType />
             <TupleType />
-            <ObjectType />
             <TypeLiteral />
         </or>
     )
@@ -50,11 +48,12 @@ export function StringType() {
     )
 }
 
-export type ITypeLiteral = IStringTypeLiteral | INumberTypeLiteral | ITemplateTypeLiteral | IBooleanTypeLiteral
+export type ITypeLiteral = IObjectTypeLiteral | IStringTypeLiteral | INumberTypeLiteral | ITemplateTypeLiteral | IBooleanTypeLiteral
 
 export function TypeLiteral() {
     return (
         <or>
+            <ObjectTypeLiteral />
             <NumberTypeLiteral />
             <StringTypeLiteral />
             <BooleanTypeLiteral />
@@ -343,15 +342,15 @@ export function TupleType() {
     )
 }
 
-export interface IObjectType {
-    kind: "ObjectType"
+export interface IObjectTypeLiteral {
+    kind: "ObjectTypeLiteral"
     props: (ITypeObjectProperty | ITypeSpreadProperty)[]
 }
 
-export function ObjectType() {
-    const action = ({ head, tail }): IObjectType => {
+export function ObjectTypeLiteral() {
+    const action = ({ head, tail }): IObjectTypeLiteral => {
         return {
-            kind: "ObjectType",
+            kind: "ObjectTypeLiteral",
             props: head ? [head, ...tail] : []
         }
     }

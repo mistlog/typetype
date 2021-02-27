@@ -102,7 +102,7 @@
                                 "alternate": {
                                     "kind": "TypeReturnStatement",
                                     "argument": {
-                                        "kind": "ObjectType",
+                                        "kind": "ObjectTypeLiteral",
                                         "props": [
                                             {
                                                 "kind": "TypeObjectProperty",
@@ -145,7 +145,7 @@
                     "alternate": {
                         "kind": "TypeReturnStatement",
                         "argument": {
-                            "kind": "ObjectType",
+                            "kind": "ObjectTypeLiteral",
                             "props": [
                                 {
                                     "kind": "TypeObjectProperty",

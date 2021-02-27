@@ -1,10 +1,10 @@
 import { ReactPeg } from "react-peg";
-import { TypeObjectProperty, ObjectType } from "../../src";
+import { TypeObjectProperty, ObjectTypeLiteral } from "../../src";
 import { saveAST } from "../common";
 
 describe("parser: object", () => {
     test("ObjectType: modifier", () => {
-            const parser = ReactPeg.render(<ObjectType />);
+            const parser = ReactPeg.render(<ObjectTypeLiteral />);
             const ast = parser.parse(`
                 {
                     readonly a ?: number
@@ -16,7 +16,7 @@ describe("parser: object", () => {
     })
 
     test("ObjectType", () => {
-        const parser = ReactPeg.render(<ObjectType />);
+        const parser = ReactPeg.render(<ObjectTypeLiteral />);
         const ast = parser.parse(`
             {
                 a: number,
@@ -33,7 +33,7 @@ describe("parser: object", () => {
     })
     
     test("ObjectType: shorthand", () => {
-        const parser = ReactPeg.render(<ObjectType />);
+        const parser = ReactPeg.render(<ObjectTypeLiteral />);
         const ast = parser.parse(`
             {
                 hello
@@ -44,7 +44,7 @@ describe("parser: object", () => {
     })
     
     test("ObjectType: spread", () => {
-        const parser = ReactPeg.render(<ObjectType />);
+        const parser = ReactPeg.render(<ObjectTypeLiteral />);
         const ast = parser.parse(`
             {
                 hello,

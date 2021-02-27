@@ -345,7 +345,7 @@ exports[`KeyOfType 1`] = `
 Object {
   "kind": "KeyOfType",
   "operand": Object {
-    "kind": "ObjectType",
+    "kind": "ObjectTypeLiteral",
     "props": Array [
       Object {
         "kind": "TypeObjectProperty",
@@ -481,7 +481,7 @@ exports[`OperatorType: keyof 1`] = `
 Object {
   "kind": "KeyOfType",
   "operand": Object {
-    "kind": "ObjectType",
+    "kind": "ObjectTypeLiteral",
     "props": Array [
       Object {
         "kind": "TypeObjectProperty",
@@ -954,7 +954,7 @@ Object {
       "declarator": Object {
         "initializer": Object {
           "body": Object {
-            "kind": "ObjectType",
+            "kind": "ObjectTypeLiteral",
             "props": Array [
               Object {
                 "kind": "TypeObjectProperty",
@@ -1574,7 +1574,7 @@ Object {
     "initializer": Object {
       "kind": "KeyOfType",
       "operand": Object {
-        "kind": "ObjectType",
+        "kind": "ObjectTypeLiteral",
         "props": Array [
           Object {
             "kind": "TypeObjectProperty",

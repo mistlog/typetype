@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -59,7 +59,7 @@ function tsPropertySignature(ast: ITypeObjectProperty) {
     } as t.TSPropertySignature;
 }
 
-function tsTypeLiteral(ast: IObjectType) {
+function tsTypeLiteral(ast: IObjectTypeLiteral) {
     const props = ast.props.map(each => {
         switch (each.kind) {
             case "TypeObjectProperty": {
@@ -218,7 +218,7 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<INeverType> ? t.TSNeverKeyword :
     Kind<T> extends Kind<IAnyType> ? t.TSAnyKeyword :
     Kind<T> extends Kind<INumberType> ? t.TSNumberKeyword :
-    Kind<T> extends Kind<IObjectType> ? t.TSTypeLiteral :
+    Kind<T> extends Kind<IObjectTypeLiteral> ? t.TSTypeLiteral :
     Kind<T> extends Kind<ITupleType> ? t.TSTupleType :
     Kind<T> extends Kind<IArrayType> ? t.TSArrayType :
     /**
@@ -255,7 +255,7 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         case "AnyType": return t.tsAnyKeyword();
         case "VoidType": return t.tsVoidKeyword();
         case "NumberType": return t.tsNumberKeyword();
-        case "ObjectType": return tsTypeLiteral(ast);
+        case "ObjectTypeLiteral": return tsTypeLiteral(ast);
         case "TupleType": return t.tsTupleType(ast.items.map(item => TSType(item)));
         case "ArrayType": return tsArrayType(ast);
         /**
