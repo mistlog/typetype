@@ -83,6 +83,11 @@ describe("ts-type", () => {
         expect(toCode(name)).toMatchSnapshot();
     })
 
+    test("FunctionType: rest", () => {
+        const name = "FunctionType-Rest";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("FunctionType: nested", () => {
         const name = "FunctionType-Nested";
         expect(toCode(name)).toMatchSnapshot();

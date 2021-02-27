@@ -169,10 +169,10 @@ function tsArrayType(ast: IArrayType): t.TSArrayType {
 
 function tsFunctionType(ast: IFunctionType): t.TSFunctionType {
     const params = ast.params.map(each => {
-        return {
-            ...Identifier(each.name),
-            typeAnnotation: t.tsTypeAnnotation(TSType(each.type))
-        } as t.Identifier /** TODO: use t.identifier to create it */
+        const identifier = Identifier(each.name);
+        const param = each.rest ? t.restElement(identifier) : identifier;
+        param.typeAnnotation = t.tsTypeAnnotation(TSType(each.type));
+        return param;
     });
 
     return t.tsFunctionType(null, params, t.tsTypeAnnotation(TSType(ast.returnType)));

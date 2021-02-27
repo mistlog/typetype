@@ -1,0 +1,25 @@
+{
+    "kind": "FunctionType",
+    "params": [
+        {
+            "kind": "FunctionTypeParam",
+            "name": {
+                "kind": "Identifier",
+                "name": "args"
+            },
+            "type": {
+                "kind": "ArrayType",
+                "elementType": {
+                    "kind": "AnyType",
+                    "value": "any"
+                },
+                "dimension": 1
+            },
+            "rest": true
+        }
+    ],
+    "returnType": {
+        "kind": "VoidType",
+        "value": "void"
+    }
+}
