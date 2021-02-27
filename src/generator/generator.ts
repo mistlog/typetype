@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -15,7 +15,7 @@ export function TSFile(ast: ITypeFile): t.File {
     return file;
 }
 
-export type ITypeType = ITypeExpression
+export type ITypeType = ITypeExpression | IRestType;
 
 export function TSTypeAliasDeclarationWithParams(ast: ITypeFunctionDeclaration): t.TSTypeAliasDeclaration | t.ExportNamedDeclaration {
     const _type = TSTypeAliasDeclaration(ast);
@@ -278,6 +278,7 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         case "ReadonlyTuple": return tsTypeOperator(ast, "readonly");
         case "IndexType": return tsIndexType(ast);
         case "FunctionType": return tsFunctionType(ast);
+        case "RestType": return t.tsRestType(TSType(ast.param));
 
         default:
             return assertNever(ast);

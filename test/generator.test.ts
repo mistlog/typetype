@@ -148,6 +148,11 @@ describe("ts-type", () => {
         expect(toCode(name)).toMatchSnapshot();
     })
 
+    test("TupleType: rest", () => {
+        const name = "TupleType-Rest";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("TupleType: readonly", () => {
         const name = "TupleType-Readonly";
         expect(toCode(name)).toMatchSnapshot();
