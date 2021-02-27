@@ -406,6 +406,13 @@ test("TupleType", () => {
     expect(ast).toMatchSnapshot();
 })
 
+test("TupleType: rest", () => {
+    const parser = ReactPeg.render(<TupleType />);
+    const ast = parser.parse(`[protocol, ...rest]`);
+    saveAST(ast, "TupleType-Rest.json");
+    expect(ast).toMatchSnapshot();
+})
+
 test("TupleType: readonly", () => {
     const parser = ReactPeg.render(<OperatorType />);
     const ast = parser.parse(`readonly [string, number]`);

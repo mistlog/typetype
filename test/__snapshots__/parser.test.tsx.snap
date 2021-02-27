@@ -723,6 +723,31 @@ Object {
 }
 `;
 
+exports[`TupleType: rest 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "protocol",
+      },
+    },
+    Object {
+      "kind": "RestType",
+      "param": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "rest",
+        },
+      },
+    },
+  ],
+  "kind": "TupleType",
+}
+`;
+
 exports[`TupleType: with infer 1`] = `
 Object {
   "items": Array [
