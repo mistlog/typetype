@@ -131,6 +131,8 @@ exports[`ts-type TemplateTypeLiteral 1`] = `"\`hello \${World}\`"`;
 
 exports[`ts-type TupleType: readonly 1`] = `"readonly [string, number]"`;
 
+exports[`ts-type TupleType: rest 1`] = `"[protocol, ...rest]"`;
+
 exports[`ts-type TupleType: with infer 1`] = `"[infer protocol, infer rest]"`;
 
 exports[`ts-type TypeArrowFunctionExpression 1`] = `"string extends string ? \\"string\\" : \\"number\\""`;

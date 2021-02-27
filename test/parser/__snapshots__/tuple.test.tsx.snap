@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser: tuple TupleType 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "protocol",
+      },
+    },
+    Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "rest",
+      },
+    },
+  ],
+  "kind": "TupleType",
+}
+`;
+
+exports[`parser: tuple TupleType: readonly 1`] = `
+Object {
+  "kind": "ReadonlyTuple",
+  "operand": Object {
+    "items": Array [
+      Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+      Object {
+        "kind": "NumberType",
+        "value": "number",
+      },
+    ],
+    "kind": "TupleType",
+  },
+}
+`;
+
+exports[`parser: tuple TupleType: rest 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "protocol",
+      },
+    },
+    Object {
+      "kind": "RestType",
+      "param": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "rest",
+        },
+      },
+    },
+  ],
+  "kind": "TupleType",
+}
+`;
+
+exports[`parser: tuple TupleType: with infer 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "kind": "InferType",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "protocol",
+      },
+    },
+    Object {
+      "kind": "InferType",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "rest",
+      },
+    },
+  ],
+  "kind": "TupleType",
+}
+`;

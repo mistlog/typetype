@@ -1,6 +1,6 @@
 import { ReactPeg } from "react-peg";
 import { _, Text } from "../common";
-import { IBasicType, BasicType, ITypeReference, TypeReference, IIdentifier, Identifier, IArrayType, ArrayType, ITupleType, TupleType } from "../basic";
+import { IBasicType, BasicType, ITypeReference, TypeReference, IIdentifier, Identifier, IArrayType, ArrayType, ITupleType, TupleType, RestType } from "../basic";
 import { ITypeForInStatement, ITypeIfStatement, TypeForInStatement, TypeIfStatement } from "../statement";
 import { FunctionType, IFunctionType } from "../function";
 
@@ -124,12 +124,18 @@ export function TypeExpressionList() {
     return (
         <pattern action={({ head, tail }): ITypeExpressionList => head ? [head, ...tail] : []}>
             <opt label="head">
-                <TypeExpression />
+                <or>
+                    <TypeExpression />
+                    <RestType />
+                </or>
             </opt>
             <repeat type="*" label="tail">
                 <pattern action={({ param }) => param}>
                     {Text(",")}
-                    <TypeExpression label="param" />
+                    <or label="param">
+                        <RestType />
+                        <TypeExpression />
+                    </or>
                 </pattern>
             </repeat>
         </pattern>

@@ -388,9 +388,29 @@ export interface ITypeSpreadProperty {
 }
 
 export function TypeSpreadProperty() {
-    const action = ({ param }): ITypeSpreadProperty => {
+    const action = ({ prop }: { prop: IRestType }): ITypeSpreadProperty => {
         return {
             kind: "TypeSpreadProperty",
+            param: prop.param
+        }
+    }
+
+    return (
+        <pattern action={action}>
+            <RestType label="prop" />
+        </pattern>
+    )
+}
+
+export interface IRestType {
+    kind: "RestType"
+    param: ITypeExpression
+}
+
+export function RestType() {
+    const action = ({ param }): IRestType => {
+        return {
+            kind: "RestType",
             param
         }
     }
