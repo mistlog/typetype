@@ -90,6 +90,8 @@ exports[`ts-type FunctionType: nested 1`] = `"() => (a: number, b: string) => vo
 
 exports[`ts-type FunctionType: params 1`] = `"(a: number, b: string) => number"`;
 
+exports[`ts-type FunctionType: rest 1`] = `"(...args: any[]) => void"`;
+
 exports[`ts-type IndexType 1`] = `"obj[\\"a\\"]"`;
 
 exports[`ts-type IndexType: deep 1`] = `"obj[\\"a\\"][2]"`;

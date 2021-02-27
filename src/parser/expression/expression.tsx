@@ -142,8 +142,8 @@ export function TypeExpressionList() {
     )
 }
 
-export type IITypeExpressionWithConstraint = ITypeExpression & { constraint?: ITypeExpression }
-export type IParamList = IITypeExpressionWithConstraint[]
+export type ITypeExpressionParam = ITypeExpression & { constraint?: ITypeExpression }
+export type IParamList = ITypeExpressionParam[]
 
 export function ParamList() {
     const action = ({ head, tail }): IParamList => head ? [head, ...tail] : [];

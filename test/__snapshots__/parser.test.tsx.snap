@@ -252,6 +252,34 @@ Object {
 }
 `;
 
+exports[`FunctionType: rest 1`] = `
+Object {
+  "kind": "FunctionType",
+  "params": Array [
+    Object {
+      "kind": "FunctionTypeParam",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "args",
+      },
+      "rest": true,
+      "type": Object {
+        "dimension": 1,
+        "elementType": Object {
+          "kind": "AnyType",
+          "value": "any",
+        },
+        "kind": "ArrayType",
+      },
+    },
+  ],
+  "returnType": Object {
+    "kind": "VoidType",
+    "value": "void",
+  },
+}
+`;
+
 exports[`Identifier 1`] = `
 Object {
   "kind": "Identifier",

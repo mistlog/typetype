@@ -444,6 +444,13 @@ test("FunctionType", () => {
     expect(ast).toMatchSnapshot();
 })
 
+test("FunctionType: rest", () => {
+    const parser = ReactPeg.render(<TypeExpression />);
+    const ast = parser.parse(`type (...args: any[]) => void`);
+    saveAST(ast, "FunctionType-Rest.json");
+    expect(ast).toMatchSnapshot();
+})
+
 test("FunctionType: params", () => {
     const parser = ReactPeg.render(<TypeExpression />);
     const ast = parser.parse(`type (a:number, b: string) => number`);
