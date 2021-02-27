@@ -7,6 +7,7 @@ import { ITypeExpression, TypeExpression, ITypeExpressionList, TypeExpressionLis
 export type IBasicType =
     | ITypeLiteral
     | IStringType
+    | IObjectType
     | INeverType
     | IAnyType
     | INumberType
@@ -19,6 +20,7 @@ export function BasicType() {
         <or>
             <ArrayType />
             <NeverType />
+            <ObjectType />
             <AnyType />
             <VoidType />
             <NumberType />
@@ -26,6 +28,25 @@ export function BasicType() {
             <TupleType />
             <TypeLiteral />
         </or>
+    )
+}
+
+export interface IObjectType {
+    kind: "ObjectType"
+    value: "object"
+}
+
+export function ObjectType() {
+    const action = () => {
+        return {
+            kind: "ObjectType",
+            value: "object"
+        }
+    }
+    return (
+        <pattern action={action}>
+            {Text("object")}
+        </pattern>
     )
 }
 

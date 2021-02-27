@@ -253,6 +253,7 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         case "StringType": return t.tsStringKeyword();
         case "NeverType": return t.tsNeverKeyword();
         case "AnyType": return t.tsAnyKeyword();
+        case "ObjectType": return t.tsObjectKeyword();
         case "VoidType": return t.tsVoidKeyword();
         case "NumberType": return t.tsNumberKeyword();
         case "ObjectTypeLiteral": return tsTypeLiteral(ast);

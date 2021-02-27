@@ -28,6 +28,13 @@ Object {
 }
 `;
 
+exports[`BasicType 5`] = `
+Object {
+  "kind": "ObjectType",
+  "value": "object",
+}
+`;
+
 exports[`ConditionalTypeExpression 1`] = `
 Object {
   "body": Object {

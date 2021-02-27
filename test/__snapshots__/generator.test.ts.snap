@@ -131,7 +131,7 @@ exports[`ts-type ObjectType: spread 1`] = `
 
 exports[`ts-type TemplateTypeLiteral 1`] = `"\`hello \${World}\`"`;
 
-exports[`ts-type TupleType: readonly 1`] = `"readonly [string, number]"`;
+exports[`ts-type TupleType: readonly 1`] = `"readonly [string, number, object]"`;
 
 exports[`ts-type TupleType: rest 1`] = `"[protocol, ...rest]"`;
 
