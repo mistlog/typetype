@@ -389,7 +389,7 @@ Object {
         "body": Object {
           "alternate": Object {
             "argument": Object {
-              "kind": "ObjectType",
+              "kind": "ObjectTypeLiteral",
               "props": Array [
                 Object {
                   "kind": "TypeObjectProperty",
@@ -468,7 +468,7 @@ Object {
           },
           "consequent": Object {
             "argument": Object {
-              "kind": "ObjectType",
+              "kind": "ObjectTypeLiteral",
               "props": Array [
                 Object {
                   "kind": "TypeObjectProperty",
@@ -552,7 +552,7 @@ Object {
         "body": Object {
           "alternate": Object {
             "argument": Object {
-              "kind": "ObjectType",
+              "kind": "ObjectTypeLiteral",
               "props": Array [
                 Object {
                   "kind": "TypeObjectProperty",
@@ -618,7 +618,7 @@ Object {
               "body": Object {
                 "alternate": Object {
                   "argument": Object {
-                    "kind": "ObjectType",
+                    "kind": "ObjectTypeLiteral",
                     "props": Array [
                       Object {
                         "kind": "TypeObjectProperty",
@@ -852,7 +852,7 @@ Object {
             "argument": Object {
               "items": Array [
                 Object {
-                  "kind": "ObjectType",
+                  "kind": "ObjectTypeLiteral",
                   "props": Array [
                     Object {
                       "kind": "TypeObjectProperty",
@@ -966,7 +966,7 @@ Object {
           },
           "consequent": Object {
             "argument": Object {
-              "kind": "ObjectType",
+              "kind": "ObjectTypeLiteral",
               "props": Array [
                 Object {
                   "kind": "TypeSpreadProperty",
@@ -1086,7 +1086,7 @@ Object {
           },
           "consequent": Object {
             "argument": Object {
-              "kind": "ObjectType",
+              "kind": "ObjectTypeLiteral",
               "props": Array [
                 Object {
                   "kind": "TypeObjectProperty",
@@ -1158,7 +1158,7 @@ Object {
         "body": Object {
           "alternate": Object {
             "argument": Object {
-              "kind": "ObjectType",
+              "kind": "ObjectTypeLiteral",
               "props": Array [
                 Object {
                   "kind": "TypeObjectProperty",
@@ -1221,7 +1221,7 @@ Object {
           },
           "consequent": Object {
             "argument": Object {
-              "kind": "ObjectType",
+              "kind": "ObjectTypeLiteral",
               "props": Array [
                 Object {
                   "kind": "TypeObjectProperty",

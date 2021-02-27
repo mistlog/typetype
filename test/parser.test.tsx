@@ -16,6 +16,8 @@ test("BasicType", () => {
     expect(parser.parse("string")).toMatchSnapshot();
     expect(parser.parse("number")).toMatchSnapshot();
     expect(parser.parse("any")).toMatchSnapshot();
+    expect(parser.parse("object")).toMatchSnapshot();
+
 })
 
 test("ExtendsClause", () => {

@@ -35,6 +35,10 @@ Object {
         "kind": "NumberType",
         "value": "number",
       },
+      Object {
+        "kind": "ObjectType",
+        "value": "object",
+      },
     ],
     "kind": "TupleType",
   },

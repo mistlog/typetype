@@ -66,7 +66,7 @@
                             "kind": "TupleType",
                             "items": [
                                 {
-                                    "kind": "ObjectType",
+                                    "kind": "ObjectTypeLiteral",
                                     "props": [
                                         {
                                             "kind": "TypeObjectProperty",

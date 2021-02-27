@@ -10,6 +10,10 @@
             {
                 "kind": "NumberType",
                 "value": "number"
+            },
+            {
+                "kind": "ObjectType",
+                "value": "object"
             }
         ]
     }
