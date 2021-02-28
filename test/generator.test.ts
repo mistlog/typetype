@@ -46,6 +46,12 @@ describe("declaration", () => {
         expect(generateCode(tsAST)).toMatchSnapshot();
     })
 
+    test("TypeFunctionDeclaration: default param", () => {
+        const ast = loadAST(`TypeFunctionDeclaration-DefaultParam.json`) as ITypeFunctionDeclaration;
+        const tsAST = TSTypeAliasDeclarationWithParams(ast);
+        expect(generateCode(tsAST)).toMatchSnapshot();
+    })
+
     test("TypeFunctionDeclaration: export", () => {
         const ast = loadAST(`TypeFunctionDeclaration-Export.json`) as ITypeFunctionDeclaration;
         const tsAST = TSTypeAliasDeclarationWithParams(ast);
