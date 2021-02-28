@@ -1159,6 +1159,70 @@ Object {
 }
 `;
 
+exports[`TypeFunctionDeclaration: default param 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "number",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "T",
+              },
+            },
+            "extendsType": Object {
+              "kind": "StringType",
+              "value": "string",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "string",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "default": Object {
+            "kind": "AnyType",
+            "value": "any",
+          },
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "T",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "TypeName",
+    },
+  },
+  "export": false,
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
 exports[`TypeFunctionDeclaration: export 1`] = `
 Object {
   "declarator": Object {

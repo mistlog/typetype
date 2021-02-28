@@ -2,6 +2,8 @@
 
 exports[`declaration TypeFunctionDeclaration 1`] = `"type TypeName<T> = T extends string ? \\"string\\" : \\"number\\";"`;
 
+exports[`declaration TypeFunctionDeclaration: default param 1`] = `"type TypeName<T = any> = T extends string ? \\"string\\" : \\"number\\";"`;
+
 exports[`declaration TypeFunctionDeclaration: export 1`] = `"export type TypeName<T> = T extends string ? \\"string\\" : \\"number\\";"`;
 
 exports[`declaration TypeVariableDeclaration 1`] = `"type result = string;"`;

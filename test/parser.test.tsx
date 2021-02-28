@@ -231,6 +231,21 @@ test("TypeFunctionDeclaration", () => {
     expect(ast).toMatchSnapshot();
 })
 
+test("TypeFunctionDeclaration: default param", () => {
+    const parser = ReactPeg.render(<TypeFunctionDeclaration />);
+    const ast = parser.parse(`
+        type function TypeName = (T = any) => ^{
+            if(T extends string) {
+                return "string"
+            } else {
+                return "number"
+            }
+        }
+    `);
+    saveAST(ast, "TypeFunctionDeclaration-DefaultParam.json");
+    expect(ast).toMatchSnapshot();
+})
+
 test("TypeFunctionDeclaration: export", () => {
     const parser = ReactPeg.render(<TypeFunctionDeclaration />);
     const ast = parser.parse(`

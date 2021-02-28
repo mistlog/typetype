@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -22,7 +22,8 @@ export function TSTypeAliasDeclarationWithParams(ast: ITypeFunctionDeclaration):
     const type = t.isExportNamedDeclaration(_type) ? _type.declaration as t.TSTypeAliasDeclaration : _type;
     const params = ast.declarator.initializer.params.map((param) => {
         const constraint = param.constraint ? TSType(param.constraint) : null;
-        const tsParam = t.tSTypeParameter(constraint, /* TODO */null, (param as ITypeReference).typeName.name)
+        const _default = param.default ? TSType(param.default) : null;
+        const tsParam = t.tSTypeParameter(constraint, _default, (param as ITypeReference).typeName.name)
         return tsParam;
     });
 
@@ -232,7 +233,6 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<IReadonlyTuple> ? t.TSTypeOperator :
     Kind<T> extends Kind<IIndexType> ? t.TSIndexedAccessType :
     Kind<T> extends Kind<IFunctionType> ? t.TSFunctionType :
-    Kind<T> extends Kind<ITypeArrowFunctionExpression> ? t.TSConditionalType :
     Kind<T> extends Kind<IConditionalTypeExpression> ? t.TSConditionalType :
     Kind<T> extends Kind<IMappedTypeExpression> ? t.TSMappedType :
     Kind<T> extends Kind<ITypeCallExpression> ? t.TSConditionalType : t.TSType;
