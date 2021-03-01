@@ -1,0 +1,1 @@
+<K extends string, T>(key: K, value: T) => void

@@ -498,6 +498,13 @@ test("FunctionType: nested", () => {
     expect(ast).toMatchSnapshot();
 })
 
+test("FunctionType: type param", () => {
+    const parser = ReactPeg.render(<TypeExpression />);
+    const ast = parser.parse(`type <K extends string, T>(key: K, value: T) => void`);
+    saveAST(ast, "FunctionType-TypeParam.json");
+    expect(ast).toMatchSnapshot();
+})
+
 test("MappedType", () => {
     const parser = ReactPeg.render(<TypeExpression />);
     // { [K in Keys]: boolean }

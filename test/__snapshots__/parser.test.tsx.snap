@@ -287,6 +287,66 @@ Object {
 }
 `;
 
+exports[`FunctionType: type param 1`] = `
+Object {
+  "kind": "FunctionType",
+  "params": Array [
+    Object {
+      "kind": "FunctionTypeParam",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "key",
+      },
+      "type": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "K",
+        },
+      },
+    },
+    Object {
+      "kind": "FunctionTypeParam",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "value",
+      },
+      "type": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "T",
+        },
+      },
+    },
+  ],
+  "returnType": Object {
+    "kind": "VoidType",
+    "value": "void",
+  },
+  "typeParams": Array [
+    Object {
+      "constraint": Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "K",
+      },
+    },
+    Object {
+      "kind": "TypeReference",
+      "typeName": Object {
+        "kind": "Identifier",
+        "name": "T",
+      },
+    },
+  ],
+}
+`;
+
 exports[`Identifier 1`] = `
 Object {
   "kind": "Identifier",
