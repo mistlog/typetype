@@ -1,1 +1,1 @@
-readonly [string, number]
+readonly [string, number, object]

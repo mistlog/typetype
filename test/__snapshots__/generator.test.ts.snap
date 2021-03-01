@@ -2,6 +2,8 @@
 
 exports[`declaration TypeFunctionDeclaration 1`] = `"type TypeName<T> = T extends string ? \\"string\\" : \\"number\\";"`;
 
+exports[`declaration TypeFunctionDeclaration: default param 1`] = `"type TypeName<T = any> = T extends string ? \\"string\\" : \\"number\\";"`;
+
 exports[`declaration TypeFunctionDeclaration: export 1`] = `"export type TypeName<T> = T extends string ? \\"string\\" : \\"number\\";"`;
 
 exports[`declaration TypeVariableDeclaration 1`] = `"type result = string;"`;
@@ -90,6 +92,8 @@ exports[`ts-type FunctionType: nested 1`] = `"() => (a: number, b: string) => vo
 
 exports[`ts-type FunctionType: params 1`] = `"(a: number, b: string) => number"`;
 
+exports[`ts-type FunctionType: rest 1`] = `"(...args: any[]) => void"`;
+
 exports[`ts-type IndexType 1`] = `"obj[\\"a\\"]"`;
 
 exports[`ts-type IndexType: deep 1`] = `"obj[\\"a\\"][2]"`;
@@ -129,7 +133,7 @@ exports[`ts-type ObjectType: spread 1`] = `
 
 exports[`ts-type TemplateTypeLiteral 1`] = `"\`hello \${World}\`"`;
 
-exports[`ts-type TupleType: readonly 1`] = `"readonly [string, number]"`;
+exports[`ts-type TupleType: readonly 1`] = `"readonly [string, number, object]"`;
 
 exports[`ts-type TupleType: rest 1`] = `"[protocol, ...rest]"`;
 

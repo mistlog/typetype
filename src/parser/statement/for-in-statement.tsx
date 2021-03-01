@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { Identifier, IIdentifier, IObjectType, ITypeObjectProperty } from "../basic";
+import { Identifier, IIdentifier, IObjectTypeLiteral, ITypeObjectProperty } from "../basic";
 import { _, Text } from "../common";
 import { ITypeExpression, TypeExpression } from "../expression";
 import { ITypeReturnStatement, TypeReturnStatement } from "./statement";
@@ -12,14 +12,14 @@ export interface ITypeForInStatement {
     value: ITypeExpression
 }
 
-function findProp(obj: IObjectType, name: string) {
+function findProp(obj: IObjectTypeLiteral, name: string) {
     return obj.props.find(prop => prop.kind === "TypeObjectProperty" && prop.name.name === name) as ITypeObjectProperty;
 }
 
 export function TypeForInStatement() {
     const action = ({ key, keys, returnType }: { key: IIdentifier, keys: ITypeExpression, returnType: ITypeReturnStatement }): ITypeForInStatement => {
         // TODO: returnType must be object type { key: ..., value: ... }
-        const pair = returnType.argument as IObjectType;
+        const pair = returnType.argument as IObjectTypeLiteral;
 
         // may be used in as clause
         const as = findProp(pair, "key");

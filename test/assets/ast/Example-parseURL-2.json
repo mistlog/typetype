@@ -65,7 +65,7 @@
                     "consequent": {
                         "kind": "TypeReturnStatement",
                         "argument": {
-                            "kind": "ObjectType",
+                            "kind": "ObjectTypeLiteral",
                             "props": [
                                 {
                                     "kind": "TypeObjectProperty",

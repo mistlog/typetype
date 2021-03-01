@@ -2,7 +2,7 @@
 
 exports[`parser: object ObjectType 1`] = `
 Object {
-  "kind": "ObjectType",
+  "kind": "ObjectTypeLiteral",
   "props": Array [
     Object {
       "kind": "TypeObjectProperty",
@@ -62,14 +62,14 @@ Object {
 
 exports[`parser: object ObjectType 2`] = `
 Object {
-  "kind": "ObjectType",
+  "kind": "ObjectTypeLiteral",
   "props": Array [],
 }
 `;
 
 exports[`parser: object ObjectType: modifier 1`] = `
 Object {
-  "kind": "ObjectType",
+  "kind": "ObjectTypeLiteral",
   "props": Array [
     Object {
       "kind": "TypeObjectProperty",
@@ -90,7 +90,7 @@ Object {
 
 exports[`parser: object ObjectType: shorthand 1`] = `
 Object {
-  "kind": "ObjectType",
+  "kind": "ObjectTypeLiteral",
   "props": Array [
     Object {
       "kind": "TypeObjectProperty",
@@ -114,7 +114,7 @@ Object {
 
 exports[`parser: object ObjectType: spread 1`] = `
 Object {
-  "kind": "ObjectType",
+  "kind": "ObjectTypeLiteral",
   "props": Array [
     Object {
       "kind": "TypeObjectProperty",

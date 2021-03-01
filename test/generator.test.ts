@@ -46,6 +46,12 @@ describe("declaration", () => {
         expect(generateCode(tsAST)).toMatchSnapshot();
     })
 
+    test("TypeFunctionDeclaration: default param", () => {
+        const ast = loadAST(`TypeFunctionDeclaration-DefaultParam.json`) as ITypeFunctionDeclaration;
+        const tsAST = TSTypeAliasDeclarationWithParams(ast);
+        expect(generateCode(tsAST)).toMatchSnapshot();
+    })
+
     test("TypeFunctionDeclaration: export", () => {
         const ast = loadAST(`TypeFunctionDeclaration-Export.json`) as ITypeFunctionDeclaration;
         const tsAST = TSTypeAliasDeclarationWithParams(ast);
@@ -80,6 +86,11 @@ describe("ts-type", () => {
 
     test("FunctionType: params", () => {
         const name = "FunctionType-Params";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("FunctionType: rest", () => {
+        const name = "FunctionType-Rest";
         expect(toCode(name)).toMatchSnapshot();
     })
 

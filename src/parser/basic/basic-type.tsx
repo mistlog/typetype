@@ -7,10 +7,10 @@ import { ITypeExpression, TypeExpression, ITypeExpressionList, TypeExpressionLis
 export type IBasicType =
     | ITypeLiteral
     | IStringType
+    | IObjectType
     | INeverType
     | IAnyType
     | INumberType
-    | IObjectType
     | ITupleType
     | IArrayType
     | IVoidType
@@ -20,14 +20,33 @@ export function BasicType() {
         <or>
             <ArrayType />
             <NeverType />
+            <ObjectType />
             <AnyType />
             <VoidType />
             <NumberType />
             <StringType />
             <TupleType />
-            <ObjectType />
             <TypeLiteral />
         </or>
+    )
+}
+
+export interface IObjectType {
+    kind: "ObjectType"
+    value: "object"
+}
+
+export function ObjectType() {
+    const action = () => {
+        return {
+            kind: "ObjectType",
+            value: "object"
+        }
+    }
+    return (
+        <pattern action={action}>
+            {Text("object")}
+        </pattern>
     )
 }
 
@@ -50,11 +69,12 @@ export function StringType() {
     )
 }
 
-export type ITypeLiteral = IStringTypeLiteral | INumberTypeLiteral | ITemplateTypeLiteral | IBooleanTypeLiteral
+export type ITypeLiteral = IObjectTypeLiteral | IStringTypeLiteral | INumberTypeLiteral | ITemplateTypeLiteral | IBooleanTypeLiteral
 
 export function TypeLiteral() {
     return (
         <or>
+            <ObjectTypeLiteral />
             <NumberTypeLiteral />
             <StringTypeLiteral />
             <BooleanTypeLiteral />
@@ -343,15 +363,15 @@ export function TupleType() {
     )
 }
 
-export interface IObjectType {
-    kind: "ObjectType"
+export interface IObjectTypeLiteral {
+    kind: "ObjectTypeLiteral"
     props: (ITypeObjectProperty | ITypeSpreadProperty)[]
 }
 
-export function ObjectType() {
-    const action = ({ head, tail }): IObjectType => {
+export function ObjectTypeLiteral() {
+    const action = ({ head, tail }): IObjectTypeLiteral => {
         return {
-            kind: "ObjectType",
+            kind: "ObjectTypeLiteral",
             props: head ? [head, ...tail] : []
         }
     }

@@ -28,6 +28,13 @@ Object {
 }
 `;
 
+exports[`BasicType 5`] = `
+Object {
+  "kind": "ObjectType",
+  "value": "object",
+}
+`;
+
 exports[`ConditionalTypeExpression 1`] = `
 Object {
   "body": Object {
@@ -252,6 +259,34 @@ Object {
 }
 `;
 
+exports[`FunctionType: rest 1`] = `
+Object {
+  "kind": "FunctionType",
+  "params": Array [
+    Object {
+      "kind": "FunctionTypeParam",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "args",
+      },
+      "rest": true,
+      "type": Object {
+        "dimension": 1,
+        "elementType": Object {
+          "kind": "AnyType",
+          "value": "any",
+        },
+        "kind": "ArrayType",
+      },
+    },
+  ],
+  "returnType": Object {
+    "kind": "VoidType",
+    "value": "void",
+  },
+}
+`;
+
 exports[`Identifier 1`] = `
 Object {
   "kind": "Identifier",
@@ -317,7 +352,7 @@ exports[`KeyOfType 1`] = `
 Object {
   "kind": "KeyOfType",
   "operand": Object {
-    "kind": "ObjectType",
+    "kind": "ObjectTypeLiteral",
     "props": Array [
       Object {
         "kind": "TypeObjectProperty",
@@ -453,7 +488,7 @@ exports[`OperatorType: keyof 1`] = `
 Object {
   "kind": "KeyOfType",
   "operand": Object {
-    "kind": "ObjectType",
+    "kind": "ObjectTypeLiteral",
     "props": Array [
       Object {
         "kind": "TypeObjectProperty",
@@ -926,7 +961,7 @@ Object {
       "declarator": Object {
         "initializer": Object {
           "body": Object {
-            "kind": "ObjectType",
+            "kind": "ObjectTypeLiteral",
             "props": Array [
               Object {
                 "kind": "TypeObjectProperty",
@@ -1105,6 +1140,70 @@ Object {
       "kind": "TypeArrowFunctionExpression",
       "params": Array [
         Object {
+          "kind": "TypeReference",
+          "typeName": Object {
+            "kind": "Identifier",
+            "name": "T",
+          },
+        },
+      ],
+    },
+    "kind": "TypeFunctionDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "TypeName",
+    },
+  },
+  "export": false,
+  "kind": "TypeFunctionDeclaration",
+}
+`;
+
+exports[`TypeFunctionDeclaration: default param 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "body": Object {
+          "alternate": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "number",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "condition": Object {
+            "checkType": Object {
+              "kind": "TypeReference",
+              "typeName": Object {
+                "kind": "Identifier",
+                "name": "T",
+              },
+            },
+            "extendsType": Object {
+              "kind": "StringType",
+              "value": "string",
+            },
+            "kind": "ExtendsClause",
+          },
+          "consequent": Object {
+            "argument": Object {
+              "kind": "StringTypeLiteral",
+              "value": "string",
+            },
+            "kind": "TypeReturnStatement",
+          },
+          "kind": "TypeIfStatement",
+        },
+        "kind": "ConditionalTypeExpression",
+      },
+      "kind": "TypeArrowFunctionExpression",
+      "params": Array [
+        Object {
+          "default": Object {
+            "kind": "AnyType",
+            "value": "any",
+          },
           "kind": "TypeReference",
           "typeName": Object {
             "kind": "Identifier",
@@ -1546,7 +1645,7 @@ Object {
     "initializer": Object {
       "kind": "KeyOfType",
       "operand": Object {
-        "kind": "ObjectType",
+        "kind": "ObjectTypeLiteral",
         "props": Array [
           Object {
             "kind": "TypeObjectProperty",

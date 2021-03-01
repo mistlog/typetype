@@ -9,7 +9,7 @@
         "initializer": {
             "kind": "KeyOfType",
             "operand": {
-                "kind": "ObjectType",
+                "kind": "ObjectTypeLiteral",
                 "props": [
                     {
                         "kind": "TypeObjectProperty",

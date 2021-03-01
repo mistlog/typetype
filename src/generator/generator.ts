@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, IObjectType, ITupleType, INumberType, ITypeArrowFunctionExpression, ITypeFunctionDeclarator, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -22,7 +22,8 @@ export function TSTypeAliasDeclarationWithParams(ast: ITypeFunctionDeclaration):
     const type = t.isExportNamedDeclaration(_type) ? _type.declaration as t.TSTypeAliasDeclaration : _type;
     const params = ast.declarator.initializer.params.map((param) => {
         const constraint = param.constraint ? TSType(param.constraint) : null;
-        const tsParam = t.tSTypeParameter(constraint, /* TODO */null, (param as ITypeReference).typeName.name)
+        const _default = param.default ? TSType(param.default) : null;
+        const tsParam = t.tSTypeParameter(constraint, _default, (param as ITypeReference).typeName.name)
         return tsParam;
     });
 
@@ -59,7 +60,7 @@ function tsPropertySignature(ast: ITypeObjectProperty) {
     } as t.TSPropertySignature;
 }
 
-function tsTypeLiteral(ast: IObjectType) {
+function tsTypeLiteral(ast: IObjectTypeLiteral) {
     const props = ast.props.map(each => {
         switch (each.kind) {
             case "TypeObjectProperty": {
@@ -169,10 +170,10 @@ function tsArrayType(ast: IArrayType): t.TSArrayType {
 
 function tsFunctionType(ast: IFunctionType): t.TSFunctionType {
     const params = ast.params.map(each => {
-        return {
-            ...Identifier(each.name),
-            typeAnnotation: t.tsTypeAnnotation(TSType(each.type))
-        } as t.Identifier /** TODO: use t.identifier to create it */
+        const identifier = Identifier(each.name);
+        const param = each.rest ? t.restElement(identifier) : identifier;
+        param.typeAnnotation = t.tsTypeAnnotation(TSType(each.type));
+        return param;
     });
 
     return t.tsFunctionType(null, params, t.tsTypeAnnotation(TSType(ast.returnType)));
@@ -218,7 +219,7 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<INeverType> ? t.TSNeverKeyword :
     Kind<T> extends Kind<IAnyType> ? t.TSAnyKeyword :
     Kind<T> extends Kind<INumberType> ? t.TSNumberKeyword :
-    Kind<T> extends Kind<IObjectType> ? t.TSTypeLiteral :
+    Kind<T> extends Kind<IObjectTypeLiteral> ? t.TSTypeLiteral :
     Kind<T> extends Kind<ITupleType> ? t.TSTupleType :
     Kind<T> extends Kind<IArrayType> ? t.TSArrayType :
     /**
@@ -232,7 +233,6 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<IReadonlyTuple> ? t.TSTypeOperator :
     Kind<T> extends Kind<IIndexType> ? t.TSIndexedAccessType :
     Kind<T> extends Kind<IFunctionType> ? t.TSFunctionType :
-    Kind<T> extends Kind<ITypeArrowFunctionExpression> ? t.TSConditionalType :
     Kind<T> extends Kind<IConditionalTypeExpression> ? t.TSConditionalType :
     Kind<T> extends Kind<IMappedTypeExpression> ? t.TSMappedType :
     Kind<T> extends Kind<ITypeCallExpression> ? t.TSConditionalType : t.TSType;
@@ -253,9 +253,10 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         case "StringType": return t.tsStringKeyword();
         case "NeverType": return t.tsNeverKeyword();
         case "AnyType": return t.tsAnyKeyword();
+        case "ObjectType": return t.tsObjectKeyword();
         case "VoidType": return t.tsVoidKeyword();
         case "NumberType": return t.tsNumberKeyword();
-        case "ObjectType": return tsTypeLiteral(ast);
+        case "ObjectTypeLiteral": return tsTypeLiteral(ast);
         case "TupleType": return t.tsTupleType(ast.items.map(item => TSType(item)));
         case "ArrayType": return tsArrayType(ast);
         /**

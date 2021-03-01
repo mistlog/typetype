@@ -16,6 +16,8 @@ test("BasicType", () => {
     expect(parser.parse("string")).toMatchSnapshot();
     expect(parser.parse("number")).toMatchSnapshot();
     expect(parser.parse("any")).toMatchSnapshot();
+    expect(parser.parse("object")).toMatchSnapshot();
+
 })
 
 test("ExtendsClause", () => {
@@ -226,6 +228,21 @@ test("TypeFunctionDeclaration", () => {
         }
     `);
     saveAST(ast, "TypeFunctionDeclaration.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("TypeFunctionDeclaration: default param", () => {
+    const parser = ReactPeg.render(<TypeFunctionDeclaration />);
+    const ast = parser.parse(`
+        type function TypeName = (T = any) => ^{
+            if(T extends string) {
+                return "string"
+            } else {
+                return "number"
+            }
+        }
+    `);
+    saveAST(ast, "TypeFunctionDeclaration-DefaultParam.json");
     expect(ast).toMatchSnapshot();
 })
 
@@ -441,6 +458,13 @@ test("FunctionType", () => {
     const parser = ReactPeg.render(<TypeExpression />);
     const ast = parser.parse(`type () => void`);
     saveAST(ast, "FunctionType.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("FunctionType: rest", () => {
+    const parser = ReactPeg.render(<TypeExpression />);
+    const ast = parser.parse(`type (...args: any[]) => void`);
+    saveAST(ast, "FunctionType-Rest.json");
     expect(ast).toMatchSnapshot();
 })
 
