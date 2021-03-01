@@ -1,27 +1,41 @@
 import { ReactPeg } from "react-peg";
 import { _, Text } from "../common";
 import { Identifier, IIdentifier } from "../basic";
-import { ITypeExpression, TypeExpression } from "../expression";
+import { IParamList, ITypeExpression, ParamList, TypeExpression } from "../expression";
 
 export interface IFunctionType {
     kind: "FunctionType"
     params: IFunctionTypeParam[]
     returnType: ITypeExpression
+    typeParams?: IParamList
 }
 
 export function FunctionType() {
-    const action = ({ params, returnType }): IFunctionType => {
-        return {
+    const action = ({ params, returnType, typeParams }): IFunctionType => {
+        const type: IFunctionType = {
             kind: "FunctionType",
             params,
             returnType
         }
+        if (typeParams) {
+            type.typeParams = typeParams
+        }
+        return type
     }
 
     return (
         <pattern action={action}>
             {Text("type")}
-            {Text("(")}
+            <_ />
+            <opt label="typeParams">
+                <pattern action={({ typeParams }) => typeParams}>
+                    {Text("<")}
+                    <ParamList label="typeParams" />
+                    <text>{">"}</text>
+                </pattern>
+            </opt>
+            <text>(</text>
+            <_ />
             <FunctionTypeParamList label="params" />
             {Text(")")}
             {Text("=>")}

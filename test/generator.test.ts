@@ -99,6 +99,11 @@ describe("ts-type", () => {
         expect(toCode(name)).toMatchSnapshot();
     })
 
+    test("FunctionType: type param", () => {
+        const name = "FunctionType-TypeParam";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("ArrayType", () => {
         const name = "ArrayType";
         expect(toCode(name)).toMatchSnapshot();

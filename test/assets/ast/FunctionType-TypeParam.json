@@ -1,0 +1,57 @@
+{
+    "kind": "FunctionType",
+    "params": [
+        {
+            "kind": "FunctionTypeParam",
+            "name": {
+                "kind": "Identifier",
+                "name": "key"
+            },
+            "type": {
+                "kind": "TypeReference",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "K"
+                }
+            }
+        },
+        {
+            "kind": "FunctionTypeParam",
+            "name": {
+                "kind": "Identifier",
+                "name": "value"
+            },
+            "type": {
+                "kind": "TypeReference",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "T"
+                }
+            }
+        }
+    ],
+    "returnType": {
+        "kind": "VoidType",
+        "value": "void"
+    },
+    "typeParams": [
+        {
+            "kind": "TypeReference",
+            "typeName": {
+                "kind": "Identifier",
+                "name": "K"
+            },
+            "constraint": {
+                "kind": "StringType",
+                "value": "string"
+            }
+        },
+        {
+            "kind": "TypeReference",
+            "typeName": {
+                "kind": "Identifier",
+                "name": "T"
+            }
+        }
+    ]
+}
