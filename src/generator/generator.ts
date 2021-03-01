@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -15,7 +15,7 @@ export function TSFile(ast: ITypeFile): t.File {
     return file;
 }
 
-export type ITypeType = ITypeExpression | IRestType;
+export type ITypeType = ITypeExpression | IRestType | ITypeArrowFunctionExpression;
 
 export function TSTypeAliasDeclarationWithParams(ast: ITypeFunctionDeclaration): t.TSTypeAliasDeclaration | t.ExportNamedDeclaration {
     const _type = TSTypeAliasDeclaration(ast);

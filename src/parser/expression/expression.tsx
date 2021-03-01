@@ -9,7 +9,6 @@ export type ITypeExpression =
     | ITypeReference
     | ITypeCallExpression
     | IInferType
-    | ITypeArrowFunctionExpression
     | IConditionalTypeExpression
     | IMappedTypeExpression
     | IUnionType
@@ -28,7 +27,6 @@ export function TypeExpression() {
             <IntersectionType />
             <ConditionalTypeExpression />
             <MappedTypeExpression />
-            <TypeArrowFunctionExpression />
             <TypeCallExpression />
             <BasicType />
             <InferType />

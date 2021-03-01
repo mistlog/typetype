@@ -1527,43 +1527,41 @@ Object {
 }
 `;
 
-exports[`TypeVariableDeclaration: conditional type 1`] = `
+exports[`TypeVariableDeclaration: conditional type 1`] = `"Expected TypeVariableDeclaration but \\"\\\\n\\" found."`;
+
+exports[`TypeVariableDeclaration: conditional type 2`] = `
 Object {
   "declarator": Object {
     "initializer": Object {
       "body": Object {
-        "body": Object {
-          "alternate": Object {
-            "argument": Object {
-              "kind": "NumberType",
-              "value": "number",
-            },
-            "kind": "TypeReturnStatement",
+        "alternate": Object {
+          "argument": Object {
+            "kind": "NumberType",
+            "value": "number",
           },
-          "condition": Object {
-            "checkType": Object {
-              "kind": "StringType",
-              "value": "string",
-            },
-            "extendsType": Object {
-              "kind": "StringType",
-              "value": "string",
-            },
-            "kind": "ExtendsClause",
-          },
-          "consequent": Object {
-            "argument": Object {
-              "kind": "StringType",
-              "value": "string",
-            },
-            "kind": "TypeReturnStatement",
-          },
-          "kind": "TypeIfStatement",
+          "kind": "TypeReturnStatement",
         },
-        "kind": "ConditionalTypeExpression",
+        "condition": Object {
+          "checkType": Object {
+            "kind": "StringType",
+            "value": "string",
+          },
+          "extendsType": Object {
+            "kind": "StringType",
+            "value": "string",
+          },
+          "kind": "ExtendsClause",
+        },
+        "consequent": Object {
+          "argument": Object {
+            "kind": "StringType",
+            "value": "string",
+          },
+          "kind": "TypeReturnStatement",
+        },
+        "kind": "TypeIfStatement",
       },
-      "kind": "TypeArrowFunctionExpression",
-      "params": Array [],
+      "kind": "ConditionalTypeExpression",
     },
     "kind": "TypeVariableDeclarator",
     "name": Object {
