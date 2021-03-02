@@ -84,13 +84,13 @@ export function SimpleEscapeSequence() {
         `\\\\"`, // \\\\" -> (as content of text) \\" -> (as rule) '\\"' -> (matched) '\"'
         `\\?`,
         `\\\\\\\\`,  // \\\\\\\\ -> (as content of text) \\\\ -> (as rule) '\\\\' -> (matched) '\\'
-        `\\a`,
-        `\\b`,
-        `\\f`,
+        `\\\\a`,
+        `\\\\b`,
+        `\\\\f`,
         `\\\\n`,
-        `\\r`,
-        `\\t`,
-        `\\v`,
+        `\\\\r`,
+        `\\\\t`,
+        `\\\\v`,
     ].map(each => (
         <text label="char">{each}</text>
     ))

@@ -8,6 +8,10 @@
         {
             "kind": "StringTypeLiteral",
             "value": "\\n"
+        },
+        {
+            "kind": "StringTypeLiteral",
+            "value": "\\t"
         }
     ]
 }

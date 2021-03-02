@@ -76,6 +76,10 @@ Object {
       "kind": "StringTypeLiteral",
       "value": "\\\\n",
     },
+    Object {
+      "kind": "StringTypeLiteral",
+      "value": "\\\\t",
+    },
   ],
 }
 `;
