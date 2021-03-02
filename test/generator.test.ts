@@ -134,8 +134,18 @@ describe("ts-type", () => {
         expect(toCode(name)).toMatchSnapshot();
     })
 
+    test("StringTypeLiteral", () => {
+        const name = "String-SpecialChar";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("UnionType", () => {
         const name = "UnionType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("UnionType: special char", () => {
+        const name = "UnionType-SpecialChar";
         expect(toCode(name)).toMatchSnapshot();
     })
 
