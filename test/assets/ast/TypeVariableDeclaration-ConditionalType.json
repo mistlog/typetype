@@ -7,36 +7,32 @@
             "name": "result"
         },
         "initializer": {
-            "kind": "TypeArrowFunctionExpression",
-            "params": [],
+            "kind": "ConditionalTypeExpression",
             "body": {
-                "kind": "ConditionalTypeExpression",
-                "body": {
-                    "kind": "TypeIfStatement",
-                    "condition": {
-                        "kind": "ExtendsClause",
-                        "checkType": {
-                            "kind": "StringType",
-                            "value": "string"
-                        },
-                        "extendsType": {
-                            "kind": "StringType",
-                            "value": "string"
-                        }
+                "kind": "TypeIfStatement",
+                "condition": {
+                    "kind": "ExtendsClause",
+                    "checkType": {
+                        "kind": "StringType",
+                        "value": "string"
                     },
-                    "consequent": {
-                        "kind": "TypeReturnStatement",
-                        "argument": {
-                            "kind": "StringType",
-                            "value": "string"
-                        }
-                    },
-                    "alternate": {
-                        "kind": "TypeReturnStatement",
-                        "argument": {
-                            "kind": "NumberType",
-                            "value": "number"
-                        }
+                    "extendsType": {
+                        "kind": "StringType",
+                        "value": "string"
+                    }
+                },
+                "consequent": {
+                    "kind": "TypeReturnStatement",
+                    "argument": {
+                        "kind": "StringType",
+                        "value": "string"
+                    }
+                },
+                "alternate": {
+                    "kind": "TypeReturnStatement",
+                    "argument": {
+                        "kind": "NumberType",
+                        "value": "number"
                     }
                 }
             }

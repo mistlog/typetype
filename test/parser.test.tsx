@@ -106,7 +106,7 @@ test("ConditionalTypeExpression: 2", () => {
 })
 
 test("TypeArrowFunctionExpression", () => {
-    const parser = ReactPeg.render(<TypeExpression />);
+    const parser = ReactPeg.render(<TypeArrowFunctionExpression />);
     const ast = parser.parse(`
         () => ^{
             if(string extends string) {
@@ -121,7 +121,7 @@ test("TypeArrowFunctionExpression", () => {
 })
 
 test("TypeArrowFunctionExpression: with params", () => {
-    const parser = ReactPeg.render(<TypeExpression />);
+    const parser = ReactPeg.render(<TypeArrowFunctionExpression />);
     const ast = parser.parse(`
         (T) => ^{
             if(T extends string) {
@@ -136,7 +136,7 @@ test("TypeArrowFunctionExpression: with params", () => {
 })
 
 test("TypeArrowFunctionExpression: with infer", () => {
-    const parser = ReactPeg.render(<TypeExpression />);
+    const parser = ReactPeg.render(<TypeArrowFunctionExpression />);
     const ast = parser.parse(`
         () => ^{
             if(T extends infer U) {
@@ -190,8 +190,24 @@ test("TypeVariableDeclaration: keyof", () => {
 // type result<> = ...
 test("TypeVariableDeclaration: conditional type", () => {
     const parser = ReactPeg.render(<TypeVariableDeclaration />);
+
+
+    expect(() => {
+        const ast = parser.parse(`
+            type result = () => ^{
+                if(string extends string) {
+                    return string
+                } else {
+                    return number
+                }
+            }
+        `);
+        expect(ast).toMatchSnapshot();
+    }).toThrowErrorMatchingSnapshot();
+
+    //
     const ast = parser.parse(`
-        type result = () => ^{
+        type result = ^{
             if(string extends string) {
                 return string
             } else {
@@ -199,8 +215,8 @@ test("TypeVariableDeclaration: conditional type", () => {
             }
         }
     `);
-    saveAST(ast, "TypeVariableDeclaration-ConditionalType.json");
     expect(ast).toMatchSnapshot();
+    saveAST(ast, "TypeVariableDeclaration-ConditionalType.json");
 })
 
 test("TypeIfStatement", () => {
@@ -451,34 +467,6 @@ test("IndexType: deep", () => {
     const parser = ReactPeg.render(<TypeExpression />);
     const ast = parser.parse(`obj["a"][2]`);
     saveAST(ast, "IndexType-Deep.json");
-    expect(ast).toMatchSnapshot();
-})
-
-test("FunctionType", () => {
-    const parser = ReactPeg.render(<TypeExpression />);
-    const ast = parser.parse(`type () => void`);
-    saveAST(ast, "FunctionType.json");
-    expect(ast).toMatchSnapshot();
-})
-
-test("FunctionType: rest", () => {
-    const parser = ReactPeg.render(<TypeExpression />);
-    const ast = parser.parse(`type (...args: any[]) => void`);
-    saveAST(ast, "FunctionType-Rest.json");
-    expect(ast).toMatchSnapshot();
-})
-
-test("FunctionType: params", () => {
-    const parser = ReactPeg.render(<TypeExpression />);
-    const ast = parser.parse(`type (a:number, b: string) => number`);
-    saveAST(ast, "FunctionType-Params.json");
-    expect(ast).toMatchSnapshot();
-})
-
-test("FunctionType: nested", () => {
-    const parser = ReactPeg.render(<TypeExpression />);
-    const ast = parser.parse(`type () => type (a: number, b: string) => void`);
-    saveAST(ast, "FunctionType-Nested.json");
     expect(ast).toMatchSnapshot();
 })
 

@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -15,19 +15,12 @@ export function TSFile(ast: ITypeFile): t.File {
     return file;
 }
 
-export type ITypeType = ITypeExpression | IRestType;
+export type ITypeType = ITypeExpression | IRestType | ITypeArrowFunctionExpression;
 
 export function TSTypeAliasDeclarationWithParams(ast: ITypeFunctionDeclaration): t.TSTypeAliasDeclaration | t.ExportNamedDeclaration {
     const _type = TSTypeAliasDeclaration(ast);
     const type = t.isExportNamedDeclaration(_type) ? _type.declaration as t.TSTypeAliasDeclaration : _type;
-    const params = ast.declarator.initializer.params.map((param) => {
-        const constraint = param.constraint ? TSType(param.constraint) : null;
-        const _default = param.default ? TSType(param.default) : null;
-        const tsParam = t.tSTypeParameter(constraint, _default, (param as ITypeReference).typeName.name)
-        return tsParam;
-    });
-
-    type.typeParameters = t.tsTypeParameterDeclaration(params);
+    type.typeParameters = tsTypeParameterDeclaration(ast.declarator.initializer.params);
     return _type;
 }
 
@@ -176,7 +169,19 @@ function tsFunctionType(ast: IFunctionType): t.TSFunctionType {
         return param;
     });
 
-    return t.tsFunctionType(null, params, t.tsTypeAnnotation(TSType(ast.returnType)));
+    const typeParams = ast.typeParams ? tsTypeParameterDeclaration(ast.typeParams) : null;
+    return t.tsFunctionType(typeParams, params, t.tsTypeAnnotation(TSType(ast.returnType)));
+}
+
+function tsTypeParameterDeclaration(params: IParamList): t.TSTypeParameterDeclaration {
+    return t.tsTypeParameterDeclaration(params.map(param => tsTypeParameter(param)));
+}
+
+function tsTypeParameter(ast: ITypeExpressionParam): t.TSTypeParameter {
+    const constraint = ast.constraint ? TSType(ast.constraint) : null;
+    const _default = ast.default ? TSType(ast.default) : null;
+    const tsParam = t.tSTypeParameter(constraint, _default, (ast as ITypeReference).typeName.name)
+    return tsParam;
 }
 
 

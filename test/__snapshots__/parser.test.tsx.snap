@@ -176,117 +176,6 @@ Object {
 }
 `;
 
-exports[`FunctionType 1`] = `
-Object {
-  "kind": "FunctionType",
-  "params": Array [],
-  "returnType": Object {
-    "kind": "VoidType",
-    "value": "void",
-  },
-}
-`;
-
-exports[`FunctionType: nested 1`] = `
-Object {
-  "kind": "FunctionType",
-  "params": Array [],
-  "returnType": Object {
-    "kind": "FunctionType",
-    "params": Array [
-      Object {
-        "kind": "FunctionTypeParam",
-        "name": Object {
-          "kind": "Identifier",
-          "name": "a",
-        },
-        "type": Object {
-          "kind": "NumberType",
-          "value": "number",
-        },
-      },
-      Object {
-        "kind": "FunctionTypeParam",
-        "name": Object {
-          "kind": "Identifier",
-          "name": "b",
-        },
-        "type": Object {
-          "kind": "StringType",
-          "value": "string",
-        },
-      },
-    ],
-    "returnType": Object {
-      "kind": "VoidType",
-      "value": "void",
-    },
-  },
-}
-`;
-
-exports[`FunctionType: params 1`] = `
-Object {
-  "kind": "FunctionType",
-  "params": Array [
-    Object {
-      "kind": "FunctionTypeParam",
-      "name": Object {
-        "kind": "Identifier",
-        "name": "a",
-      },
-      "type": Object {
-        "kind": "NumberType",
-        "value": "number",
-      },
-    },
-    Object {
-      "kind": "FunctionTypeParam",
-      "name": Object {
-        "kind": "Identifier",
-        "name": "b",
-      },
-      "type": Object {
-        "kind": "StringType",
-        "value": "string",
-      },
-    },
-  ],
-  "returnType": Object {
-    "kind": "NumberType",
-    "value": "number",
-  },
-}
-`;
-
-exports[`FunctionType: rest 1`] = `
-Object {
-  "kind": "FunctionType",
-  "params": Array [
-    Object {
-      "kind": "FunctionTypeParam",
-      "name": Object {
-        "kind": "Identifier",
-        "name": "args",
-      },
-      "rest": true,
-      "type": Object {
-        "dimension": 1,
-        "elementType": Object {
-          "kind": "AnyType",
-          "value": "any",
-        },
-        "kind": "ArrayType",
-      },
-    },
-  ],
-  "returnType": Object {
-    "kind": "VoidType",
-    "value": "void",
-  },
-}
-`;
-
 exports[`Identifier 1`] = `
 Object {
   "kind": "Identifier",
@@ -1527,43 +1416,41 @@ Object {
 }
 `;
 
-exports[`TypeVariableDeclaration: conditional type 1`] = `
+exports[`TypeVariableDeclaration: conditional type 1`] = `"Expected TypeVariableDeclaration but \\"\\\\n\\" found."`;
+
+exports[`TypeVariableDeclaration: conditional type 2`] = `
 Object {
   "declarator": Object {
     "initializer": Object {
       "body": Object {
-        "body": Object {
-          "alternate": Object {
-            "argument": Object {
-              "kind": "NumberType",
-              "value": "number",
-            },
-            "kind": "TypeReturnStatement",
+        "alternate": Object {
+          "argument": Object {
+            "kind": "NumberType",
+            "value": "number",
           },
-          "condition": Object {
-            "checkType": Object {
-              "kind": "StringType",
-              "value": "string",
-            },
-            "extendsType": Object {
-              "kind": "StringType",
-              "value": "string",
-            },
-            "kind": "ExtendsClause",
-          },
-          "consequent": Object {
-            "argument": Object {
-              "kind": "StringType",
-              "value": "string",
-            },
-            "kind": "TypeReturnStatement",
-          },
-          "kind": "TypeIfStatement",
+          "kind": "TypeReturnStatement",
         },
-        "kind": "ConditionalTypeExpression",
+        "condition": Object {
+          "checkType": Object {
+            "kind": "StringType",
+            "value": "string",
+          },
+          "extendsType": Object {
+            "kind": "StringType",
+            "value": "string",
+          },
+          "kind": "ExtendsClause",
+        },
+        "consequent": Object {
+          "argument": Object {
+            "kind": "StringType",
+            "value": "string",
+          },
+          "kind": "TypeReturnStatement",
+        },
+        "kind": "TypeIfStatement",
       },
-      "kind": "TypeArrowFunctionExpression",
-      "params": Array [],
+      "kind": "ConditionalTypeExpression",
     },
     "kind": "TypeVariableDeclarator",
     "name": Object {
