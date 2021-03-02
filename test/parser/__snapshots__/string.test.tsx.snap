@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser: string String: special char 1`] = `
+Object {
+  "kind": "StringTypeLiteral",
+  "value": "\\\\n",
+}
+`;

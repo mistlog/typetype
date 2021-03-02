@@ -133,6 +133,8 @@ exports[`ts-type ObjectType: spread 1`] = `
 }, obj]>"
 `;
 
+exports[`ts-type StringTypeLiteral 1`] = `"\\"\\\\n\\""`;
+
 exports[`ts-type TemplateTypeLiteral 1`] = `"\`hello \${World}\`"`;
 
 exports[`ts-type TupleType: readonly 1`] = `"readonly [string, number, object]"`;
@@ -148,6 +150,8 @@ exports[`ts-type TypeArrowFunctionExpression: with infer 1`] = `"T extends infer
 exports[`ts-type TypeArrowFunctionExpression: with params 1`] = `"T extends string ? \\"string\\" : \\"number\\""`;
 
 exports[`ts-type UnionType 1`] = `"\\"0\\" | \\"1\\""`;
+
+exports[`ts-type UnionType: special char 1`] = `"\\" \\" | \\"\\\\n\\""`;
 
 exports[`type file TypeFile 1`] = `
 "type temp = string;

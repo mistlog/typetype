@@ -1,0 +1,13 @@
+{
+    "kind": "UnionType",
+    "types": [
+        {
+            "kind": "StringTypeLiteral",
+            "value": " "
+        },
+        {
+            "kind": "StringTypeLiteral",
+            "value": "\\n"
+        }
+    ]
+}

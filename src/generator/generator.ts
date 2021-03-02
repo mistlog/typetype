@@ -246,7 +246,13 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
     switch (ast.kind) {
         /**
          */
-        case "StringTypeLiteral": return t.tsLiteralType(t.stringLiteral(ast.value));
+        case "StringTypeLiteral": return t.tsLiteralType({
+            ...t.stringLiteral(ast.value),
+            extra: {
+                raw: `"${ast.value}"`,
+                rawValue: ast.value
+            }
+        } as t.StringLiteral);
         case "NumberTypeLiteral": return t.tsLiteralType(t.numericLiteral(ast.value));
         case "BooleanTypeLiteral": return t.tsLiteralType(t.booleanLiteral(ast.value));
         case "TemplateTypeLiteral": return {
