@@ -19,7 +19,7 @@ describe("parser: tuple", () => {
 
     test("TupleType: readonly", () => {
         const parser = ReactPeg.render(<OperatorType />);
-        const ast = parser.parse(`readonly [string, number, object]`);
+        const ast = parser.parse(`readonly [string, number, object, bigint]`);
         saveAST(ast, "TupleType-Readonly.json");
         expect(ast).toMatchSnapshot();
     })

@@ -39,6 +39,10 @@ Object {
         "kind": "ObjectType",
         "value": "object",
       },
+      Object {
+        "kind": "BigIntType",
+        "value": "bigint",
+      },
     ],
     "kind": "TupleType",
   },
