@@ -137,7 +137,7 @@ exports[`ts-type StringTypeLiteral 1`] = `"\\"\\\\n\\""`;
 
 exports[`ts-type TemplateTypeLiteral 1`] = `"\`hello \${World}\`"`;
 
-exports[`ts-type TupleType: readonly 1`] = `"readonly [string, number, object]"`;
+exports[`ts-type TupleType: readonly 1`] = `"readonly [string, number, object, bigint]"`;
 
 exports[`ts-type TupleType: rest 1`] = `"[protocol, ...rest]"`;
 
