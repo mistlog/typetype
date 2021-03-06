@@ -285,8 +285,8 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         }
         case "ConditionalTypeExpression": return tsConditionalType(ast.body);
         case "MappedTypeExpression": return tsMappedType(ast.body);
-        case "UnionType": return t.tsUnionType(ast.types.map(each => TSType(each)));
-        case "IntersectionType": return t.tsIntersectionType(ast.types.map(each => TSType(each)));
+        case "UnionType": return t.tsParenthesizedType(t.tsUnionType(ast.types.map(each => TSType(each))));
+        case "IntersectionType": return t.tsParenthesizedType(t.tsIntersectionType(ast.types.map(each => TSType(each))));
         case "KeyOfType": return tsTypeOperator(ast, "keyof");
         case "ReadonlyArray": return tsTypeOperator(ast, "readonly");
         case "ReadonlyTuple": return tsTypeOperator(ast, "readonly");
