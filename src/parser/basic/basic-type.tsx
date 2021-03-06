@@ -11,6 +11,7 @@ export type IBasicType =
     | INeverType
     | IAnyType
     | INumberType
+    | IBigIntType
     | ITupleType
     | IArrayType
     | IVoidType
@@ -24,6 +25,7 @@ export function BasicType() {
             <AnyType />
             <VoidType />
             <NumberType />
+            <BigIntType />
             <StringType />
             <TupleType />
             <TypeLiteral />
@@ -281,6 +283,25 @@ export function NumberType() {
     return (
         <pattern action={action}>
             {Text("number")}
+        </pattern>
+    )
+}
+
+export interface IBigIntType {
+    kind: "BigIntType"
+    value: "bigint"
+}
+
+export function BigIntType() {
+    const action = (): IBigIntType => {
+        return {
+            kind: "BigIntType",
+            value: "bigint"
+        }
+    }
+    return (
+        <pattern action={action}>
+            {Text("bigint")}
         </pattern>
     )
 }

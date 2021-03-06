@@ -1,6 +1,6 @@
 import { ReactPeg } from "react-peg";
 import { UnionType, IntersectionType } from "../../src";
-import { saveAST } from "../common";
+import { loadType, saveAST } from "../common";
 
 describe("parser: expression", () => {
     test("UnionType", () => {
@@ -13,6 +13,16 @@ describe("parser: expression", () => {
             const ast = parser.parse(`| ["0", "1"]`);
             expect(ast).toMatchSnapshot();
         }
+    })
+
+    test("UnionType: special char", () => {
+        const parser = ReactPeg.render(<UnionType />);
+        const name = "UnionType-SpecialChar";
+        const code = loadType(name);
+
+        const ast = parser.parse(code);
+        saveAST(ast, `${name}.json`);
+        expect(ast).toMatchSnapshot();
     })
 
     test("IntersectionType", () => {

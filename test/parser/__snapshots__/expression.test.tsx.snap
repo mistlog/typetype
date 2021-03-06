@@ -63,3 +63,23 @@ Object {
   ],
 }
 `;
+
+exports[`parser: expression UnionType: special char 1`] = `
+Object {
+  "kind": "UnionType",
+  "types": Array [
+    Object {
+      "kind": "StringTypeLiteral",
+      "value": " ",
+    },
+    Object {
+      "kind": "StringTypeLiteral",
+      "value": "\\\\n",
+    },
+    Object {
+      "kind": "StringTypeLiteral",
+      "value": "\\\\t",
+    },
+  ],
+}
+`;

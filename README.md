@@ -29,7 +29,7 @@ console.log(output);
 
 ## Examples
 
-- repo: https://github.com/mistlog/typetype-examples
+- all examples: https://github.com/mistlog/typetype-examples
 
 In the [url-parser](https://github.com/mistlog/typetype-examples/blob/main/examples/url-parser/url-parser.type) example, `function parseURL` will be translated to generic type `parseURL<text>` in typescript:
 
@@ -85,9 +85,8 @@ type function _isNumberString = (text) => ^{
 
 ## Syntax
 
-* [examples/syntax](https://github.com/mistlog/typetype-examples/blob/main/examples/syntax/syntax.type)
-
-This project is still primitive, PR is welcomed, feel free to open issues and join us!
+* visit playground: https://mistlog.github.io/typetype-playground/
+    * or [examples/syntax](https://github.com/mistlog/typetype-examples/blob/main/examples/syntax/syntax.type)
 
 ### Basic type
 
@@ -187,7 +186,7 @@ type mapped1 = ^{
 ```
 
 ```ts
-/* type mapped2 = { [K in Keys as `get${K}`]: () => string }*/
+/* type mapped2 = { [K in Keys as `get${K}`]: () => string } */
 type mapped2 = ^{
     for(K in Keys) {
         return {
@@ -201,9 +200,7 @@ type mapped2 = ^{
 ### Generic
 
 ```ts
-/* 
-  export type Foo<T> = T extends { a: infer U; b: infer U; } ? U : never
-*/
+/* export type Foo<T> = T extends { a: infer U; b: infer U; } ? U : never */
 type function Foo = (T) => ^{
     if(T extends {a: infer U, b: infer U}) {
         return U
@@ -218,9 +215,7 @@ With constraint:
 * [examples/type-challenges/4-easy-pick](https://github.com/mistlog/typetype-examples/blob/main/examples/type-challenges/4-easy-pick.type)
 
 ```ts
-/* 
-  export type MyPick<T, Keys extends keyof T> = { [K in Keys]: T[K] } 
-*/
+/* export type MyPick<T, Keys extends keyof T> = { [K in Keys]: T[K] } */
 export type function MyPick = (T, Keys extends keyof T) => ^{
     for(K in Keys) {
         return {

@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -224,6 +224,7 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<INeverType> ? t.TSNeverKeyword :
     Kind<T> extends Kind<IAnyType> ? t.TSAnyKeyword :
     Kind<T> extends Kind<INumberType> ? t.TSNumberKeyword :
+    Kind<T> extends Kind<IBigIntType> ? t.TSBigIntKeyword :
     Kind<T> extends Kind<IObjectTypeLiteral> ? t.TSTypeLiteral :
     Kind<T> extends Kind<ITupleType> ? t.TSTupleType :
     Kind<T> extends Kind<IArrayType> ? t.TSArrayType :
@@ -246,7 +247,13 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
     switch (ast.kind) {
         /**
          */
-        case "StringTypeLiteral": return t.tsLiteralType(t.stringLiteral(ast.value));
+        case "StringTypeLiteral": return t.tsLiteralType({
+            ...t.stringLiteral(ast.value),
+            extra: {
+                raw: `"${ast.value}"`,
+                rawValue: ast.value
+            }
+        } as t.StringLiteral);
         case "NumberTypeLiteral": return t.tsLiteralType(t.numericLiteral(ast.value));
         case "BooleanTypeLiteral": return t.tsLiteralType(t.booleanLiteral(ast.value));
         case "TemplateTypeLiteral": return {
@@ -261,6 +268,7 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         case "ObjectType": return t.tsObjectKeyword();
         case "VoidType": return t.tsVoidKeyword();
         case "NumberType": return t.tsNumberKeyword();
+        case "BigIntType": return t.tsBigIntKeyword();
         case "ObjectTypeLiteral": return tsTypeLiteral(ast);
         case "TupleType": return t.tsTupleType(ast.items.map(item => TSType(item)));
         case "ArrayType": return tsArrayType(ast);
@@ -277,8 +285,8 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         }
         case "ConditionalTypeExpression": return tsConditionalType(ast.body);
         case "MappedTypeExpression": return tsMappedType(ast.body);
-        case "UnionType": return t.tsUnionType(ast.types.map(each => TSType(each)));
-        case "IntersectionType": return t.tsIntersectionType(ast.types.map(each => TSType(each)));
+        case "UnionType": return t.tsParenthesizedType(t.tsUnionType(ast.types.map(each => TSType(each))));
+        case "IntersectionType": return t.tsParenthesizedType(t.tsIntersectionType(ast.types.map(each => TSType(each))));
         case "KeyOfType": return tsTypeOperator(ast, "keyof");
         case "ReadonlyArray": return tsTypeOperator(ast, "readonly");
         case "ReadonlyTuple": return tsTypeOperator(ast, "readonly");
