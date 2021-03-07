@@ -28,8 +28,7 @@ export function transform(source: string, config: ITypeTypeConfig = { debug: fal
 
         return result;
     } catch (error) {
-        const withBacktrace = new Error(error);
-        withBacktrace['backtrace'] = tracer.getBacktraceString();
-        throw withBacktrace;
+        error['backtrace'] = tracer.getBacktraceString();
+        throw error;
     }
 }
