@@ -8,3 +8,15 @@ type func<T> = {
 };",
 }
 `;
+
+exports[`transform: backtrace 1`] = `
+"{
+    \\"backtrace\\": \\"No backtrace found. Make sure you use \`pegjs --trace\` to build your parser javascript.\\\\nOr, the failure might occur in the start node.\\"
+}"
+`;
+
+exports[`transform: backtrace 2`] = `
+"{
+    \\"backtrace\\": \\"x 3:38-3:38 MultiLineComment\\\\n|             type function func = (T) = {a: T}\\\\n|                                      ^\\\\no 3:37-3:38 _\\\\n|             type function func = (T) = {a: T}\\\\n|                                     ^\\\\nx 3:34-3:34 TypeArrowFunctionExpression\\\\n|             type function func = (T) = {a: T}\\\\n|                                  ^\\\\nx 3:27-3:27 TypeFunctionDeclarator\\\\n|             type function func = (T) = {a: T}\\\\n|                           ^\\\\nx 3:13-3:13 TypeFunctionDeclaration\\\\n|             type function func = (T) = {a: T}\\\\n|             ^\\\\no 1:1-3:13 TypeFile\\\\n  \\\\n  \\\\n              type temp = string\\\\n              type function func = (T) = {a: T}\\\\n  ^^^^^^^^^^^^\\"
+}"
+`;

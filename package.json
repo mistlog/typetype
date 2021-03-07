@@ -33,6 +33,7 @@
     },
     "dependencies": {
         "@babel/core": "^7.12.10",
-        "react-peg": "^0.1.6"
+        "pegjs-backtrace": "^0.2.0",
+        "react-peg": "^0.1.7"
     }
 }
