@@ -1,6 +1,6 @@
 {
     "name": "@mistlog/typetype",
-    "version": "0.0.21",
+    "version": "0.0.23",
     "description": "A programming language designed for typescript type generation",
     "keywords": [
         "peg",
@@ -33,6 +33,7 @@
     },
     "dependencies": {
         "@babel/core": "^7.12.10",
-        "react-peg": "^0.1.6"
+        "pegjs-backtrace": "^0.2.0",
+        "react-peg": "^0.1.7"
     }
 }
