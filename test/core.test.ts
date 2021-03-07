@@ -15,6 +15,7 @@ test("transform: backtrace", () => {
             type function func = (T) = {a: T}
         `);
     } catch (error) {
+        delete error.stack;
         expect(JSON.stringify(error, null, 4)).toMatchSnapshot();
     }
 
@@ -24,6 +25,7 @@ test("transform: backtrace", () => {
             type function func = (T) = {a: T}
         `, { debug: true });
     } catch (error) {
+        delete error.stack;
         expect(JSON.stringify(error, null, 4)).toMatchSnapshot();
     }
 })
