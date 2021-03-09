@@ -183,6 +183,45 @@ Object {
 }
 `;
 
+exports[`ImportDeclaration 1`] = `
+Object {
+  "kind": "ImportDeclaration",
+  "source": "./temp",
+  "specifiers": Array [
+    Object {
+      "imported": Object {
+        "kind": "Identifier",
+        "name": "Temp",
+      },
+      "kind": "ImportSpecifier",
+    },
+  ],
+}
+`;
+
+exports[`ImportDeclaration: 2 1`] = `
+Object {
+  "kind": "ImportDeclaration",
+  "source": "./temp",
+  "specifiers": Array [
+    Object {
+      "imported": Object {
+        "kind": "Identifier",
+        "name": "Temp",
+      },
+      "kind": "ImportSpecifier",
+    },
+    Object {
+      "imported": Object {
+        "kind": "Identifier",
+        "name": "Temp2",
+      },
+      "kind": "ImportSpecifier",
+    },
+  ],
+}
+`;
+
 exports[`IndexType 1`] = `
 Object {
   "head": Object {

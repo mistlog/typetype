@@ -2,9 +2,11 @@
 
 exports[`transform 1`] = `
 Object {
-  "code": "type temp = string;
+  "code": "import { Temp } from \\"./temp\\";
+type temp = string;
 type func<T> = {
   a: T;
+  b: Temp;
 };",
 }
 `;

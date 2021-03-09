@@ -1,0 +1,13 @@
+{
+    "kind": "ImportDeclaration",
+    "source": "./temp",
+    "specifiers": [
+        {
+            "kind": "ImportSpecifier",
+            "imported": {
+                "kind": "Identifier",
+                "name": "Temp"
+            }
+        }
+    ]
+}
