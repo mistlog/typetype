@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType, IImportDeclaration } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType, IImportDeclaration, ITypeVariableDeclaration } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -30,7 +30,7 @@ export function TSTypeAliasDeclarationWithParams(ast: ITypeFunctionDeclaration):
     return _type;
 }
 
-export function TSTypeAliasDeclaration(ast: IDeclaration): t.TSTypeAliasDeclaration | t.ExportNamedDeclaration {
+export function TSTypeAliasDeclaration(ast: ITypeFunctionDeclaration | ITypeVariableDeclaration): t.TSTypeAliasDeclaration | t.ExportNamedDeclaration {
     const declarator = ast.declarator;
     const declaraion = t.tsTypeAliasDeclaration(Identifier(declarator.name), null, TSType(declarator.initializer));
 

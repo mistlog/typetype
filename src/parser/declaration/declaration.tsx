@@ -71,7 +71,6 @@ export interface ITypeFunctionDeclaration {
 }
 
 export type IDeclarator = ITypeFunctionDeclarator | ITypeVariableDeclarator;
-export type IDeclaration = ITypeVariableDeclaration | ITypeFunctionDeclaration;
 
 export function TypeFunctionDeclaration() {
     const action = ({ declarator, _export }): ITypeFunctionDeclaration => {
