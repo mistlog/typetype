@@ -1,18 +1,24 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType, IImportDeclaration, ITypeVariableDeclaration } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
         switch (each.kind) {
             case "TypeVariableDeclaration": return TSTypeAliasDeclaration(each);
             case "TypeFunctionDeclaration": return TSTypeAliasDeclarationWithParams(each);
+            case "ImportDeclaration": return importDeclaration(each);
             default:
                 assertNever(each);
         }
     });
     const file = t.file(t.program(body));
     return file;
+}
+
+export function importDeclaration(ast: IImportDeclaration): t.ImportDeclaration {
+    const specifiers = ast.specifiers.map(each => t.importSpecifier(Identifier(each.imported), Identifier(each.imported)));
+    return t.importDeclaration(specifiers, t.stringLiteral(ast.source));
 }
 
 export type ITypeType = ITypeExpression | IRestType | ITypeArrowFunctionExpression;
@@ -24,7 +30,7 @@ export function TSTypeAliasDeclarationWithParams(ast: ITypeFunctionDeclaration):
     return _type;
 }
 
-export function TSTypeAliasDeclaration(ast: IDeclaration): t.TSTypeAliasDeclaration | t.ExportNamedDeclaration {
+export function TSTypeAliasDeclaration(ast: ITypeFunctionDeclaration | ITypeVariableDeclaration): t.TSTypeAliasDeclaration | t.ExportNamedDeclaration {
     const declarator = ast.declarator;
     const declaraion = t.tsTypeAliasDeclaration(Identifier(declarator.name), null, TSType(declarator.initializer));
 
