@@ -16,10 +16,12 @@ export type ITypeExpression =
     | IOperatorType
     | IIndexType
     | IFunctionType
+    | IParenthesizedType
 
 export function TypeExpression() {
     return (
         <or>
+            <ParenthesizedType />
             <FunctionType />
             <OperatorType />
             <IndexType />
@@ -32,6 +34,27 @@ export function TypeExpression() {
             <InferType />
             <TypeReference />
         </or>
+    )
+}
+
+export interface IParenthesizedType {
+    kind: "ParenthesizedType"
+    param: ITypeExpression
+}
+
+export function ParenthesizedType() {
+    const action = ({ param }): IParenthesizedType => {
+        return {
+            kind: "ParenthesizedType",
+            param
+        }
+    }
+    return (
+        <pattern action={action}>
+            {Text("(")}
+            <TypeExpression label="param" />
+            {Text(")")}
+        </pattern>
     )
 }
 

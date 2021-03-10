@@ -502,6 +502,32 @@ Array [
 
 exports[`ParamList: empty 1`] = `Array []`;
 
+exports[`ParenthesizedType 1`] = `
+Object {
+  "kind": "ParenthesizedType",
+  "param": Object {
+    "kind": "FunctionType",
+    "params": Array [
+      Object {
+        "kind": "FunctionTypeParam",
+        "name": Object {
+          "kind": "Identifier",
+          "name": "value",
+        },
+        "type": Object {
+          "kind": "NumberType",
+          "value": "number",
+        },
+      },
+    ],
+    "returnType": Object {
+      "kind": "VoidType",
+      "value": "void",
+    },
+  },
+}
+`;
+
 exports[`TemplateElement 1`] = `
 Object {
   "kind": "TemplateElement",
