@@ -67,6 +67,85 @@ Object {
 }
 `;
 
+exports[`parser: object ObjectType: call signature 1`] = `
+Object {
+  "kind": "ObjectTypeLiteral",
+  "props": Array [
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "CallSignature",
+        "params": Array [
+          Object {
+            "kind": "FunctionTypeParam",
+            "name": Object {
+              "kind": "Identifier",
+              "name": "someArg",
+            },
+            "type": Object {
+              "kind": "NumberType",
+              "value": "number",
+            },
+          },
+        ],
+      },
+      "optional": false,
+      "readonly": false,
+      "value": Object {
+        "kind": "TypeReference",
+        "typeName": Object {
+          "kind": "Identifier",
+          "name": "boolean",
+        },
+      },
+    },
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "CallSignature",
+        "params": Array [
+          Object {
+            "kind": "FunctionTypeParam",
+            "name": Object {
+              "kind": "Identifier",
+              "name": "a",
+            },
+            "type": Object {
+              "kind": "NumberType",
+              "value": "number",
+            },
+          },
+          Object {
+            "kind": "FunctionTypeParam",
+            "name": Object {
+              "kind": "Identifier",
+              "name": "b",
+            },
+            "type": Object {
+              "kind": "NumberType",
+              "value": "number",
+            },
+          },
+        ],
+      },
+      "optional": false,
+      "readonly": false,
+      "value": Object {
+        "kind": "NumberType",
+        "value": "number",
+      },
+    },
+  ],
+}
+`;
+
+exports[`parser: object ObjectType: call signature 2`] = `
+Object {
+  "kind": "ObjectTypeLiteral",
+  "props": Array [],
+}
+`;
+
 exports[`parser: object ObjectType: modifier 1`] = `
 Object {
   "kind": "ObjectTypeLiteral",

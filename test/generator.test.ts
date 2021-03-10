@@ -68,7 +68,6 @@ describe("ts-type", () => {
         saveCode(code, `${name}`)
         return code;
     }
-
     test("ParenthesizedType", () => {
         const name = "ParenthesizedType";
         expect(toCode(name)).toMatchSnapshot();
@@ -191,6 +190,11 @@ describe("ts-type", () => {
 
     test("ObjectType", () => {
         const name = "ObjectType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("ObjectType: call signature", () => {
+        const name = "ObjectType-CallSignature";
         expect(toCode(name)).toMatchSnapshot();
     })
 
