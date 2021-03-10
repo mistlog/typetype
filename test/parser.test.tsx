@@ -474,6 +474,13 @@ test("OperatorType: keyof", () => {
     expect(ast).toMatchSnapshot();
 })
 
+test("ParenthesizedType", () => {
+    const parser = ReactPeg.render(<TypeExpression />);
+    const ast = parser.parse(`(type (value: number) => void)`);
+    saveAST(ast, "ParenthesizedType.json");
+    expect(ast).toMatchSnapshot();
+})
+
 test("IndexType", () => {
     const parser = ReactPeg.render(<IndexType />);
     const ast = parser.parse(`obj["a"]`);

@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType, IImportDeclaration, ITypeVariableDeclaration } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType, IImportDeclaration, ITypeVariableDeclaration, IParenthesizedType } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -245,6 +245,7 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<IReadonlyTuple> ? t.TSTypeOperator :
     Kind<T> extends Kind<IIndexType> ? t.TSIndexedAccessType :
     Kind<T> extends Kind<IFunctionType> ? t.TSFunctionType :
+    Kind<T> extends Kind<IParenthesizedType> ? t.TSParenthesizedType :
     Kind<T> extends Kind<IConditionalTypeExpression> ? t.TSConditionalType :
     Kind<T> extends Kind<IMappedTypeExpression> ? t.TSMappedType :
     Kind<T> extends Kind<ITypeCallExpression> ? t.TSConditionalType : t.TSType;
@@ -298,6 +299,7 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
         case "ReadonlyTuple": return tsTypeOperator(ast, "readonly");
         case "IndexType": return tsIndexType(ast);
         case "FunctionType": return tsFunctionType(ast);
+        case "ParenthesizedType": return t.tsParenthesizedType(TSType(ast.param));
         case "RestType": return t.tsRestType(TSType(ast.param));
 
         default:

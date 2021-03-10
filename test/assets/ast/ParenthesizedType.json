@@ -1,0 +1,23 @@
+{
+    "kind": "ParenthesizedType",
+    "param": {
+        "kind": "FunctionType",
+        "params": [
+            {
+                "kind": "FunctionTypeParam",
+                "name": {
+                    "kind": "Identifier",
+                    "name": "value"
+                },
+                "type": {
+                    "kind": "NumberType",
+                    "value": "number"
+                }
+            }
+        ],
+        "returnType": {
+            "kind": "VoidType",
+            "value": "void"
+        }
+    }
+}

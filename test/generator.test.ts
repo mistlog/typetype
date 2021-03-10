@@ -69,6 +69,11 @@ describe("ts-type", () => {
         return code;
     }
 
+    test("ParenthesizedType", () => {
+        const name = "ParenthesizedType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("MappedType", () => {
         const name = "MappedType";
         expect(toCode(name)).toMatchSnapshot();
