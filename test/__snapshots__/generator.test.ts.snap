@@ -117,7 +117,7 @@ exports[`ts-type ObjectType 1`] = `
 
 exports[`ts-type ObjectType: call signature 1`] = `
 "{
-  (someArg: number): boolean;
+  new (someArg: number): boolean;
   (a: number, b: number): number;
 }"
 `;

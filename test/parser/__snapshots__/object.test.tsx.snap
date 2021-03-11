@@ -74,7 +74,7 @@ Object {
     Object {
       "kind": "TypeObjectProperty",
       "name": Object {
-        "kind": "CallSignature",
+        "kind": "ConstructSignature",
         "params": Array [
           Object {
             "kind": "FunctionTypeParam",

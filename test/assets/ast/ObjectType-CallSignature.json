@@ -4,7 +4,7 @@
         {
             "kind": "TypeObjectProperty",
             "name": {
-                "kind": "CallSignature",
+                "kind": "ConstructSignature",
                 "params": [
                     {
                         "kind": "FunctionTypeParam",

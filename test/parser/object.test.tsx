@@ -8,7 +8,7 @@ describe("parser: object", () => {
         const parser = ReactPeg.render(<ObjectTypeLiteral />);
         const ast = parser.parse(`
             {
-                (someArg: number): boolean,
+                new (someArg: number): boolean,
                 (a: number, b: number): number
             }
         `);

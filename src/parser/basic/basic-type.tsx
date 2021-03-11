@@ -469,7 +469,7 @@ export function RestType() {
 
 export interface ITypeObjectProperty {
     kind: "TypeObjectProperty"
-    name: IIdentifier | ICallSignature
+    name: IIdentifier | ICallSignature | IConstructSignature
     value: ITypeExpression
     readonly: boolean
     optional: boolean
@@ -498,8 +498,9 @@ export function TypeObjectProperty() {
                 {Text("readonly")}
             </opt>
             <or label="name">
-                <Identifier />
+                <ConstructSignature />
                 <CallSignature />
+                <Identifier />
             </or>
             <opt label="optional">
                 {Text("?")}
@@ -530,6 +531,29 @@ export function CallSignature() {
 
     return (
         <pattern action={action}>
+            {Text("(")}
+            <FunctionTypeParamList label="params" />
+            {Text(")")}
+        </pattern>
+    )
+}
+
+export interface IConstructSignature {
+    kind: "ConstructSignature"
+    params: IFunctionTypeParam[]
+}
+
+export function ConstructSignature() {
+    const action = ({ params }): IConstructSignature => {
+        return {
+            kind: "ConstructSignature",
+            params
+        }
+    }
+
+    return (
+        <pattern action={action}>
+            {Text("new")}
             {Text("(")}
             <FunctionTypeParamList label="params" />
             {Text(")")}

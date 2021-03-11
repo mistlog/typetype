@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType, IImportDeclaration, ITypeVariableDeclaration, IParenthesizedType, ICallSignature, IFunctionTypeParam } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType, IImportDeclaration, ITypeVariableDeclaration, IParenthesizedType, ICallSignature, IFunctionTypeParam, IConstructSignature } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -48,6 +48,12 @@ function tsConditionalType(ast: ITypeIfStatement): t.TSConditionalType {
     return type;
 }
 
+function tsConstrucSignature(ast: ITypeObjectProperty) {
+    const name = ast.name as IConstructSignature;
+    const params = tsFunctionParams(name.params);
+    return t.tsConstructSignatureDeclaration(null, params, t.tsTypeAnnotation(TSType(ast.value)));
+}
+
 function tsCallSignature(ast: ITypeObjectProperty) {
     const name = ast.name as ICallSignature;
     const params = tsFunctionParams(name.params);
@@ -69,12 +75,11 @@ function tsTypeLiteral(ast: IObjectTypeLiteral) {
     const props = ast.props.map(each => {
         switch (each.kind) {
             case "TypeObjectProperty": {
-                if (each.name.kind === "Identifier") {
-                    return tsPropertySignature(each);
-                } else if (each.name.kind === "CallSignature") {
-                    return tsCallSignature(each);
+                switch (each.name.kind) {
+                    case "Identifier": return tsPropertySignature(each);
+                    case "CallSignature": return tsCallSignature(each);
+                    case "ConstructSignature": return tsConstrucSignature(each);
                 }
-                throw new Error(`unkonwn param: ${JSON.stringify(each, null, 4)}`);
             }
             case "TypeSpreadProperty": {
                 if (each.param.kind === "TypeReference") {
