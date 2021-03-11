@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType, IImportDeclaration, ITypeVariableDeclaration, IParenthesizedType } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType, IImportDeclaration, ITypeVariableDeclaration, IParenthesizedType, ICallSignature, IFunctionTypeParam, IConstructSignature } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -48,8 +48,20 @@ function tsConditionalType(ast: ITypeIfStatement): t.TSConditionalType {
     return type;
 }
 
+function tsConstrucSignature(ast: ITypeObjectProperty) {
+    const name = ast.name as IConstructSignature;
+    const params = tsFunctionParams(name.params);
+    return t.tsConstructSignatureDeclaration(null, params, t.tsTypeAnnotation(TSType(ast.value)));
+}
+
+function tsCallSignature(ast: ITypeObjectProperty) {
+    const name = ast.name as ICallSignature;
+    const params = tsFunctionParams(name.params);
+    return t.tsCallSignatureDeclaration(null, params, t.tsTypeAnnotation(TSType(ast.value)));
+}
+
 function tsPropertySignature(ast: ITypeObjectProperty) {
-    const key = Identifier(ast.name);
+    const key = Identifier(ast.name as IIdentifier);
     const value = TSType(ast.value);
     const prop = t.tsPropertySignature(key, t.tsTypeAnnotation(value));
     return {
@@ -63,7 +75,11 @@ function tsTypeLiteral(ast: IObjectTypeLiteral) {
     const props = ast.props.map(each => {
         switch (each.kind) {
             case "TypeObjectProperty": {
-                return tsPropertySignature(each);
+                switch (each.name.kind) {
+                    case "Identifier": return tsPropertySignature(each);
+                    case "CallSignature": return tsCallSignature(each);
+                    case "ConstructSignature": return tsConstrucSignature(each);
+                }
             }
             case "TypeSpreadProperty": {
                 if (each.param.kind === "TypeReference") {
@@ -168,15 +184,18 @@ function tsArrayType(ast: IArrayType): t.TSArrayType {
 }
 
 function tsFunctionType(ast: IFunctionType): t.TSFunctionType {
-    const params = ast.params.map(each => {
+    const params = tsFunctionParams(ast.params);
+    const typeParams = ast.typeParams ? tsTypeParameterDeclaration(ast.typeParams) : null;
+    return t.tsFunctionType(typeParams, params, t.tsTypeAnnotation(TSType(ast.returnType)));
+}
+
+function tsFunctionParams(params: IFunctionTypeParam[]) {
+    return params.map(each => {
         const identifier = Identifier(each.name);
         const param = each.rest ? t.restElement(identifier) : identifier;
         param.typeAnnotation = t.tsTypeAnnotation(TSType(each.type));
         return param;
     });
-
-    const typeParams = ast.typeParams ? tsTypeParameterDeclaration(ast.typeParams) : null;
-    return t.tsFunctionType(typeParams, params, t.tsTypeAnnotation(TSType(ast.returnType)));
 }
 
 function tsTypeParameterDeclaration(params: IParamList): t.TSTypeParameterDeclaration {

@@ -1,0 +1,4 @@
+{
+  new (someArg: number): boolean;
+  (a: number, b: number): number;
+}
