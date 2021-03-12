@@ -194,6 +194,9 @@ function tsFunctionParams(params: IFunctionTypeParam[]) {
         const identifier = Identifier(each.name);
         const param = each.rest ? t.restElement(identifier) : identifier;
         param.typeAnnotation = t.tsTypeAnnotation(TSType(each.type));
+        if (each.optional) {
+            param["optional"] = true
+        }
         return param;
     });
 }

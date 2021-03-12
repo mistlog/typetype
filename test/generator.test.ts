@@ -88,6 +88,11 @@ describe("ts-type", () => {
         expect(toCode(name)).toMatchSnapshot();
     })
 
+    test("FunctionType: optional param", () => {
+        const name = "FunctionType-OptionalParam";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("FunctionType: params", () => {
         const name = "FunctionType-Params";
         expect(toCode(name)).toMatchSnapshot();

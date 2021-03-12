@@ -90,6 +90,8 @@ exports[`ts-type FunctionType 1`] = `"() => void"`;
 
 exports[`ts-type FunctionType: nested 1`] = `"() => (a: number, b: string) => void"`;
 
+exports[`ts-type FunctionType: optional param 1`] = `"(a: number, b?: string) => number"`;
+
 exports[`ts-type FunctionType: params 1`] = `"(a: number, b: string) => number"`;
 
 exports[`ts-type FunctionType: rest 1`] = `"(...args: any[]) => void"`;

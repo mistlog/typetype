@@ -10,6 +10,13 @@ describe("parser: function", () => {
         expect(ast).toMatchSnapshot();
     })
 
+    test("FunctionType: optional param", () => {
+        const parser = ReactPeg.render(<TypeExpression />);
+        const ast = parser.parse(`type (a:number, b?: string) => number`);
+        saveAST(ast, "FunctionType-OptionalParam.json");
+        expect(ast).toMatchSnapshot();
+    })
+
     test("FunctionType: rest", () => {
         const parser = ReactPeg.render(<TypeExpression />);
         const ast = parser.parse(`type (...args: any[]) => void`);

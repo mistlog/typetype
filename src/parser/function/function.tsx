@@ -69,10 +69,11 @@ export interface IFunctionTypeParam {
     name: IIdentifier
     type: ITypeExpression
     rest?: boolean
+    optional?: boolean
 }
 
 export function FunctionTypeParam() {
-    const action = ({ name, type, rest }): IFunctionTypeParam => {
+    const action = ({ name, type, rest, optional }): IFunctionTypeParam => {
         const param: IFunctionTypeParam = {
             kind: "FunctionTypeParam",
             name,
@@ -81,6 +82,10 @@ export function FunctionTypeParam() {
 
         if (rest) {
             param.rest = true
+        }
+
+        if (optional) {
+            param.optional = true
         }
 
         return param
@@ -93,6 +98,9 @@ export function FunctionTypeParam() {
                 <text>...</text>
             </opt>
             <Identifier label="name" />
+            <opt label="optional">
+                {Text("?")}
+            </opt>
             <opt label="type">
                 <pattern action={({ expression }) => expression}>
                     {Text(":")}
