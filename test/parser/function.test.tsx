@@ -10,6 +10,13 @@ describe("parser: function", () => {
         expect(ast).toMatchSnapshot();
     })
 
+    test("FunctionType: constructor", () => {
+        const parser = ReactPeg.render(<TypeExpression />);
+        const ast = parser.parse(`type new (...arg: any) => any`);
+        saveAST(ast, "FunctionType-Constructor.json");
+        expect(ast).toMatchSnapshot();
+    })
+
     test("FunctionType: optional param", () => {
         const parser = ReactPeg.render(<TypeExpression />);
         const ast = parser.parse(`type (a:number, b?: string) => number`);

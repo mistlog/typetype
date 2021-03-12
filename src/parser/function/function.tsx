@@ -8,10 +8,11 @@ export interface IFunctionType {
     params: IFunctionTypeParam[]
     returnType: ITypeExpression
     typeParams?: IParamList
+    isConstructor?: boolean
 }
 
 export function FunctionType() {
-    const action = ({ params, returnType, typeParams }): IFunctionType => {
+    const action = ({ params, returnType, typeParams, isConstructor }): IFunctionType => {
         const type: IFunctionType = {
             kind: "FunctionType",
             params,
@@ -20,12 +21,18 @@ export function FunctionType() {
         if (typeParams) {
             type.typeParams = typeParams
         }
+        if (isConstructor) {
+            type.isConstructor = true;
+        }
         return type
     }
 
     return (
         <pattern action={action}>
             {Text("type")}
+            <opt label="isConstructor">
+                {Text("new")}
+            </opt>
             <_ />
             <opt label="typeParams">
                 <pattern action={({ typeParams }) => typeParams}>
