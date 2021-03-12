@@ -183,10 +183,12 @@ function tsArrayType(ast: IArrayType): t.TSArrayType {
     return _tsArrayType(TSType(ast.elementType), ast.dimension);
 }
 
-function tsFunctionType(ast: IFunctionType): t.TSFunctionType {
+function tsFunctionType(ast: IFunctionType): t.TSFunctionType | t.TSConstructorType {
     const params = tsFunctionParams(ast.params);
     const typeParams = ast.typeParams ? tsTypeParameterDeclaration(ast.typeParams) : null;
-    return t.tsFunctionType(typeParams, params, t.tsTypeAnnotation(TSType(ast.returnType)));
+    const args = [typeParams, params, t.tsTypeAnnotation(TSType(ast.returnType))] as const;
+    const type = ast.isConstructor ? t.tsConstructorType(...args) : t.tsFunctionType(...args);
+    return type;
 }
 
 function tsFunctionParams(params: IFunctionTypeParam[]) {

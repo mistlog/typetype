@@ -88,6 +88,8 @@ exports[`ts-type ConditionalTypeExpression: 2 1`] = `"T extends string ? \\"stri
 
 exports[`ts-type FunctionType 1`] = `"() => void"`;
 
+exports[`ts-type FunctionType: constructor 1`] = `"new (...arg: any) => any"`;
+
 exports[`ts-type FunctionType: nested 1`] = `"() => (a: number, b: string) => void"`;
 
 exports[`ts-type FunctionType: optional param 1`] = `"(a: number, b?: string) => number"`;
