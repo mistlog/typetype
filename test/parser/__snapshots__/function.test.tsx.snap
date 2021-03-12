@@ -49,6 +49,41 @@ Object {
 }
 `;
 
+exports[`parser: function FunctionType: optional param 1`] = `
+Object {
+  "kind": "FunctionType",
+  "params": Array [
+    Object {
+      "kind": "FunctionTypeParam",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "a",
+      },
+      "type": Object {
+        "kind": "NumberType",
+        "value": "number",
+      },
+    },
+    Object {
+      "kind": "FunctionTypeParam",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "b",
+      },
+      "optional": true,
+      "type": Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+    },
+  ],
+  "returnType": Object {
+    "kind": "NumberType",
+    "value": "number",
+  },
+}
+`;
+
 exports[`parser: function FunctionType: params 1`] = `
 Object {
   "kind": "FunctionType",
