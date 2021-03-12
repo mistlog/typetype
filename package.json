@@ -1,6 +1,6 @@
 {
     "name": "@mistlog/typetype",
-    "version": "0.0.25",
+    "version": "0.0.26",
     "description": "A programming language designed for typescript type generation",
     "keywords": [
         "peg",
