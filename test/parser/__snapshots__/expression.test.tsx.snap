@@ -70,7 +70,7 @@ Object {
   "types": Array [
     Object {
       "kind": "StringTypeLiteral",
-      "value": " ",
+      "value": "",
     },
     Object {
       "kind": "StringTypeLiteral",

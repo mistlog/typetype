@@ -3,7 +3,7 @@ import { _ } from "../common";
 
 export function SourceCharacter() {
     return (
-        <any/>
+        <any />
     )
 }
 
@@ -13,16 +13,14 @@ export function SourceCharacter() {
        encoding-prefixoptR raw-string
  */
 export function String() {
-    const action = ({ globalFunction }) => {
-        const trimmed = globalFunction.text().trim();
-        const value = trimmed.slice(1, trimmed.length - 1);
-        return value;
+    const action = ({ chars }) => {
+        return chars.join("");
     }
 
     return (
         <pattern action={action}>
             <_ /><text>"</text><_ />
-            <SCharSequence />
+            <SCharSequence label="chars" />
             <_ /><text>"</text><_ />
         </pattern>
     )
