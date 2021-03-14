@@ -3,7 +3,7 @@
     "types": [
         {
             "kind": "StringTypeLiteral",
-            "value": ""
+            "value": " "
         },
         {
             "kind": "StringTypeLiteral",
