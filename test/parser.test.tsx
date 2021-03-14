@@ -173,6 +173,8 @@ test("ImportDeclaration: 2", () => {
     const parser = ReactPeg.render(<ImportDeclaration />);
     const ast = parser.parse(`
         import { Temp, Temp2 } from "./temp"
+
+        /* comment */
     `);
     saveAST(ast, "ImportDeclaration-2.json");
     expect(ast).toMatchSnapshot();
