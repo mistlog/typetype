@@ -19,9 +19,11 @@ export function String() {
 
     return (
         <pattern action={action}>
-            <_ /><text>"</text><_ />
+            <_ />
+            <text>"</text>
             <SCharSequence label="chars" />
-            <_ /><text>"</text><_ />
+            <text>"</text>
+            <_ />
         </pattern>
     )
 }

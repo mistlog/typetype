@@ -164,7 +164,7 @@ exports[`ts-type TypeArrowFunctionExpression: with params 1`] = `"T extends stri
 
 exports[`ts-type UnionType 1`] = `"(\\"0\\" | \\"1\\")"`;
 
-exports[`ts-type UnionType: special char 1`] = `"(\\"\\" | \\"\\\\n\\" | \\"\\\\t\\")"`;
+exports[`ts-type UnionType: special char 1`] = `"(\\" \\" | \\"\\\\n\\" | \\"\\\\t\\")"`;
 
 exports[`type file TypeFile 1`] = `
 "type temp = string;
