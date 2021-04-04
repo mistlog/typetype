@@ -10,6 +10,21 @@ TypeType is designed to generate complex typescript type with ease.
 > npm i -D @mistlog/typetype
 ```
 
+### CLI
+
+> example: [typetype-examples/package.json](https://github.com/mistlog/typetype-examples/blob/main/package.json)
+
+```bash
+typetype build <dir>: build all *.type files in <dir>
+typetype build -w <dir>: watch all *.type files in <dir>
+typetype clean <dir>: remove all generated *.ts files in <dir>
+typetype debug <file>: build <file> in debug mode(backtrace will be available)
+```
+
+### API
+
+> example: [typetype-examples/index.ts](https://github.com/mistlog/typetype-examples/blob/main/index.ts)
+
 ```ts
 import { transform } from "@mistlog/typetype";
 
@@ -25,6 +40,32 @@ const input = `
 const output = transform(input).code;
 console.log(output);
 // output: type TypeName<T> = T extends string ? "string" : "number";
+```
+
+Debug mode:
+
+```ts
+const output = transform(input, { debug: true }).code;
+```
+
+when `debug` is true, backtrace will be available:
+
+```log
+Expected end of input but ";" found.
+x 1:11-1:11 MultiLineComment
+| type a = 1;
+|           ^
+o 1:11-1:11 _
+| type a = 1;
+|           ^
+x 1:11-1:11 TypeFunctionDeclaration
+| type a = 1;
+...
+|/ /
+| |
+|/
+o 1:1-1:11 TypeFile
+  type a = 1;
 ```
 
 ## Examples
