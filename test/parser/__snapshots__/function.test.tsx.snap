@@ -11,6 +11,31 @@ Object {
 }
 `;
 
+exports[`parser: function FunctionType: constructor 1`] = `
+Object {
+  "isConstructor": true,
+  "kind": "FunctionType",
+  "params": Array [
+    Object {
+      "kind": "FunctionTypeParam",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "arg",
+      },
+      "rest": true,
+      "type": Object {
+        "kind": "AnyType",
+        "value": "any",
+      },
+    },
+  ],
+  "returnType": Object {
+    "kind": "AnyType",
+    "value": "any",
+  },
+}
+`;
+
 exports[`parser: function FunctionType: nested 1`] = `
 Object {
   "kind": "FunctionType",
@@ -45,6 +70,41 @@ Object {
       "kind": "VoidType",
       "value": "void",
     },
+  },
+}
+`;
+
+exports[`parser: function FunctionType: optional param 1`] = `
+Object {
+  "kind": "FunctionType",
+  "params": Array [
+    Object {
+      "kind": "FunctionTypeParam",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "a",
+      },
+      "type": Object {
+        "kind": "NumberType",
+        "value": "number",
+      },
+    },
+    Object {
+      "kind": "FunctionTypeParam",
+      "name": Object {
+        "kind": "Identifier",
+        "name": "b",
+      },
+      "optional": true,
+      "type": Object {
+        "kind": "StringType",
+        "value": "string",
+      },
+    },
+  ],
+  "returnType": Object {
+    "kind": "NumberType",
+    "value": "number",
   },
 }
 `;

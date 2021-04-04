@@ -1,7 +1,67 @@
 import { ReactPeg } from "react-peg";
-import { Text } from "../common";
+import { Text, _ } from "../common";
 import { Identifier, IIdentifier } from "../basic";
+import { String } from "../basic/string";
 import { TypeExpression, ITypeExpression, ITypeArrowFunctionExpression, TypeArrowFunctionExpression } from "../expression";
+
+//
+export interface IImportDeclaration {
+    kind: "ImportDeclaration"
+    source: string
+    specifiers: IImportSpecifier[]
+
+}
+
+export function ImportDeclaration() {
+    const action = ({ source, specifiers }): IImportDeclaration => {
+        return {
+            kind: "ImportDeclaration",
+            source,
+            specifiers
+        }
+    }
+    return (
+        <pattern action={action}>
+            {Text("import")}
+            {Text("{")}
+            <list label="specifiers">
+                <pattern action={({ head, tail }) => [head, ...tail]}>
+                    <ImportSpecifier label="head" />
+                    <repeat type="*" label="tail">
+                        <pattern action={({ specifier }) => specifier}>
+                            {Text(",")}
+                            <ImportSpecifier label="specifier" />
+                        </pattern>
+                    </repeat>
+                </pattern>
+            </list>
+            {Text("}")}
+            {Text("from")}
+            <String label="source" />
+        </pattern>
+    )
+}
+
+export interface IImportSpecifier {
+    kind: "ImportSpecifier"
+    imported: IIdentifier
+}
+
+export function ImportSpecifier() {
+    const action = ({ imported }): IImportSpecifier => {
+        return {
+            kind: "ImportSpecifier",
+            imported
+        }
+    }
+    return (
+        <pattern action={action}>
+            <_ />
+            <Identifier label="imported" />
+            <_ />
+        </pattern>
+    )
+}
 
 //
 export interface ITypeFunctionDeclaration {
@@ -11,7 +71,6 @@ export interface ITypeFunctionDeclaration {
 }
 
 export type IDeclarator = ITypeFunctionDeclarator | ITypeVariableDeclarator;
-export type IDeclaration = ITypeVariableDeclaration | ITypeFunctionDeclaration;
 
 export function TypeFunctionDeclaration() {
     const action = ({ declarator, _export }): ITypeFunctionDeclaration => {

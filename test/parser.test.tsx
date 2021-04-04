@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { TypeExpressionList, TypeForInStatement, IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, KeyOfType, TypeExpression } from "../src";
+import { TypeExpressionList, TypeForInStatement, IndexType, OperatorType, TypeFile, TypeReturnStatement, ObjectType, TemplateChar, TemplateCharSequence, TemplateElement, TemplateExpression, TemplateTypeLiteral, TupleType, TypeObjectProperty, Identifier, BasicType, ExtendsClause, TypeIfStatement, TypeVariableDeclaration, TypeFunctionDeclaration, ConditionalTypeExpression, TypeArrowFunctionExpression, ParamList, TypeCallExpression, InferType, KeyOfType, TypeExpression, ImportDeclaration } from "../src";
 import { saveAST, loadType } from "./common";
 
 /**
@@ -157,6 +157,26 @@ test("TypeVariableDeclaration", () => {
         type result = string
     `);
     saveAST(ast, "TypeVariableDeclaration.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("ImportDeclaration", () => {
+    const parser = ReactPeg.render(<ImportDeclaration />);
+    const ast = parser.parse(`
+        import { Temp } from "./temp"
+    `);
+    saveAST(ast, "ImportDeclaration.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("ImportDeclaration: 2", () => {
+    const parser = ReactPeg.render(<ImportDeclaration />);
+    const ast = parser.parse(`
+        import { Temp, Temp2 } from "./temp"
+
+        /* comment */
+    `);
+    saveAST(ast, "ImportDeclaration-2.json");
     expect(ast).toMatchSnapshot();
 })
 
@@ -453,6 +473,13 @@ test("OperatorType: keyof", () => {
     const parser = ReactPeg.render(<OperatorType />);
     const ast = parser.parse(`keyof {a:1, b:2}`);
     saveAST(ast, "OperatorType.json");
+    expect(ast).toMatchSnapshot();
+})
+
+test("ParenthesizedType", () => {
+    const parser = ReactPeg.render(<TypeExpression />);
+    const ast = parser.parse(`(type (value: number) => void)`);
+    saveAST(ast, "ParenthesizedType.json");
     expect(ast).toMatchSnapshot();
 })
 

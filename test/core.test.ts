@@ -2,8 +2,9 @@ import { transform } from "../src";
 
 test("transform", () => {
     const result = transform(`
+        import { Temp } from "./temp"
         type temp = string
-        type function func = (T) => {a: T}
+        type function func = (T) => {a: T, b: Temp}
     `);
     expect(result).toMatchSnapshot();
 })

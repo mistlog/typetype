@@ -3,6 +3,7 @@ import { _, Text } from "../common";
 import { Identifier, IIdentifier } from "./identifier";
 import { SourceCharacter, String } from "./string";
 import { ITypeExpression, TypeExpression, ITypeExpressionList, TypeExpressionList } from "../expression";
+import { FunctionTypeParamList, IFunctionTypeParam } from "../function";
 
 export type IBasicType =
     | ITypeLiteral
@@ -468,7 +469,7 @@ export function RestType() {
 
 export interface ITypeObjectProperty {
     kind: "TypeObjectProperty"
-    name: IIdentifier
+    name: IIdentifier | ICallSignature | IConstructSignature
     value: ITypeExpression
     readonly: boolean
     optional: boolean
@@ -496,7 +497,11 @@ export function TypeObjectProperty() {
             <opt label="readonly">
                 {Text("readonly")}
             </opt>
-            <Identifier label="name" />
+            <or label="name">
+                <ConstructSignature />
+                <CallSignature />
+                <Identifier />
+            </or>
             <opt label="optional">
                 {Text("?")}
             </opt>
@@ -507,6 +512,51 @@ export function TypeObjectProperty() {
                 </pattern>
             </opt>
             <_ />
+        </pattern>
+    )
+}
+
+export interface ICallSignature {
+    kind: "CallSignature"
+    params: IFunctionTypeParam[]
+}
+
+export function CallSignature() {
+    const action = ({ params }): ICallSignature => {
+        return {
+            kind: "CallSignature",
+            params
+        }
+    }
+
+    return (
+        <pattern action={action}>
+            {Text("(")}
+            <FunctionTypeParamList label="params" />
+            {Text(")")}
+        </pattern>
+    )
+}
+
+export interface IConstructSignature {
+    kind: "ConstructSignature"
+    params: IFunctionTypeParam[]
+}
+
+export function ConstructSignature() {
+    const action = ({ params }): IConstructSignature => {
+        return {
+            kind: "ConstructSignature",
+            params
+        }
+    }
+
+    return (
+        <pattern action={action}>
+            {Text("new")}
+            {Text("(")}
+            <FunctionTypeParamList label="params" />
+            {Text(")")}
         </pattern>
     )
 }

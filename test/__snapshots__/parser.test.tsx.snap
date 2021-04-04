@@ -183,6 +183,45 @@ Object {
 }
 `;
 
+exports[`ImportDeclaration 1`] = `
+Object {
+  "kind": "ImportDeclaration",
+  "source": "./temp",
+  "specifiers": Array [
+    Object {
+      "imported": Object {
+        "kind": "Identifier",
+        "name": "Temp",
+      },
+      "kind": "ImportSpecifier",
+    },
+  ],
+}
+`;
+
+exports[`ImportDeclaration: 2 1`] = `
+Object {
+  "kind": "ImportDeclaration",
+  "source": "./temp",
+  "specifiers": Array [
+    Object {
+      "imported": Object {
+        "kind": "Identifier",
+        "name": "Temp",
+      },
+      "kind": "ImportSpecifier",
+    },
+    Object {
+      "imported": Object {
+        "kind": "Identifier",
+        "name": "Temp2",
+      },
+      "kind": "ImportSpecifier",
+    },
+  ],
+}
+`;
+
 exports[`IndexType 1`] = `
 Object {
   "head": Object {
@@ -462,6 +501,32 @@ Array [
 `;
 
 exports[`ParamList: empty 1`] = `Array []`;
+
+exports[`ParenthesizedType 1`] = `
+Object {
+  "kind": "ParenthesizedType",
+  "param": Object {
+    "kind": "FunctionType",
+    "params": Array [
+      Object {
+        "kind": "FunctionTypeParam",
+        "name": Object {
+          "kind": "Identifier",
+          "name": "value",
+        },
+        "type": Object {
+          "kind": "NumberType",
+          "value": "number",
+        },
+      },
+    ],
+    "returnType": Object {
+      "kind": "VoidType",
+      "value": "void",
+    },
+  },
+}
+`;
 
 exports[`TemplateElement 1`] = `
 Object {

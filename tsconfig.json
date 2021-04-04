@@ -6,9 +6,11 @@
         "sourceMap": false,
         "outDir": "./build",
         "declaration": true,
-        "module": "commonjs"
+        "module": "commonjs",
+        "esModuleInterop": true
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "cli/**/*"
     ]
 }

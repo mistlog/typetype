@@ -2,7 +2,7 @@ import { ReactPeg } from "react-peg";
 import { TypeFile } from "../parser";
 import { TSFile } from "../generator";
 import generate from "@babel/generator";
-import * as Tracer from "pegjs-backtrace";
+import { default as Tracer } from "pegjs-backtrace";
 import { IRenderConfig } from "react-peg/build/renderer/renderer";
 
 export interface ITypeTypeConfig {

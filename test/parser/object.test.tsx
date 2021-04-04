@@ -3,6 +3,22 @@ import { TypeObjectProperty, ObjectTypeLiteral } from "../../src";
 import { saveAST } from "../common";
 
 describe("parser: object", () => {
+
+    test("ObjectType: call signature", () => {
+        const parser = ReactPeg.render(<ObjectTypeLiteral />);
+        const ast = parser.parse(`
+            {
+                new (someArg: number): boolean,
+                (a: number, b: number): number
+            }
+        `);
+        saveAST(ast, "ObjectType-CallSignature.json");
+        expect(ast).toMatchSnapshot();
+    
+        //
+        expect(parser.parse(`{}`)).toMatchSnapshot();
+    })
+
     test("ObjectType: modifier", () => {
             const parser = ReactPeg.render(<ObjectTypeLiteral />);
             const ast = parser.parse(`

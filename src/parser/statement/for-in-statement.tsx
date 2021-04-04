@@ -13,7 +13,7 @@ export interface ITypeForInStatement {
 }
 
 function findProp(obj: IObjectTypeLiteral, name: string) {
-    return obj.props.find(prop => prop.kind === "TypeObjectProperty" && prop.name.name === name) as ITypeObjectProperty;
+    return obj.props.find(prop => prop.kind === "TypeObjectProperty" && prop.name.kind === "Identifier" && prop.name.name === name) as ITypeObjectProperty;
 }
 
 export function TypeForInStatement() {

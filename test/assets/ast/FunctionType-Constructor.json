@@ -1,0 +1,22 @@
+{
+    "kind": "FunctionType",
+    "params": [
+        {
+            "kind": "FunctionTypeParam",
+            "name": {
+                "kind": "Identifier",
+                "name": "arg"
+            },
+            "type": {
+                "kind": "AnyType",
+                "value": "any"
+            },
+            "rest": true
+        }
+    ],
+    "returnType": {
+        "kind": "AnyType",
+        "value": "any"
+    },
+    "isConstructor": true
+}

@@ -1,0 +1,69 @@
+{
+    "kind": "ObjectTypeLiteral",
+    "props": [
+        {
+            "kind": "TypeObjectProperty",
+            "name": {
+                "kind": "ConstructSignature",
+                "params": [
+                    {
+                        "kind": "FunctionTypeParam",
+                        "name": {
+                            "kind": "Identifier",
+                            "name": "someArg"
+                        },
+                        "type": {
+                            "kind": "NumberType",
+                            "value": "number"
+                        }
+                    }
+                ]
+            },
+            "value": {
+                "kind": "TypeReference",
+                "typeName": {
+                    "kind": "Identifier",
+                    "name": "boolean"
+                }
+            },
+            "optional": false,
+            "readonly": false
+        },
+        {
+            "kind": "TypeObjectProperty",
+            "name": {
+                "kind": "CallSignature",
+                "params": [
+                    {
+                        "kind": "FunctionTypeParam",
+                        "name": {
+                            "kind": "Identifier",
+                            "name": "a"
+                        },
+                        "type": {
+                            "kind": "NumberType",
+                            "value": "number"
+                        }
+                    },
+                    {
+                        "kind": "FunctionTypeParam",
+                        "name": {
+                            "kind": "Identifier",
+                            "name": "b"
+                        },
+                        "type": {
+                            "kind": "NumberType",
+                            "value": "number"
+                        }
+                    }
+                ]
+            },
+            "value": {
+                "kind": "NumberType",
+                "value": "number"
+            },
+            "optional": false,
+            "readonly": false
+        }
+    ]
+}

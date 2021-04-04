@@ -88,7 +88,11 @@ exports[`ts-type ConditionalTypeExpression: 2 1`] = `"T extends string ? \\"stri
 
 exports[`ts-type FunctionType 1`] = `"() => void"`;
 
+exports[`ts-type FunctionType: constructor 1`] = `"new (...arg: any) => any"`;
+
 exports[`ts-type FunctionType: nested 1`] = `"() => (a: number, b: string) => void"`;
+
+exports[`ts-type FunctionType: optional param 1`] = `"(a: number, b?: string) => number"`;
 
 exports[`ts-type FunctionType: params 1`] = `"(a: number, b: string) => number"`;
 
@@ -115,6 +119,13 @@ exports[`ts-type ObjectType 1`] = `
 }"
 `;
 
+exports[`ts-type ObjectType: call signature 1`] = `
+"{
+  new (someArg: number): boolean;
+  (a: number, b: number): number;
+}"
+`;
+
 exports[`ts-type ObjectType: modifier 1`] = `
 "{
   readonly a?: number;
@@ -132,6 +143,8 @@ exports[`ts-type ObjectType: spread 1`] = `
   hello: hello;
 }, obj]>"
 `;
+
+exports[`ts-type ParenthesizedType 1`] = `"((value: number) => void)"`;
 
 exports[`ts-type StringTypeLiteral 1`] = `"\\"\\\\n\\""`;
 

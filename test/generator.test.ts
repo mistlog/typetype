@@ -68,6 +68,10 @@ describe("ts-type", () => {
         saveCode(code, `${name}`)
         return code;
     }
+    test("ParenthesizedType", () => {
+        const name = "ParenthesizedType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
 
     test("MappedType", () => {
         const name = "MappedType";
@@ -81,6 +85,16 @@ describe("ts-type", () => {
 
     test("FunctionType", () => {
         const name = "FunctionType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("FunctionType: constructor", () => {
+        const name = "FunctionType-Constructor";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("FunctionType: optional param", () => {
+        const name = "FunctionType-OptionalParam";
         expect(toCode(name)).toMatchSnapshot();
     })
 
@@ -186,6 +200,11 @@ describe("ts-type", () => {
 
     test("ObjectType", () => {
         const name = "ObjectType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("ObjectType: call signature", () => {
+        const name = "ObjectType-CallSignature";
         expect(toCode(name)).toMatchSnapshot();
     })
 
