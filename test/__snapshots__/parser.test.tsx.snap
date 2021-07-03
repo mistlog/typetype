@@ -1481,6 +1481,24 @@ Object {
 }
 `;
 
+exports[`TypeVariableDeclaration: 2 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "kind": "NumberTypeLiteral",
+      "value": 1,
+    },
+    "kind": "TypeVariableDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "result",
+    },
+  },
+  "export": false,
+  "kind": "TypeVariableDeclaration",
+}
+`;
+
 exports[`TypeVariableDeclaration: conditional type 1`] = `"Expected TypeVariableDeclaration but \\"\\\\n\\" found."`;
 
 exports[`TypeVariableDeclaration: conditional type 2`] = `
