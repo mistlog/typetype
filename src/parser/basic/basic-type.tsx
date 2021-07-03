@@ -200,7 +200,9 @@ export function NumberTypeLiteral() {
 
     return (
         <pattern action={action}>
+            <_ />
             <Number label="value" />
+            <_ />
         </pattern>
     )
 }

@@ -1,0 +1,15 @@
+{
+    "kind": "TypeVariableDeclaration",
+    "declarator": {
+        "kind": "TypeVariableDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "result"
+        },
+        "initializer": {
+            "kind": "NumberTypeLiteral",
+            "value": 1
+        }
+    },
+    "export": false
+}
