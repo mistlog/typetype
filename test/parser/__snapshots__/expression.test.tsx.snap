@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`parser: expression ContextExpression 1`] = `
+Object {
+  "body": Object {
+    "context": "use js",
+    "source": "const type = \\"1\\";
+return type;
+
+",
+  },
+  "kind": "ContextType",
+}
+`;
+
 exports[`parser: expression IntersectionType 1`] = `
 Object {
   "kind": "IntersectionType",

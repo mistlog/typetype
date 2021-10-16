@@ -7,6 +7,24 @@ export function SourceCharacter() {
     )
 }
 
+export function Source() {
+    const action = ({ chars }) => {
+        return chars.map((each: [undefined, string]) => each[1]).join("");
+    }
+
+    return (
+        <pattern action={action}>
+            <repeat type="*" label="chars">
+                <assert type="without">
+                    <text>```</text>
+                </assert>
+                <SourceCharacter />
+            </repeat>
+        </pattern>
+
+    )
+}
+
 /**
  * string-literal:
        encoding-prefixopt" s-char-sequenceopt"
