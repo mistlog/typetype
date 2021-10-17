@@ -1546,6 +1546,29 @@ Object {
 }
 `;
 
+exports[`TypeVariableDeclaration: context type 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "context": "use js",
+        "source": "const type = \\"1\\";
+            return type;
+        ",
+      },
+      "kind": "ContextType",
+    },
+    "kind": "TypeVariableDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "result",
+    },
+  },
+  "export": false,
+  "kind": "TypeVariableDeclaration",
+}
+`;
+
 exports[`TypeVariableDeclaration: export 1`] = `
 Object {
   "declarator": Object {

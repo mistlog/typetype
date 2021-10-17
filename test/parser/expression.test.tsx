@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { UnionType, IntersectionType, ContextExpression } from "../../src";
+import { UnionType, IntersectionType, ContextType } from "../../src";
 import { loadType, saveAST } from "../common";
 
 describe("parser: expression", () => {
@@ -37,11 +37,11 @@ describe("parser: expression", () => {
         }
     })
 
-    test("ContextExpression", () => {
-        const parser = ReactPeg.render(<ContextExpression />);
-        const type = loadType("ContextExpression")
+    test("ContextType", () => {
+        const parser = ReactPeg.render(<ContextType />);
+        const type = loadType("ContextType")
         const ast = parser.parse(type);
-        saveAST(ast, "ContextExpression.json");
+        saveAST(ast, "ContextType.json");
         expect(ast).toMatchSnapshot();
     })
 })

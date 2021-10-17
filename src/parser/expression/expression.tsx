@@ -17,10 +17,12 @@ export type ITypeExpression =
     | IIndexType
     | IFunctionType
     | IParenthesizedType
+    | IContextType
 
 export function TypeExpression() {
     return (
         <or>
+            <ContextType />
             <ParenthesizedType />
             <FunctionType />
             <OperatorType />
@@ -429,7 +431,7 @@ export interface IContextType {
     }
 }
 
-export function ContextExpression() {
+export function ContextType() {
     const action = ({ context, source }): IContextType => {
         return {
             kind: "ContextType",

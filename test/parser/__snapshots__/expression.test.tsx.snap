@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parser: expression ContextExpression 1`] = `
+exports[`parser: expression ContextType 1`] = `
 Object {
   "body": Object {
     "context": "use js",

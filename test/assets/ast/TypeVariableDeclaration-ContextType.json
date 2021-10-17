@@ -1,0 +1,18 @@
+{
+    "kind": "TypeVariableDeclaration",
+    "declarator": {
+        "kind": "TypeVariableDeclarator",
+        "name": {
+            "kind": "Identifier",
+            "name": "result"
+        },
+        "initializer": {
+            "kind": "ContextType",
+            "body": {
+                "context": "use js",
+                "source": "const type = \"1\";\n            return type;\n        "
+            }
+        }
+    },
+    "export": false
+}
