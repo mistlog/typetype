@@ -440,7 +440,9 @@ export function ContextType() {
                 source
             }
         };
-        return globalContext?.resolveContextType(ast) || ast;
+
+        const { resolveContextType } = globalContext;
+        return resolveContextType ? resolveContextType(ast) : ast;
     }
 
     return (

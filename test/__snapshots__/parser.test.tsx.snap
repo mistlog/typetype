@@ -1552,8 +1552,10 @@ Object {
     "initializer": Object {
       "body": Object {
         "context": "use js",
-        "source": "const type = \\"1\\";
-            return type;
+        "source": "() => {
+                const type = \\"1\\";
+                return type;
+            }
         ",
       },
       "kind": "ContextType",

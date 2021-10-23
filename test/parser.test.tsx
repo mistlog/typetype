@@ -172,10 +172,11 @@ test("TypeVariableDeclaration: 2", () => {
 test("TypeVariableDeclaration: context type", () => {
     const parser = ReactPeg.render(<TypeVariableDeclaration />);
     const ast = parser.parse(`
-        type result = \`\`\` 
-            "use js"
-            const type = "1";
-            return type;
+        type result = \`\`\` "use js"
+            () => {
+                const type = "1";
+                return type;
+            }
         \`\`\`
     `);
     saveAST(ast, "TypeVariableDeclaration-ContextType.json");
