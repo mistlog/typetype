@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { TypeFile } from "../parser";
+import { ITypeFile, TypeFile } from "../parser";
 import { TSFile } from "../generator";
 import generate from "@babel/generator";
 import { default as Tracer } from "pegjs-backtrace";
@@ -12,6 +12,7 @@ export interface ITypeTypeConfig {
 
 export interface ITypeTypeResult {
     code: string
+    ast: ITypeFile
 }
 
 export function transform(source: string, config: ITypeTypeConfig = { debug: false, context: {} }): ITypeTypeResult {
@@ -25,6 +26,7 @@ export function transform(source: string, config: ITypeTypeConfig = { debug: fal
 
         const result: ITypeTypeResult = {
             code,
+            ast
         }
 
         return result;
