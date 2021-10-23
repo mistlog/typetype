@@ -209,6 +209,11 @@ describe("ts-type", () => {
         expect(toCode(name)).toMatchSnapshot();
     })
 
+    test("ObjectType: whitespace in key", () => {
+        const name = "ObjectType-Key-WhiteSpace";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
     test("ObjectType: call signature", () => {
         const name = "ObjectType-CallSignature";
         expect(toCode(name)).toMatchSnapshot();

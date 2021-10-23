@@ -146,6 +146,12 @@ exports[`ts-type ObjectType: spread 1`] = `
 }, obj]>"
 `;
 
+exports[`ts-type ObjectType: whitespace in key 1`] = `
+"{
+  \\"temp value\\": number;
+}"
+`;
+
 exports[`ts-type ParenthesizedType 1`] = `"((value: number) => void)"`;
 
 exports[`ts-type StringTypeLiteral 1`] = `"\\"\\\\n\\""`;

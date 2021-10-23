@@ -1,0 +1,18 @@
+{
+    "kind": "ObjectTypeLiteral",
+    "props": [
+        {
+            "kind": "TypeObjectProperty",
+            "name": {
+                "kind": "Identifier",
+                "name": "temp value"
+            },
+            "value": {
+                "kind": "NumberType",
+                "value": "number"
+            },
+            "optional": false,
+            "readonly": false
+        }
+    ]
+}

@@ -63,6 +63,9 @@ function tsCallSignature(ast: ITypeObjectProperty) {
 function tsPropertySignature(ast: ITypeObjectProperty) {
     const key = Identifier(ast.name as IIdentifier);
     const value = TSType(ast.value);
+    if (/\s/g.test(key.name)) {
+        key.name = `"${key.name}"`;
+    }
     const prop = t.tsPropertySignature(key, t.tsTypeAnnotation(value));
     return {
         ...prop,
