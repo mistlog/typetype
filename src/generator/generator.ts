@@ -80,6 +80,13 @@ function tsTypeLiteral(ast: IObjectTypeLiteral) {
             case "TypeObjectProperty": {
                 switch (each.name.kind) {
                     case "Identifier": return tsPropertySignature(each);
+                    case "StringLiteral": return tsPropertySignature({
+                        ...each,
+                        name: {
+                            kind: "Identifier",
+                            name: each.name.value
+                        }
+                    });
                     case "CallSignature": return tsCallSignature(each);
                     case "ConstructSignature": return tsConstrucSignature(each);
                 }

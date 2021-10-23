@@ -47,6 +47,17 @@ describe("parser: object", () => {
         //
         expect(parser.parse(`{}`)).toMatchSnapshot();
     })
+
+    test("ObjectType: whitespace in key", () => {
+        const parser = ReactPeg.render(<ObjectTypeLiteral />);
+        const ast = parser.parse(`
+            {
+                "temp value": number
+            }
+        `);
+        saveAST(ast, "ObjectType-Key-WhiteSpace.json");
+        expect(ast).toMatchSnapshot();
+    })
     
     test("ObjectType: shorthand", () => {
         const parser = ReactPeg.render(<ObjectTypeLiteral />);

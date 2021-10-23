@@ -4,8 +4,8 @@
         {
             "kind": "TypeObjectProperty",
             "name": {
-                "kind": "Identifier",
-                "name": "temp value"
+                "kind": "StringLiteral",
+                "value": "temp value"
             },
             "value": {
                 "kind": "NumberType",
