@@ -13,6 +13,13 @@ return type;
 }
 `;
 
+exports[`parser: expression ContextType: with resolver 1`] = `
+Object {
+  "kind": "StringTypeLiteral",
+  "value": "resolved",
+}
+`;
+
 exports[`parser: expression IntersectionType 1`] = `
 Object {
   "kind": "IntersectionType",

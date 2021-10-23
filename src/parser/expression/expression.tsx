@@ -432,14 +432,15 @@ export interface IContextType {
 }
 
 export function ContextType() {
-    const action = ({ context, source }): IContextType => {
-        return {
+    const action = ({ context, source, globalContext }): IContextType => {
+        const ast: IContextType = {
             kind: "ContextType",
             body: {
                 context,
                 source
             }
-        }
+        };
+        return globalContext?.resolveContextType(ast) || ast;
     }
 
     return (

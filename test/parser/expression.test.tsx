@@ -1,5 +1,5 @@
 import { ReactPeg } from "react-peg";
-import { UnionType, IntersectionType, ContextType } from "../../src";
+import { UnionType, IntersectionType, ContextType, IContextType, IStringTypeLiteral } from "../../src";
 import { loadType, saveAST } from "../common";
 
 describe("parser: expression", () => {
@@ -42,6 +42,22 @@ describe("parser: expression", () => {
         const type = loadType("ContextType")
         const ast = parser.parse(type);
         saveAST(ast, "ContextType.json");
+        expect(ast).toMatchSnapshot();
+    })
+
+
+    test("ContextType: with resolver", () => {
+        const parser = ReactPeg.render(<ContextType />);
+        const type = loadType("ContextType2")
+        const ast = parser.parse(type, {
+            resolveContextType: (ast: IContextType): IStringTypeLiteral => {
+                return {
+                    kind: "StringTypeLiteral",
+                    value: "resolved"
+                }
+            }
+        });
+        saveAST(ast, "ContextType2.json");
         expect(ast).toMatchSnapshot();
     })
 })
