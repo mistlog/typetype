@@ -229,6 +229,25 @@ export function Number() {
     );
 }
 
+export interface IStringLiteral {
+    kind: "StringLiteral"
+    value: string
+}
+
+export function StringLiteral() {
+    const action = ({ value }): IStringLiteral => {
+        return {
+            kind: "StringLiteral",
+            value
+        }
+    }
+    return (
+        <pattern action={action}>
+            <String label="value" />
+        </pattern>
+    )
+}
+
 export interface IStringTypeLiteral {
     kind: "StringTypeLiteral"
     value: string
@@ -471,7 +490,7 @@ export function RestType() {
 
 export interface ITypeObjectProperty {
     kind: "TypeObjectProperty"
-    name: IIdentifier | ICallSignature | IConstructSignature
+    name: IIdentifier | ICallSignature | IConstructSignature | IStringLiteral
     value: ITypeExpression
     readonly: boolean
     optional: boolean
@@ -502,6 +521,7 @@ export function TypeObjectProperty() {
             <or label="name">
                 <ConstructSignature />
                 <CallSignature />
+                <StringLiteral />
                 <Identifier />
             </or>
             <opt label="optional">
