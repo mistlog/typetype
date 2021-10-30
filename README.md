@@ -1,4 +1,4 @@
-# TypeType &middot; [![Build Status](https://github.com/mistlog/typedraft/workflows/build/badge.svg)](https://github.com/mistlog/typedraft/workflows/build/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/mistlog/typetype/badge.svg)](https://coveralls.io/github/mistlog/typetype)
+# TypeType &middot; [![Build Status](https://github.com/mistlog/typetype/workflows/build/badge.svg)](https://github.com/mistlog/typetype/workflows/build/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/mistlog/typetype/badge.svg)](https://coveralls.io/github/mistlog/typetype)
 
 TypeType is designed to generate complex typescript type with ease.
 
