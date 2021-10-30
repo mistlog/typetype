@@ -225,6 +225,27 @@ Object {
 }
 `;
 
+exports[`parser: object ObjectType: whitespace in key 1`] = `
+Object {
+  "kind": "ObjectTypeLiteral",
+  "props": Array [
+    Object {
+      "kind": "TypeObjectProperty",
+      "name": Object {
+        "kind": "StringLiteral",
+        "value": "temp value",
+      },
+      "optional": false,
+      "readonly": false,
+      "value": Object {
+        "kind": "NumberType",
+        "value": "number",
+      },
+    },
+  ],
+}
+`;
+
 exports[`parser: object TypeObjectProperty 1`] = `
 Object {
   "kind": "TypeObjectProperty",

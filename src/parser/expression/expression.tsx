@@ -1,6 +1,6 @@
 import { ReactPeg } from "react-peg";
 import { _, Text } from "../common";
-import { IBasicType, BasicType, ITypeReference, TypeReference, IIdentifier, Identifier, IArrayType, ArrayType, ITupleType, TupleType, RestType } from "../basic";
+import { String, IBasicType, BasicType, ITypeReference, TypeReference, IIdentifier, Identifier, IArrayType, ArrayType, ITupleType, TupleType, RestType, Source } from "../basic";
 import { ITypeForInStatement, ITypeIfStatement, TypeForInStatement, TypeIfStatement } from "../statement";
 import { FunctionType, IFunctionType } from "../function";
 
@@ -17,10 +17,12 @@ export type ITypeExpression =
     | IIndexType
     | IFunctionType
     | IParenthesizedType
+    | IContextType
 
 export function TypeExpression() {
     return (
         <or>
+            <ContextType />
             <ParenthesizedType />
             <FunctionType />
             <OperatorType />
@@ -417,6 +419,37 @@ export function MappedTypeExpression() {
             {Text("^{")}
             <TypeForInStatement label="statement" />
             {Text("}")}
+        </pattern>
+    )
+}
+
+export interface IContextType {
+    kind: "ContextType"
+    body: {
+        context: string
+        source: string
+    }
+}
+
+export function ContextType() {
+    const action = ({ context, source, globalContext }): IContextType => {
+        const ast: IContextType = {
+            kind: "ContextType",
+            body: {
+                context,
+                source
+            }
+        };
+
+        return globalContext.resolveContextType ? globalContext.resolveContextType(ast) : ast;
+    }
+
+    return (
+        <pattern action={action}>
+            {Text("```")}
+            <String label="context" />
+            <Source label="source" />
+            {Text("```")}
         </pattern>
     )
 }

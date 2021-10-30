@@ -1,0 +1,7 @@
+{
+    "kind": "ContextType",
+    "body": {
+        "context": "use js",
+        "source": "const type = \"1\";\r\nreturn type;\r\n\r\n"
+    }
+}

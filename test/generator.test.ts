@@ -16,6 +16,12 @@ describe("declaration", () => {
         expect(generateCode(tsAST)).toMatchSnapshot();
     })
 
+    test("TypeVariableDeclaration: context type", () => {
+        const ast = loadAST(`TypeVariableDeclaration-ContextType.json`) as ITypeVariableDeclaration;
+        const tsAST = TSTypeAliasDeclaration(ast);
+        expect(generateCode(tsAST)).toMatchSnapshot();
+    })
+
     test("TypeVariableDeclaration: conditional type", () => {
         const ast = loadAST(`TypeVariableDeclaration-ConditionalType.json`) as ITypeVariableDeclaration;
         const tsAST = TSTypeAliasDeclaration(ast);
@@ -200,6 +206,11 @@ describe("ts-type", () => {
 
     test("ObjectType", () => {
         const name = "ObjectType";
+        expect(toCode(name)).toMatchSnapshot();
+    })
+
+    test("ObjectType: whitespace in key", () => {
+        const name = "ObjectType-Key-WhiteSpace";
         expect(toCode(name)).toMatchSnapshot();
     })
 

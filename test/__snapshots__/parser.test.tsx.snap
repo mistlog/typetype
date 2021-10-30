@@ -1481,6 +1481,24 @@ Object {
 }
 `;
 
+exports[`TypeVariableDeclaration: 2 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "kind": "NumberTypeLiteral",
+      "value": 1,
+    },
+    "kind": "TypeVariableDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "result",
+    },
+  },
+  "export": false,
+  "kind": "TypeVariableDeclaration",
+}
+`;
+
 exports[`TypeVariableDeclaration: conditional type 1`] = `"Expected TypeVariableDeclaration but \\"\\\\n\\" found."`;
 
 exports[`TypeVariableDeclaration: conditional type 2`] = `
@@ -1516,6 +1534,31 @@ Object {
         "kind": "TypeIfStatement",
       },
       "kind": "ConditionalTypeExpression",
+    },
+    "kind": "TypeVariableDeclarator",
+    "name": Object {
+      "kind": "Identifier",
+      "name": "result",
+    },
+  },
+  "export": false,
+  "kind": "TypeVariableDeclaration",
+}
+`;
+
+exports[`TypeVariableDeclaration: context type 1`] = `
+Object {
+  "declarator": Object {
+    "initializer": Object {
+      "body": Object {
+        "context": "use js",
+        "source": "() => {
+                const type = \\"1\\";
+                return type;
+            }
+        ",
+      },
+      "kind": "ContextType",
     },
     "kind": "TypeVariableDeclarator",
     "name": Object {

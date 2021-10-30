@@ -1,14 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`transform 1`] = `
-Object {
-  "code": "import { Temp } from \\"./temp\\";
+"import { Temp } from \\"./temp\\";
 type temp = string;
 type func<T> = {
   a: T;
   b: Temp;
-};",
-}
+};"
 `;
 
 exports[`transform: backtrace 1`] = `

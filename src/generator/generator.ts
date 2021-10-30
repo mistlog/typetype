@@ -1,6 +1,6 @@
 
 import * as t from "@babel/types";
-import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, IDeclaration, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType, IImportDeclaration, ITypeVariableDeclaration, IParenthesizedType, ICallSignature, IFunctionTypeParam, IConstructSignature } from "../parser";
+import { IInferType, IIdentifier, ITypeExpression, ITypeIfStatement, IStringTypeLiteral, IStringType, INeverType, ITypeReference, ITypeCallExpression, INumberTypeLiteral, ITupleType, INumberType, IConditionalTypeExpression, ITemplateTypeLiteral, ITypeFile, ITypeFunctionDeclaration, IUnionType, IKeyOfType, IIndexType, IArrayType, IFunctionType, IMappedTypeExpression, ITypeForInStatement, IIntersectionType, ITypeObjectProperty, IAnyType, IReadonlyArray, IOperatorType, IReadonlyTuple, IRestType, IObjectTypeLiteral, ITypeArrowFunctionExpression, ITypeExpressionParam, IParamList, IBigIntType, IImportDeclaration, ITypeVariableDeclaration, IParenthesizedType, ICallSignature, IFunctionTypeParam, IConstructSignature, IContextType } from "../parser";
 
 export function TSFile(ast: ITypeFile): t.File {
     const body = ast.body.map(each => {
@@ -63,6 +63,9 @@ function tsCallSignature(ast: ITypeObjectProperty) {
 function tsPropertySignature(ast: ITypeObjectProperty) {
     const key = Identifier(ast.name as IIdentifier);
     const value = TSType(ast.value);
+    if (/\s/g.test(key.name)) {
+        key.name = `"${key.name}"`;
+    }
     const prop = t.tsPropertySignature(key, t.tsTypeAnnotation(value));
     return {
         ...prop,
@@ -77,6 +80,13 @@ function tsTypeLiteral(ast: IObjectTypeLiteral) {
             case "TypeObjectProperty": {
                 switch (each.name.kind) {
                     case "Identifier": return tsPropertySignature(each);
+                    case "StringLiteral": return tsPropertySignature({
+                        ...each,
+                        name: {
+                            kind: "Identifier",
+                            name: each.name.value
+                        }
+                    });
                     case "CallSignature": return tsCallSignature(each);
                     case "ConstructSignature": return tsConstrucSignature(each);
                 }
@@ -248,6 +258,7 @@ type TypeInTS<T extends ITypeType> =
     Kind<T> extends Kind<IStringTypeLiteral> ? t.TSLiteralType :
     Kind<T> extends Kind<INumberTypeLiteral> ? t.TSLiteralType :
     Kind<T> extends Kind<ITemplateTypeLiteral> ? t.TemplateLiteral :
+    Kind<T> extends Kind<IContextType> ? t.TSTupleType :
     /**
      */
     Kind<T> extends Kind<IStringType> ? t.TSStringKeyword :
@@ -291,6 +302,10 @@ export function TSType(ast: ITypeType): TypeInTS<typeof ast> {
             type: "TSLiteralType",
             literal: templateLiteral(ast)
         } as any as t.TSLiteralType; /** TODO: use t.tsLiteralType to create it */
+        case "ContextType": return t.tsTupleType([
+            t.tsLiteralType(t.stringLiteral(ast.body.context)),
+            t.tsLiteralType(t.stringLiteral(ast.body.source)),
+        ]);
         /**
          */
         case "StringType": return t.tsStringKeyword();

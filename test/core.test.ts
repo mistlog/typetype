@@ -6,7 +6,7 @@ test("transform", () => {
         type temp = string
         type function func = (T) => {a: T, b: Temp}
     `);
-    expect(result).toMatchSnapshot();
+    expect(result.code).toMatchSnapshot();
 })
 
 test("transform: backtrace", () => {

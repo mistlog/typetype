@@ -1,0 +1,6 @@
+``` "use js"
+
+const type = "1";
+return type;
+
+```
