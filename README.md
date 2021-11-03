@@ -3,6 +3,8 @@
 TypeType is designed to generate complex typescript type with ease.
 
 * playground: https://mistlog.github.io/typetype-playground/
+* introduction: [The Art of Type Programming](https://itnext.io/the-art-of-type-programming-cfd933bdfff7?source=friends_link&sk=8dfd5a2b491beb9e12990d815b9267ce)
+* quick start: [typetype template](https://github.com/mistlog/typetype-template)
 
 ## Usage
 
@@ -122,6 +124,32 @@ type function _isNumberString = (text) => ^{
         return false
     }
 }
+```
+
+- type query examples: [Type Query: jQuery Style Type Manipulation](https://itnext.io/type-query-jquery-style-type-manipulation-497ce26d93f?source=friends_link&sk=0384b7842e0f51940023a0469359a7af)
+
+we can use js to create types:
+
+```ts
+type tuple = ["tesla", "model 3", "model X", "model Y"]
+
+type result = ''' "use js"
+   return $.use("tuple")
+      .tupleToObject()
+      .omit(key => !key.startsWith("model"))
+      .type();
+'''
+```
+
+generated: 
+
+```ts
+type tuple = ["tesla", "model 3", "model X", "model Y"];
+type result = {
+  "model 3": "model 3";
+  "model X": "model X";
+  "model Y": "model Y";
+};
 ```
 
 ## Syntax
